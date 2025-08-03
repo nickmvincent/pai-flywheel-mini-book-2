@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Flywheels and Public AI - 2&nbsp; The Serverless + Git MVP</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03data_policy.html" rel="next">
+<link href="./01intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02mvp.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Flywheels and Public AI</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02mvp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03data_policy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04options_for_flywheel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Rationale (and other flywheel variants)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">2.1</span> Overview</a></li>
+  <li><a href="#advantages-of-a-serverless-git-approach" id="toc-advantages-of-a-serverless-git-approach" class="nav-link" data-scroll-target="#advantages-of-a-serverless-git-approach"><span class="header-section-number">2.2</span> Advantages of a Serverless + Git approach</a></li>
+  <li><a href="#disadvantages-and-what-to-watch" id="toc-disadvantages-and-what-to-watch" class="nav-link" data-scroll-target="#disadvantages-and-what-to-watch"><span class="header-section-number">2.3</span> Disadvantages (and what to watch)</a></li>
+  <li><a href="#other-reading" id="toc-other-reading" class="nav-link" data-scroll-target="#other-reading"><span class="header-section-number">2.4</span> Other reading:</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">2.1</span> Overview</h2>
+<p>Our initial MVP of the flywheel is a “Serverless + Git Platform” approach. It is meant to be a robust and scalable starting point for the data flywheel. It strictly separates the “write” (contribution) and “read” (display) components of the system.</p>
+<p>The overall goal is to enable opt-in contributions of data (prompt/output + optional metadata) with the state-of-the-art (caveat: also experimental / untested) preference signals and enforcement via per-item Creative Commons license (in MVP: default is CC0, CC-BY, CC-BY-SA) and an AI preference signal (using IETF aipref draft spec + CC Preference Signals draft spec). The data is distributed via:</p>
+<ul>
+<li>Hugging Face (gated) — full bundles by license bucket; access via request/terms; HF workflows used for deletions where possible.</li>
+<li>Public site — leaderboards + full dataset access; Cloudflare WAF/bot controls to discourage bulk scraping.</li>
+</ul>
+<p>For full details, see the separate repo and its readme: #todo fill me in</p>
+<p>For a short summary of the technical approach, see below bullet point:</p>
+<ul>
+<li>Frontend: A Next.js application hosted on Vercel, providing a simple, static interface for contributions.
+<ul>
+<li>No major lock-in here. Can easily be swapped for a lightweight static site, other modern web tech, etc.</li>
+</ul></li>
+<li>Authentication: User identity is managed via Auth.js (Next-Auth), using Hugging Face (HF) as the exclusive OAuth provider. This allows for clear attribution of contributions to a user’s public HF username (if they choose to).</li>
+<li>Data Storage: The single source of truth is a Hugging Face Dataset repository, which functions as a “Git-as-a-database.”
+<ul>
+<li>Starting with HF as it is a platform with specific focus on AI datasets and open culture</li>
+</ul></li>
+<li>Waiting room approach: The implemented workflow follows a two-stage “waiting room” pattern to ensure data quality and safety:</li>
+<li>How contribution works:
+<ul>
+<li>A user logs in with their Hugging Face account.</li>
+<li>The interface accepts contributions in three ways: by uploading an OpenWebUI JSON export file, via URL params, or by pasting plain text.</li>
+<li>The frontend parser automatically detects the OpenWebUI format, extracts metadata (like <code>model</code> and <code>tags</code>), and prepends it as YAML frontmatter to the chat content.</li>
+<li>Users choose a label for the chat type (“Good Chat” / “Fail Chat”) and attach (1) a Creative Commons license and (2) an IETF aipref and/or Creative Commons Preference Signal to signal preferences around AI use of the contribution.</li>
+<li>A pseudo-anonymity system allows users to contribute publicly with their HF username, as “anonymous,” or with a custom pseudonym.</li>
+<li>An informed consent checkbox, linked to Terms of Service and FAQ pages, is required for all submissions.</li>
+<li>Upon submission, a serverless function writes the contribution not to the final dataset, but as a new, single JSON file in a <code>_waiting_room/</code> directory within the Hugging Face repository. This operation is fast and avoids write conflicts.</li>
+</ul></li>
+<li>How processing of the “waiting room” works:
+<ul>
+<li>A separate, asynchronous script is run on a regular schedule (e.g., as a daily GitHub Action).</li>
+<li>This script fetches all pending files from the <code>_waiting_room</code>.</li>
+<li>It validates each contribution and includes a placeholder for future content moderation and PII checks.</li>
+<li>Validated contributions are batched and appended to a final, organized dataset file (e.g., <code>data/2025-08.jsonl</code>). Contributions are further bucketed by license/prefs.</li>
+<li>To ensure atomicity, all file additions (to the final dataset) and deletions (from the waiting room) are performed in a single commit to the Hugging Face Hub. #todo when scaling, need to consider race conditions around the processing!</li>
+</ul></li>
+</ul>
+</section>
+<section id="advantages-of-a-serverless-git-approach" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="advantages-of-a-serverless-git-approach"><span class="header-section-number">2.2</span> Advantages of a Serverless + Git approach</h2>
+<p>A serverless + Git stack keeps the “write path” lightweight for contributors and cheap to operate. Functions spin up on demand and idle to zero, so we can avoid paying for boxes that sit around; the trade-off is cold starts, which are well-documented and can be mitigated with provisioned concurrency when needed.</p>
+<p>On the “read path,” a static site on a global CDN gives instant distribution and low operational overhead. Pages (e.g., from <a href="https://developers.cloudflare.com/page">Cloudflare</a>, something like GitHub Pages, or similar) can read directly from the Git “source of truth” and serve assets from edge locations by default, which is exactly what we want for a browsable leaderboard and dataset browser.</p>
+<p>Additionally, using the Hub (Git-backed) as the source of truth buys us a public audit trail and first-class versioning semantics. HF’s dataset repos are literally Git + LFS, with revision pinning via commit/tag/branch; storage is backed by object storage and scales. That maps cleanly to our “waiting room → release buckets” workflow and makes it easy to diff changes over time. (relevant HF docs: <a href="https://huggingface.co/docs/datasets/v1.8.0/share_dataset.html">datasets</a>, <a href="https://huggingface.co/docs/hub/en/storage-backends">storage</a>)</p>
+<p>Moderation and PII handling are naturally centralized in the processing step. Because we trigger the write as a small file into a staging path and move it during a scheduled job, we can run filters, de-dup, and attach license/pref metadata before publication without asking contributors to learn tooling.</p>
+<p>Basic safety and access controls are pragmatic at the edge. Cloudflare’s WAF/Bot Management and newer “AI bot” controls give us a reasonable anti-scraping posture for public downloads and pages, even if nothing on the open web is truly copy-proof. Recent product updates explicitly target AI crawlers, with default blocking and challenge flows we can enable. (<a href="https://developers.cloudflare.com/waf/custom-rules/use-cases/challenge-bad-bots/" title="Challenge bad bots - WAF">Cloudflare Docs</a>, <a href="https://www.wired.com/story/cloudflare-tools-detect-block-ai-bots?" title="New Cloudflare Tools Let Sites Detect and Block AI Bots for Free">WIRED</a>, <a href="https://www.businessinsider.com/cloudflare-block-ai-crawlers-by-default-payment-for-access-2025-6" title="Cloudflare to block AI bot crawlers by default and let websites demand payment for access">Business Insider</a>)</p>
+<p>Finally, the “preferences and licenses” story fits the stack. Dataset cards and metadata natively expose a <code>license</code> field and other tags (Hub UI and YAML), and CC licenses give clear obligations (e.g., BY, BY-SA) we can enforce in packaging and docs. That lets us partition releases by license and publish compatibility notes in a way downstream users can actually follow. (<a href="https://huggingface.co/docs/datasets/en/dataset_card" title="Create a dataset card">Hugging Face</a>, <a href="https://huggingface.co/docs/hub/en/datasets-cards" title="Dataset Cards">Hugging Face</a>)</p>
+</section>
+<section id="disadvantages-and-what-to-watch" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="disadvantages-and-what-to-watch"><span class="header-section-number">2.3</span> Disadvantages (and what to watch)</h2>
+<p>Trust centralizes in the processor. Contributors have to believe the middle layer won’t silently drop or reshape submissions. If/when we introduce event-driven ingestion (queues/streams), we must design for retries and duplicates.</p>
+<p>UX isn’t perfectly “instant.” There’s an inherent gap between a user pressing “share” and seeing their item on the public site, because we run validation and batching. That’s a conscious choice, but we should set expectations and likely provide some kind status expectations.</p>
+<p>Operationally, serverless isn’t “no ops,” it’s “different ops.” Cold starts exist (especially on sporadic paths), API limits are real on the platforms we hit (GitHub has documented ceilings; HF also rate-limits writes/reads even if specifics vary by endpoint), and “pay per use” can surprise us at scale without cost guardrails (see e.g.&nbsp;<a href="https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api" title="Rate limits for the REST API">GitHub Docs</a>, <a href="https://docs.github.com/en/rest/rate-limit/rate-limit" title="REST API endpoints for rate limits">GitHub Docs</a>).</p>
+<p>There’s also platform coupling to be consider. Using specific hosted CI/CD, serverless runtimes, and hub APIs creates a degree of vendor lock-in; this is a known trade-off in serverless architectures and something we can blunt with portable formats (JSONL), documented exports, and “boring” interfaces (Git). ([CNCF][17])</p>
+<p>Compliance remains non-zero. Deletions across mirrored artifacts (Hub revisions, static site snapshots, downstream forks) take a clear policy and a repeatable playbook. For licenses, we’re responsible for honoring CC obligations in our packaging and comms (e.g., keeping BY attribution fields intact; not mixing BY-SA content into incompatible bundles). CC’s legalcode and guidance make those obligations explicit; our tooling should, too. (<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.en" title="Legal Code - Attribution-ShareAlike 4.0 International">Creative Commons</a>)</p>
+<p>Net: Serverless + Git gives us a pragmatic bridge—fast contributor UX, public versioning, cheap distribution—while we invest in moderation, idempotent processors, and clear license lanes. If we communicate the review gap, publish the processor’s rules, and keep escape hatches (export scripts, mirrors), the trade-offs are acceptable for an MVP and refine-able over time.</p>
+</section>
+<section id="other-reading" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="other-reading"><span class="header-section-number">2.4</span> Other reading:</h2>
+<ul>
+<li>https://arxiv.org/abs/2109.02846</li>
+<li>https://datascience.codata.org/articles/10.5334/dsj-2021-012</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01intro.html" class="pagination-link  aria-label=" &lt;span="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03data_policy.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Data Flow and Data Retention</span>">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

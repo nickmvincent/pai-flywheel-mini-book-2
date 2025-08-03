@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Flywheels and Public AI - 3&nbsp; Data Flow and Data Retention</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04options_for_flywheel.html" rel="next">
+<link href="./02mvp.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03data_policy.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Flywheels and Public AI</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02mvp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03data_policy.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04options_for_flywheel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Rationale (and other flywheel variants)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#glossary-of-defined-terms-for-this-chapter" id="toc-glossary-of-defined-terms-for-this-chapter" class="nav-link active" data-scroll-target="#glossary-of-defined-terms-for-this-chapter"><span class="header-section-number">4</span> Glossary of Defined Terms (for this Chapter)</a>
+  <ul class="collapse">
+  <li><a href="#system-scope-components" id="toc-system-scope-components" class="nav-link" data-scroll-target="#system-scope-components"><span class="header-section-number">4.1</span> 1) System scope &amp; components</a></li>
+  <li><a href="#what-data-is-produced-when" id="toc-what-data-is-produced-when" class="nav-link" data-scroll-target="#what-data-is-produced-when"><span class="header-section-number">4.2</span> 2) What data is produced &amp; when</a>
+  <ul class="collapse">
+  <li><a href="#open-webui-no-account-required-but-optional-and-recommended" id="toc-open-webui-no-account-required-but-optional-and-recommended" class="nav-link" data-scroll-target="#open-webui-no-account-required-but-optional-and-recommended"><span class="header-section-number">4.2.1</span> 2.1 Open WebUI (no account required, but optional and recommended)</a></li>
+  <li><a href="#open-webui-accounts-optional" id="toc-open-webui-accounts-optional" class="nav-link" data-scroll-target="#open-webui-accounts-optional"><span class="header-section-number">4.2.2</span> 2.2 Open WebUI Accounts (optional)</a></li>
+  <li><a href="#model-gateway-to-providers" id="toc-model-gateway-to-providers" class="nav-link" data-scroll-target="#model-gateway-to-providers"><span class="header-section-number">4.2.3</span> 2.3 Model Gateway (to providers)</a></li>
+  <li><a href="#opt-in-data-flywheel" id="toc-opt-in-data-flywheel" class="nav-link" data-scroll-target="#opt-in-data-flywheel"><span class="header-section-number">4.2.4</span> 2.4 Opt-in Data Flywheel</a></li>
+  </ul></li>
+  <li><a href="#event-timeline-how-data-flows" id="toc-event-timeline-how-data-flows" class="nav-link" data-scroll-target="#event-timeline-how-data-flows"><span class="header-section-number">4.3</span> 3) Event timeline (how data flows)</a></li>
+  <li><a href="#licensing-preference-signals-beta" id="toc-licensing-preference-signals-beta" class="nav-link" data-scroll-target="#licensing-preference-signals-beta"><span class="header-section-number">4.4</span> 4) Licensing &amp; Preference Signals (Beta)</a></li>
+  <li><a href="#retention-schedule" id="toc-retention-schedule" class="nav-link" data-scroll-target="#retention-schedule"><span class="header-section-number">4.5</span> 5) Retention schedule</a></li>
+  <li><a href="#distribution-access-control" id="toc-distribution-access-control" class="nav-link" data-scroll-target="#distribution-access-control"><span class="header-section-number">4.6</span> 6) Distribution &amp; access control</a>
+  <ul class="collapse">
+  <li><a href="#hugging-face-gated" id="toc-hugging-face-gated" class="nav-link" data-scroll-target="#hugging-face-gated"><span class="header-section-number">4.6.1</span> 6.1 Hugging Face (gated)</a></li>
+  <li><a href="#flywheel-static-site-public" id="toc-flywheel-static-site-public" class="nav-link" data-scroll-target="#flywheel-static-site-public"><span class="header-section-number">4.6.2</span> 6.2 Flywheel Static Site (public)</a></li>
+  </ul></li>
+  <li><a href="#provider-transparency-no-guarantees" id="toc-provider-transparency-no-guarantees" class="nav-link" data-scroll-target="#provider-transparency-no-guarantees"><span class="header-section-number">4.7</span> 7) Provider transparency (no guarantees)</a></li>
+  <li><a href="#contributor-rights-controls" id="toc-contributor-rights-controls" class="nav-link" data-scroll-target="#contributor-rights-controls"><span class="header-section-number">4.8</span> 8) Contributor rights &amp; controls</a></li>
+  <li><a href="#roadmap" id="toc-roadmap" class="nav-link" data-scroll-target="#roadmap"><span class="header-section-number">4.9</span> 9) Roadmap</a></li>
+  <li><a href="#contacts" id="toc-contacts" class="nav-link" data-scroll-target="#contacts"><span class="header-section-number">4.10</span> 10) Contacts</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>Last updated: 2025-08-03</em></p>
+<p>This document describes a data retention policy for both to Public AI Data Flyhweel and the broader Public AI Chat frontend project. We describe the data we collect, when it’s produced, how long we keep it, how contributor license &amp; preference signals work (beta), and how our distribution channels operate.</p>
+<p>To contextualize the data retention policy, it may be useful to first review a short bullet point, plain language description of all the ways that users create data in their use of the Public AI Chat Frontend, across 4 distinct websites:</p>
+<ul>
+<li>User visits the “landing page” {{landing_page_link}}
+<ul>
+<li>user can enter a query as guest
+<ul>
+<li>created: a chat object</li>
+<li>chat is sent to model provider</li>
+<li>chat is stored, associated with generic guest account</li>
+</ul></li>
+</ul></li>
+<li>user can proceed to “the main app” {{app_link}}
+<ul>
+<li>user enters name, email, password. Handled by OWUI auth code.</li>
+<li>use can enter queries. Creates a chat object associated with the user.
+<ul>
+<li>see OWUI chat schema for all possible fields</li>
+<li>key fields: free text entry, feedback data</li>
+<li>chats are stored in the OWUI database so that users can browser their chat history, but are NOT used for training or eval.</li>
+<li>some standard data is stored for basic admin/engineering needs (request volume, errors, etc.), with short retention</li>
+</ul></li>
+</ul></li>
+<li>in current dev version, user can also share to openwebui.com if they wish to (requires an account with the openwebui community platform)</li>
+<li>in launch version, user can share to flywheel, on a separate https://optinflywheel.com (#todo exact url)
+<ul>
+<li>on sharing, a public chat object is created. This object will live in a gated HF repo and a public static site</li>
+</ul></li>
+</ul>
+<section id="glossary-of-defined-terms-for-this-chapter" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Glossary of Defined Terms (for this Chapter)</h1>
+<p>“{The Public AI Chat Frontend}” or “Frontend” means the hosted interface described in this document that allows users to issue prompts to third-party model endpoints.</p>
+<p>“Open WebUI Instance” or “OWUI” means the hosted Open WebUI application at {{app_link}} (or successor URLs) that provides optional accounts and chat history.</p>
+<p>“Opt-in Data Flywheel” or “Flywheel” means the separate contribution and distribution platform at https://optinflywheel.com (or successor URLs) through which users may opt in to contribute data for public evaluation and research use.</p>
+<p>“Provider(s)” or “Model Endpoint(s)” means third-party model services (e.g., national labs, commercial providers) that receive user prompts and return model outputs. The Frontend is a gateway to these services and does not control their retention, training, or use practices.</p>
+<p>“Model Gateway” means the service layer that forwards requests from the Frontend to Providers and records a Request Envelope (metadata such as request ID, model ID, token counts, latency, and status).</p>
+<p>“Request Envelope” means non-content request metadata retained for reliability, capacity, and SLO monitoring.</p>
+<p>“Session Telemetry” means minimal first-party analytics collected on page load/navigation (e.g., timestamp, pseudonymous session ID, coarse locale, feature flags).</p>
+<p>“Security Logs” means IP address and User-Agent records used for rate-limiting and abuse detection.</p>
+<p>“Chat Object” means prompt(s), tool calls (if any), and model output(s) associated with a session or account within the Open WebUI Instance.</p>
+<p>“Contribution” means any data a user intentionally submits to the Flywheel (e.g., prompt/output pairs, tags, corrections), along with per-item License and AI Preference Signal selections.</p>
+<p>“AI Preference Signal” means an AI-use preference value the contributor attaches to a Contribution (e.g., IETF AI Preferences draft values and/or Creative Commons preference signals), intended to be conveyed downstream.</p>
+<p>“License” means the Creative Commons license selected by the contributor for a Contribution (supported in the MVP: CC0-1.0, CC-BY-4.0, CC-BY-SA-4.0).</p>
+<p>“License Bucket(s)” means the partitioning of Contributions into separate release artifacts by License (e.g., v1.0-cc0, v1.0-cc-by, v1.0-cc-by-sa).</p>
+<p>“Waiting Room” means the Flywheel’s gated staging directory (e.g., _waiting_room/ in a Hugging Face repository) where Contributions are first written prior to validation and release.</p>
+<p>“Release” means a published version of the dataset (and associated notes/checksums) assembled from validated Contributions, partitioned by License.</p>
+<p>“Gated Repository” means the Hugging Face dataset repository that requires an access request and acceptance of dataset-specific terms.</p>
+<p>“Static Site” means the public site that hosts leaderboards and provides full dataset access, with anti-scraping controls.</p>
+<p>“Anonymized Contributor ID” or “Pseudonym” means a non-identifying handle published with a Contribution when a contributor elects anonymity or a pseudonym instead of a Hugging Face username.</p>
+<p>“Personal Data” means information that identifies or can reasonably be linked to an individual; “Sensitive Personal Data” means Personal Data that is sensitive by law or policy (e.g., health, financial, precise location, government identifiers).</p>
+<p>“We/Us/Our” means [ENTITY NAME], the operator of the Frontend, the Open WebUI Instance, and the Flywheel.</p>
+<p>“You/Your” means the individual using the Frontend and/or contributing to the Flywheel, or the entity on whose behalf the individual acts.</p>
+<section id="system-scope-components" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="system-scope-components"><span class="header-section-number">4.1</span> 1) System scope &amp; components</h2>
+<ul>
+<li><p>Model Endpoints (National Labs/Providers): Third-party endpoints; {The Public AI Chat Frontend} is a gateway.</p></li>
+<li><p>Hosted Open WebUI: Browser interface for issuing prompts to supported models; optional user accounts.</p></li>
+<li><p>Opt-in Data Flywheel: Contributors may donate prompt/response pairs plus optional metadata for evaluation and research.</p></li>
+<li><p>Distribution Channels</p>
+<ul>
+<li>Hugging Face (gated): Live view into dataset; access requires request and acceptance of terms.</li>
+<li>Flywheel Static Site (public): Leaderboards and full dataset access for benchmarking; protected with Cloudflare anti-scraping controls.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="what-data-is-produced-when" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="what-data-is-produced-when"><span class="header-section-number">4.2</span> 2) What data is produced &amp; when</h2>
+<section id="open-webui-no-account-required-but-optional-and-recommended" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="open-webui-no-account-required-but-optional-and-recommended"><span class="header-section-number">4.2.1</span> 2.1 Open WebUI (no account required, but optional and recommended)</h3>
+<ul>
+<li><p>Session telemetry (minimal) #todo: Double check telemetry and provide a sample paylod to show interested users;</p>
+<ul>
+<li>Produced when: Page load / navigation</li>
+<li>Includes: Timestamp, pseudonymous session ID, coarse locale, feature flags</li>
+<li>Stored in: First-party analytics</li>
+<li>Access: Eng/Analytics (aggregated)</li>
+<li>Default retention: Raw 30 days; aggregates 13 months</li>
+</ul></li>
+<li><p>IP &amp; User-Agent (security) #todo double check this</p>
+<ul>
+<li>Produced when: Each request</li>
+<li>Includes: IP, User-Agent for rate-limit/abuse detection</li>
+<li>Stored in: Security log store</li>
+<li>Access: SRE/Security</li>
+<li>Default retention: 7 days, then delete/aggregate</li>
+</ul></li>
+<li><p>Query content</p>
+<ul>
+<li>Produced when: On submit</li>
+<li>Includes: Prompt + output</li>
+<li>Stored in: interface database</li>
+<li>Access: server admin only</li>
+<li>Default retention: user can delete at any time; deleted along after 30 days of user inactivity. #todo, discuss this</li>
+</ul></li>
+<li><p>Error logs (sanitized) #todo double check this, provide example? least important to provide an example here.</p>
+<ul>
+<li>Produced when: On error</li>
+<li>Includes: Stack trace, request ID (no prompt/output bodies)</li>
+<li>Stored in: Log store</li>
+<li>Access: Eng (least privilege)</li>
+<li>Default retention: 30 days</li>
+</ul></li>
+</ul>
+</section>
+<section id="open-webui-accounts-optional" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="open-webui-accounts-optional"><span class="header-section-number">4.2.2</span> 2.2 Open WebUI Accounts (optional)</h3>
+<ul>
+<li><p>Profile and settings #todo double check this</p>
+<ul>
+<li>Produced when: Sign-up</li>
+<li>Includes: Email/OAuth ID, display name</li>
+<li>Stored in: User DB</li>
+<li>Access: Support/Eng</li>
+<li>Retention: Kept until the user deletes it. If the account is inactive for 30 days, we delete the account and associated records.</li>
+</ul></li>
+</ul>
+</section>
+<section id="model-gateway-to-providers" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="model-gateway-to-providers"><span class="header-section-number">4.2.3</span> 2.3 Model Gateway (to providers)</h3>
+<ul>
+<li><p>Request envelope</p>
+<ul>
+<li>Produced when: Each request</li>
+<li>Includes: Request ID, model ID, token counts, latency, status</li>
+<li>Stored in: Metrics DB</li>
+<li>Access: Eng/SRE</li>
+<li>Retention: 90 days (aggregates 13 months)</li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>Provider transparency: We do not guarantee provider behavior. We clearly display the exact payload we forward (headers + body summary) and link to the provider’s own terms and policies where available. Users should review provider terms before use.</p>
+</blockquote>
+</section>
+<section id="opt-in-data-flywheel" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="opt-in-data-flywheel"><span class="header-section-number">4.2.4</span> 2.4 Opt-in Data Flywheel</h3>
+<ul>
+<li><p>Contribution payload</p>
+<ul>
+<li>Produced when: On explicit opt-in</li>
+<li>Includes: Prompt, model output, optional tags</li>
+<li>Stored in: Gated staging (effectively public) → license-bucketed release (also effectively public)</li>
+<li>Access: Public</li>
+<li>Retention: Indefinite</li>
+</ul></li>
+<li><p>HuggingFace username OR Anonymized contributor ID</p>
+<ul>
+<li>Produced when: On ingest</li>
+<li>Includes: user provides their huggingface username or selects a pseudonym (can leave blank)</li>
+<li>Stored in: Dataset metadata</li>
+<li>Access: Public</li>
+<li>Retention: Indefinite</li>
+</ul></li>
+<li><p>Release artifacts</p>
+<ul>
+<li>Produced when: On release</li>
+<li>Includes: JSONL/TSV, checksums, notes</li>
+<li>Stored in: HF (gated) and Static Site (public)</li>
+<li>Access: Public (per channel)</li>
+<li>Retention: Indefinite</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="event-timeline-how-data-flows" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="event-timeline-how-data-flows"><span class="header-section-number">4.3</span> 3) Event timeline (how data flows)</h2>
+<ol type="1">
+<li>User prompts a model → payload sent to model provider; query and response are saved if user made an optional OpenWebUI account.</li>
+<li>If user wishes to select a chat to share via opt-in, they can do so. They never have to. Licensing and preference signals are set at opt-in time.</li>
+<li>Opt-in chat goes to “waiting room”</li>
+<li>Processing script collects items from waiting room, applies some checks (PII, content moderation), moves them into release buckets.</li>
+<li>A separate processing script takes data from the gated HF repo and builds the static site with leaderboard and data dump</li>
+<li>Post-release: approved removals are honored in future releases and our mirrors; prior downloads may persist.</li>
+</ol>
+<hr>
+</section>
+<section id="licensing-preference-signals-beta" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="licensing-preference-signals-beta"><span class="header-section-number">4.4</span> 4) Licensing &amp; Preference Signals (Beta)</h2>
+<p>For each contribution, the user selects:</p>
+<ul>
+<li>A Creative Commons license: CC0-1.0, CC-BY-4.0, or CC-BY-SA-4.0.</li>
+<li>An AI preference signal: an IETF AI preference (draft) value and/or CC preference signal (“IETF AI Pref combo”).</li>
+</ul>
+<p>How we use these:</p>
+<ul>
+<li>We record <code>license</code> and <code>ai_pref</code> per record.</li>
+<li>Records are partitioned by license into separate release buckets.</li>
+<li>Downstream users must comply with the license; we publish compatibility notes (e.g., ShareAlike).</li>
+<li>Users may set account defaults; each submission can override.</li>
+</ul>
+<p>Binding effect: Once a record is included in a release, that license applies to that copy.</p>
+<hr>
+</section>
+<section id="retention-schedule" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="retention-schedule"><span class="header-section-number">4.5</span> 5) Retention schedule</h2>
+<ul>
+<li><p>Web edge</p>
+<ul>
+<li>Data: IP + UA</li>
+<li>Purpose: Abuse prevention</li>
+<li>Retention: 7 days raw → delete/aggregate</li>
+<li>Deletion path: Automatic purge</li>
+</ul></li>
+<li><p>Web UI</p>
+<ul>
+<li>Data: Minimal telemetry</li>
+<li>Purpose: Reliability metrics</li>
+<li>Retention: 7 days raw → delete/aggregate</li>
+<li>Deletion path: Automatic purge</li>
+</ul></li>
+<li><p>Gateway</p>
+<ul>
+<li>Data: Request envelopes</li>
+<li>Purpose: Capacity/SLOs</li>
+<li>Retention: 90 days raw; 13 months aggregates</li>
+<li>Deletion path: Automatic purge</li>
+</ul></li>
+<li><p>Open WebUI Accounts</p>
+<ul>
+<li>Data: Profile and preferences</li>
+<li>Purpose: Auth/consent</li>
+<li>Retention: Kept until user deletes; 30-day inactivity → delete</li>
+<li>Deletion path: Self-service delete / auto-purge</li>
+</ul></li>
+<li><p>Flywheel staging bucket (the “waiting room dir”, on HF)</p>
+<ul>
+<li>Data: Pending contributions</li>
+<li>Purpose: Moderation/de-duplication</li>
+<li>Retention: Indefinite (moved to organized buckets in same repo)</li>
+<li>Deletion path: Manual removal on request</li>
+</ul></li>
+<li><p>HF (gated)</p>
+<ul>
+<li>Data: Released records (by license)</li>
+<li>Purpose: Research access</li>
+<li>Retention: Indefinite</li>
+<li>Deletion path: Exclude from future versions; coordinate HF deletion where possible</li>
+</ul></li>
+<li><p>Static Site (public)</p>
+<ul>
+<li>Data: Leaderboards and full dataset access</li>
+<li>Purpose: Benchmarking/transparency</li>
+<li>Retention: Indefinite</li>
+<li>Deletion path: Update/remove in future releases; past downloads may persist</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="distribution-access-control" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="distribution-access-control"><span class="header-section-number">4.6</span> 6) Distribution &amp; access control</h2>
+<section id="hugging-face-gated" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="hugging-face-gated"><span class="header-section-number">4.6.1</span> 6.1 Hugging Face (gated)</h3>
+<ul>
+<li>Separate artifacts and checksums per license bucket and version (e.g., <code>v1.0-cc0</code>, <code>v1.0-cc-by</code>, <code>v1.0-cc-by-sa</code>).</li>
+<li>Access requires a request with acceptance of dataset-specific Terms of Use (no re-identification; honor license and AI preferences).</li>
+<li>Deletion requests: Where possible, we use Hugging Face–native workflows (e.g., issue/repo requests, maintainers’ takedowns) to process deletions and exclude items from future versions.</li>
+</ul>
+</section>
+<section id="flywheel-static-site-public" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="flywheel-static-site-public"><span class="header-section-number">4.6.2</span> 6.2 Flywheel Static Site (public)</h3>
+<ul>
+<li>Hosts leaderboards and provides full dataset access for building benchmarks.</li>
+<li>Cloudflare anti-scraping posture: Bot Management/WAF rules, rate limits, Turnstile/JS challenges on download routes, tokenized short-lived URLs, robots/meta controls, pagination/throttling, and anomaly monitoring.</li>
+<li>Reality check: Anti-scraping reduces but cannot prevent copying of public data. We limit risk via license partitioning, logged access flows, and clear terms.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="provider-transparency-no-guarantees" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="provider-transparency-no-guarantees"><span class="header-section-number">4.7</span> 7) Provider transparency (no guarantees)</h2>
+<ul>
+<li>We do not control third-party model providers’ retention or training practices and make no guarantees about them.</li>
+<li>For every request, we show users a payload transparency panel (headers summary + body size/tokens) and, where possible, a link to provider terms.</li>
+<li>Users choose whether to proceed with the selected provider in light of those terms.</li>
+</ul>
+<hr>
+</section>
+<section id="contributor-rights-controls" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="contributor-rights-controls"><span class="header-section-number">4.8</span> 8) Contributor rights &amp; controls</h2>
+<ul>
+<li>Opt-in only for contributions to the flywheel.</li>
+<li>Per-item license and AI preference (beta).</li>
+<li>Withdrawals: Submit a verified request to exclude your items from future releases. We’ll also file/route requests through Hugging Face where applicable.</li>
+<li>Account deletion &amp; inactivity: If you keep an Open WebUI account, we keep your account data until you delete it; if you are inactive for 30 days, we delete the account and associated records. Released dataset copies remain under their chosen licenses.</li>
+<li>Sensitive content: Do not submit personal/sensitive data; automated filters and moderation apply.</li>
+</ul>
+<hr>
+</section>
+<section id="roadmap" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="roadmap"><span class="header-section-number">4.9</span> 9) Roadmap</h2>
+<ul>
+<li>HF-auth contributions: Let contributors submit via their Hugging Face accounts to preserve reputation and contributor stats.</li>
+<li>AI preference UX: First-class UI for selecting license + IETF AI Pref combo, plus validator and compatibility helper.</li>
+<li>Provider term links directory: Central index of provider policies; per-model tooltips in the WebUI.</li>
+</ul>
+<hr>
+</section>
+<section id="contacts" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="contacts"><span class="header-section-number">4.10</span> 10) Contacts</h2>
+<p>#todo</p>
+<ul>
+<li>Data removal / privacy: {{PRIVACY_EMAIL}}</li>
+<li>Security: {{SECURITY_EMAIL}}</li>
+<li>Research &amp; benchmarks: {{RESEARCH_EMAIL}}</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02mvp.html" class="pagination-link  aria-label=" &lt;span="" serverless="" +="" git="" mvp&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04options_for_flywheel.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Rationale (and other flywheel variants)</span>">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Rationale (and other flywheel variants)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
