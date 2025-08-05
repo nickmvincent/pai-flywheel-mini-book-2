@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Flywheels and Public AI - 2&nbsp; The Serverless + Git MVP</title>
+<title>Data Flywheels and Public AI - 4&nbsp; Flywheels and Markets</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03data_policy.html" rel="next">
-<link href="./01intro.html" rel="prev">
+<link href="./04_options_for_flywheel.html" rel="next">
+<link href="./01c_pipeworks.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02mvp.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Intro</a></li><li class="breadcrumb-item"><a href="./03_leverage.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -112,48 +112,99 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Intro</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./01a_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02mvp.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
+  <a href="./01b_what_data_and_why.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What data and why</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
+  <a href="./01c_pipeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Data Pipeworks: From Human Knowledge to Deployed AI (and Back Again)</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04options_for_flywheel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Rationale (and other flywheel variants)</span></span></a>
+  <a href="./03_leverage.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_options_for_flywheel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rationale (and other options for flywheel variants)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">A Worked Example: MVP Flywheel</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_mvp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_data_policy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -164,19 +215,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">2.1</span> Overview</a></li>
-  <li><a href="#advantages-of-a-serverless-git-approach" id="toc-advantages-of-a-serverless-git-approach" class="nav-link" data-scroll-target="#advantages-of-a-serverless-git-approach"><span class="header-section-number">2.2</span> Advantages of a Serverless + Git approach</a></li>
-  <li><a href="#disadvantages-and-what-to-watch" id="toc-disadvantages-and-what-to-watch" class="nav-link" data-scroll-target="#disadvantages-and-what-to-watch"><span class="header-section-number">2.3</span> Disadvantages (and what to watch)</a></li>
-  <li><a href="#other-reading" id="toc-other-reading" class="nav-link" data-scroll-target="#other-reading"><span class="header-section-number">2.4</span> Other reading:</a></li>
+  <li><a href="#how-an-opt-in-flywheel-enables-markets" id="toc-how-an-opt-in-flywheel-enables-markets" class="nav-link active" data-scroll-target="#how-an-opt-in-flywheel-enables-markets"><span class="header-section-number">4.1</span> How an opt-in flywheel enables markets</a></li>
+  <li><a href="#how-an-opt-in-flywheel-enables-strikes-or-credible-refusals" id="toc-how-an-opt-in-flywheel-enables-strikes-or-credible-refusals" class="nav-link" data-scroll-target="#how-an-opt-in-flywheel-enables-strikes-or-credible-refusals"><span class="header-section-number">4.2</span> How an opt-in flywheel enables strikes (or credible refusals)</a></li>
+  <li><a href="#preconditions-the-flywheel-must-provide" id="toc-preconditions-the-flywheel-must-provide" class="nav-link" data-scroll-target="#preconditions-the-flywheel-must-provide"><span class="header-section-number">4.3</span> Preconditions the flywheel must provide</a></li>
+  <li><a href="#limits-and-failure-modes-to-plan-for" id="toc-limits-and-failure-modes-to-plan-for" class="nav-link" data-scroll-target="#limits-and-failure-modes-to-plan-for"><span class="header-section-number">4.4</span> Limits and failure modes to plan for</a></li>
+  <li><a href="#a-practical-path-from-mvp-to-markets-and-optional-strikes" id="toc-a-practical-path-from-mvp-to-markets-and-optional-strikes" class="nav-link" data-scroll-target="#a-practical-path-from-mvp-to-markets-and-optional-strikes"><span class="header-section-number">4.5</span> A practical path from MVP to markets (and optional strikes)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Intro</a></li><li class="breadcrumb-item"><a href="./03_leverage.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></h1>
 </div>
 
 
@@ -193,70 +245,86 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">2.1</span> Overview</h2>
-<p>Our initial MVP of the flywheel is a “Serverless + Git Platform” approach. It is meant to be a robust and scalable starting point for the data flywheel. It strictly separates the “write” (contribution) and “read” (display) components of the system.</p>
-<p>The overall goal is to enable opt-in contributions of data (prompt/output + optional metadata) with the state-of-the-art (caveat: also experimental / untested) preference signals and enforcement via per-item Creative Commons license (in MVP: default is CC0, CC-BY, CC-BY-SA) and an AI preference signal (using IETF aipref draft spec + CC Preference Signals draft spec). The data is distributed via:</p>
+<blockquote class="blockquote">
+<p>Key insight: Beyond improving public AI systems, getting public AI data flywheels right can make it easier for people to use data flow as a lever for governance and alignment.</p>
+</blockquote>
+<p>Based on our previous chapter about “what data and why”, we can arrive at a very obvious argument for a data flywheel: the flyhweel will produce data, and that data will make AI better!</p>
+<p>But this isn’t the only benefit of getting building flywheels in a “public AI” manner. Doing so can also enhance the amount of agency that people have over data flow, and “making with data” possible such that the public has more power to govern and align AI systems.</p>
+<p>In short, AI is somewhat unique relative to other technologies, because of its data dependence. Data comes from people. The fact that this powerful technology has a dependency on people from around the world means that AI has a natural “governance lever”.</p>
+<p>Setting up a public AI data flywheel is thus important not only to make AI better; it also has the potential to solve some (but not all!) of the thorny governance and alignment challenges that AI poses.</p>
+<p>You can read about data leverage via a <a href="https://dataleverage.substack.com/">newsletter</a> or even via a <a href="https://arch.library.northwestern.edu/concern/generic_works/jq085k38d?locale=en">dissertation</a>. For a short summary, check out <a href="https://dataleverage.substack.com/p/measuring-relative-ai-alignment-in-terms-of-data-pipelines">Plural AI Data Alignment</a>.</p>
+<p>It’s worth pulling out two distinct ways that flywheel can interact with AI and governance</p>
+<p>It’s worth pulling out two distinct ways that a flywheel can interact with AI and governance:</p>
 <ul>
-<li>Hugging Face (gated) — full bundles by license bucket; access via request/terms; HF workflows used for deletions where possible.</li>
-<li>Public site — leaderboards + full dataset access; Cloudflare WAF/bot controls to discourage bulk scraping.</li>
+<li><p>A thin flywheel, with no attempt to capture creator intent, licensing, or data rights, simply increases available data. It may make public models a bit better and keep public labs competitive at the margins, but it does not change the bargaining relationship between contributors and model builders.</p></li>
+<li><p>A governed, opt-in flywheel captures provenance, per-item license and AI-use preferences, contributor identity or pseudonym, and release discipline. This converts contributions into addressable units that can be assembled, priced, withheld, or targeted—opening the door to markets and, if necessary, strikes.</p></li>
 </ul>
-<p>For full details, see the separate repo and its readme: #todo fill me in</p>
-<p>For a short summary of the technical approach, see below bullet point:</p>
+<section id="how-an-opt-in-flywheel-enables-markets" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="how-an-opt-in-flywheel-enables-markets"><span class="header-section-number">4.1</span> How an opt-in flywheel enables markets</h2>
+<p>An opt-in flywheel can create the prerequisites for functioning data markets without turning the project into “just a marketplace.”</p>
+<ol type="1">
+<li><p>Units and provenance Each contribution is a unit with provenance, license, usage preferences, minimal schema, and (optionally) reputation of a contributor or collective. That makes it legible enough to transact on.</p></li>
+<li><p>Permissioning and packaging By establishing practices around setting use requirements (e.g., “eval-only”, “train-allowed-if-model-is-open”), it is possible to either (1) provide nicely packaged releases (monthly, by topic/language/domain) of data (data user is paying for premium like Wikimedia Enterprise) or (2) collectively move from sending data to an open repo to a gated repo managed by a market agent.</p></li>
+<li><p>Discovery and price signals Leaderboards, scarcity tags (rare language/domain), and quality scores effectively begin to generate price signals. A bounty board (“need 5k labeled failures in X”) converts demand into targeted supply. In this sense, bounty boards for OSS also enable market dynamics around outputs that are eventually made public with license restrictions.</p></li>
+<li><p>Clearing and settlement Because contributions are opt-in and addressable, enterprise-style payouts can be routed to individuals or collectives, with rules like “70% to contributors pro-rata by weight; 30% to the commons.”</p></li>
+<li><p>Collectives as market actors Co-ops/unions/DAOs can represent contributors, negotiate bundle terms, run audits, and set default preferences. The flywheel provides the shared ledger and release cadence that markets need.</p></li>
+</ol>
+<p>Note: a key idea here is that it’s possible to enable market activity while keeping the data open-but-gated-and-restricted or by using the flywheel as a stepping stone towards a more “property-like” market.</p>
+</section>
+<section id="how-an-opt-in-flywheel-enables-strikes-or-credible-refusals" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="how-an-opt-in-flywheel-enables-strikes-or-credible-refusals"><span class="header-section-number">4.2</span> How an opt-in flywheel enables strikes (or credible refusals)</h2>
+<p>“Strike” here means a coordinated, temporary withdrawal or constraint on new high-signal contributions or releases—not sabotage, and not retroactive deletion of already-licensed copies.</p>
+<p>What makes strikes possible:</p>
 <ul>
-<li>Frontend: A Next.js application hosted on Vercel, providing a simple, static interface for contributions.
+<li>Voluntariness is preserved. Because contribution is opt-in, non-participation is a legitimate default.</li>
+<li>Release control. A waiting-room, processing, release pipeline provides a natural “valve” for cadence changes or strikes.</li>
+<li>Shared visibility. Everyone sees dependence on fresh contributions (e.g., evaluation drift). Visibility creates leverage.</li>
+</ul>
+<p>What a strike can look like:</p>
 <ul>
-<li>No major lock-in here. Can easily be swapped for a lightweight static site, other modern web tech, etc.</li>
-</ul></li>
-<li>Authentication: User identity is managed via Auth.js (Next-Auth), using Hugging Face (HF) as the exclusive OAuth provider. This allows for clear attribution of contributions to a user’s public HF username (if they choose to).</li>
-<li>Data Storage: The single source of truth is a Hugging Face Dataset repository, which functions as a “Git-as-a-database.”
+<li>Quality freeze. Contributors keep using systems but withhold labeled “good/fail” chats or corrections for a period.</li>
+<li>Selective embargo. A community with scarce data (language/domain) pauses releases or flips new records to “evaluation-only.”</li>
+<li>Preference shift. New contributions change AI-use preferences to deny training unless a stated condition is met (funding, governance, attribution).</li>
+<li>Rate limit. Collectives cap monthly volume to force negotiations on price or terms.</li>
+</ul>
+<p>What a strike cannot do (and shouldn’t promise):</p>
 <ul>
-<li>Starting with HF as it is a platform with specific focus on AI datasets and open culture</li>
-</ul></li>
-<li>Waiting room approach: The implemented workflow follows a two-stage “waiting room” pattern to ensure data quality and safety:</li>
-<li>How contribution works:
+<li>Undo past licenses. Items released under irrevocable terms (e.g., CC0, CC-BY) remain available.</li>
+<li>Prevent copying entirely. Public releases can be mirrored; anti-scraping reduces risk but does not eliminate it.</li>
+<li>Guarantee compliance outside the ecosystem. Preference signals work when counterparties agree to honor them or when law/policy backs them.</li>
+</ul>
+<p>Net effect: strikes are most effective where freshness and scarcity matter (evaluations, rapidly changing domains, rare languages), and least effective where substitutes or synthetic data can plausibly fill gaps.</p>
+</section>
+<section id="preconditions-the-flywheel-must-provide" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="preconditions-the-flywheel-must-provide"><span class="header-section-number">4.3</span> Preconditions the flywheel must provide</h2>
 <ul>
-<li>A user logs in with their Hugging Face account.</li>
-<li>The interface accepts contributions in three ways: by uploading an OpenWebUI JSON export file, via URL params, or by pasting plain text.</li>
-<li>The frontend parser automatically detects the OpenWebUI format, extracts metadata (like <code>model</code> and <code>tags</code>), and prepends it as YAML frontmatter to the chat content.</li>
-<li>Users choose a label for the chat type (“Good Chat” / “Fail Chat”) and attach (1) a Creative Commons license and (2) an IETF aipref and/or Creative Commons Preference Signal to signal preferences around AI use of the contribution.</li>
-<li>A pseudo-anonymity system allows users to contribute publicly with their HF username, as “anonymous,” or with a custom pseudonym.</li>
-<li>An informed consent checkbox, linked to Terms of Service and FAQ pages, is required for all submissions.</li>
-<li>Upon submission, a serverless function writes the contribution not to the final dataset, but as a new, single JSON file in a <code>_waiting_room/</code> directory within the Hugging Face repository. This operation is fast and avoids write conflicts.</li>
-</ul></li>
-<li>How processing of the “waiting room” works:
-<ul>
-<li>A separate, asynchronous script is run on a regular schedule (e.g., as a daily GitHub Action).</li>
-<li>This script fetches all pending files from the <code>_waiting_room</code>.</li>
-<li>It validates each contribution and includes a placeholder for future content moderation and PII checks.</li>
-<li>Validated contributions are batched and appended to a final, organized dataset file (e.g., <code>data/2025-08.jsonl</code>). Contributions are further bucketed by license/prefs.</li>
-<li>To ensure atomicity, all file additions (to the final dataset) and deletions (from the waiting room) are performed in a single commit to the Hugging Face Hub. #todo when scaling, need to consider race conditions around the processing!</li>
-</ul></li>
+<li>Clear, per-item license and AI-use preference capture and propagation</li>
+<li>Auditable provenance and contributor linkage (including pseudonyms)</li>
+<li>Release discipline (cadence, versioning, checksums) and the ability to pause cadence</li>
+<li>A shared metrics surface showing demand, scarcity, and impact</li>
+<li>Collective controls: settings a group can change together (defaults, embargo toggles)</li>
+<li>Payment rails or grant accounting tied to releases, not pageviews</li>
 </ul>
 </section>
-<section id="advantages-of-a-serverless-git-approach" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="advantages-of-a-serverless-git-approach"><span class="header-section-number">2.2</span> Advantages of a Serverless + Git approach</h2>
-<p>A serverless + Git stack keeps the “write path” lightweight for contributors and cheap to operate. Functions spin up on demand and idle to zero, so we can avoid paying for boxes that sit around; the trade-off is cold starts, which are well-documented and can be mitigated with provisioned concurrency when needed.</p>
-<p>On the “read path,” a static site on a global CDN gives instant distribution and low operational overhead. Pages (e.g., from <a href="https://developers.cloudflare.com/page">Cloudflare</a>, something like GitHub Pages, or similar) can read directly from the Git “source of truth” and serve assets from edge locations by default, which is exactly what we want for a browsable leaderboard and dataset browser.</p>
-<p>Additionally, using the Hub (Git-backed) as the source of truth buys us a public audit trail and first-class versioning semantics. HF’s dataset repos are literally Git + LFS, with revision pinning via commit/tag/branch; storage is backed by object storage and scales. That maps cleanly to our “waiting room → release buckets” workflow and makes it easy to diff changes over time. (relevant HF docs: <a href="https://huggingface.co/docs/datasets/v1.8.0/share_dataset.html">datasets</a>, <a href="https://huggingface.co/docs/hub/en/storage-backends">storage</a>)</p>
-<p>Moderation and PII handling are naturally centralized in the processing step. Because we trigger the write as a small file into a staging path and move it during a scheduled job, we can run filters, de-dup, and attach license/pref metadata before publication without asking contributors to learn tooling.</p>
-<p>Basic safety and access controls are pragmatic at the edge. Cloudflare’s WAF/Bot Management and newer “AI bot” controls give us a reasonable anti-scraping posture for public downloads and pages, even if nothing on the open web is truly copy-proof. Recent product updates explicitly target AI crawlers, with default blocking and challenge flows we can enable. (<a href="https://developers.cloudflare.com/waf/custom-rules/use-cases/challenge-bad-bots/" title="Challenge bad bots - WAF">Cloudflare Docs</a>, <a href="https://www.wired.com/story/cloudflare-tools-detect-block-ai-bots?" title="New Cloudflare Tools Let Sites Detect and Block AI Bots for Free">WIRED</a>, <a href="https://www.businessinsider.com/cloudflare-block-ai-crawlers-by-default-payment-for-access-2025-6" title="Cloudflare to block AI bot crawlers by default and let websites demand payment for access">Business Insider</a>)</p>
-<p>Finally, the “preferences and licenses” story fits the stack. Dataset cards and metadata natively expose a <code>license</code> field and other tags (Hub UI and YAML), and CC licenses give clear obligations (e.g., BY, BY-SA) we can enforce in packaging and docs. That lets us partition releases by license and publish compatibility notes in a way downstream users can actually follow. (<a href="https://huggingface.co/docs/datasets/en/dataset_card" title="Create a dataset card">Hugging Face</a>, <a href="https://huggingface.co/docs/hub/en/datasets-cards" title="Dataset Cards">Hugging Face</a>)</p>
-</section>
-<section id="disadvantages-and-what-to-watch" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="disadvantages-and-what-to-watch"><span class="header-section-number">2.3</span> Disadvantages (and what to watch)</h2>
-<p>Trust centralizes in the processor. Contributors have to believe the middle layer won’t silently drop or reshape submissions. If/when we introduce event-driven ingestion (queues/streams), we must design for retries and duplicates.</p>
-<p>UX isn’t perfectly “instant.” There’s an inherent gap between a user pressing “share” and seeing their item on the public site, because we run validation and batching. That’s a conscious choice, but we should set expectations and likely provide some kind status expectations.</p>
-<p>Operationally, serverless isn’t “no ops,” it’s “different ops.” Cold starts exist (especially on sporadic paths), API limits are real on the platforms we hit (GitHub has documented ceilings; HF also rate-limits writes/reads even if specifics vary by endpoint), and “pay per use” can surprise us at scale without cost guardrails (see e.g.&nbsp;<a href="https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api" title="Rate limits for the REST API">GitHub Docs</a>, <a href="https://docs.github.com/en/rest/rate-limit/rate-limit" title="REST API endpoints for rate limits">GitHub Docs</a>).</p>
-<p>There’s also platform coupling to be consider. Using specific hosted CI/CD, serverless runtimes, and hub APIs creates a degree of vendor lock-in; this is a known trade-off in serverless architectures and something we can blunt with portable formats (JSONL), documented exports, and “boring” interfaces (Git). ([CNCF][17])</p>
-<p>Compliance remains non-zero. Deletions across mirrored artifacts (Hub revisions, static site snapshots, downstream forks) take a clear policy and a repeatable playbook. For licenses, we’re responsible for honoring CC obligations in our packaging and comms (e.g., keeping BY attribution fields intact; not mixing BY-SA content into incompatible bundles). CC’s legalcode and guidance make those obligations explicit; our tooling should, too. (<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.en" title="Legal Code - Attribution-ShareAlike 4.0 International">Creative Commons</a>)</p>
-<p>Net: Serverless + Git gives us a pragmatic bridge—fast contributor UX, public versioning, cheap distribution—while we invest in moderation, idempotent processors, and clear license lanes. If we communicate the review gap, publish the processor’s rules, and keep escape hatches (export scripts, mirrors), the trade-offs are acceptable for an MVP and refine-able over time.</p>
-</section>
-<section id="other-reading" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="other-reading"><span class="header-section-number">2.4</span> Other reading:</h2>
+<section id="limits-and-failure-modes-to-plan-for" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="limits-and-failure-modes-to-plan-for"><span class="header-section-number">4.4</span> Limits and failure modes to plan for</h2>
 <ul>
-<li>https://arxiv.org/abs/2109.02846</li>
-<li>https://datascience.codata.org/articles/10.5334/dsj-2021-012</li>
+<li>Irrevocability vs.&nbsp;agency. If the goal is strike leverage, discourage CC0 for scarce data; offer eval-only or time-boxed terms.</li>
+<li>Leakage. Plan for mirrors; design incentives that make compliance more attractive than defection.</li>
+<li>Substitution. Some domains can be synthetically approximated; focus markets/strikes where real-world records are hard to fake.</li>
+<li>Coordination overhead. Without lightweight collective tools, only well-organized groups can act.</li>
+<li>Legal and policy constraints. Collective bargaining around data may raise jurisdiction-specific questions; stay within applicable law.</li>
+</ul>
+</section>
+<section id="a-practical-path-from-mvp-to-markets-and-optional-strikes" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="a-practical-path-from-mvp-to-markets-and-optional-strikes"><span class="header-section-number">4.5</span> A practical path from MVP to markets (and optional strikes)</h2>
+<ul>
+<li>v0: Opt-in contributions with per-item license and AI-preference signals; public/gated releases.</li>
+<li>v1: Contributor dashboards, scarcity/impact badges, and a bounty board.</li>
+<li>v2: Collective accounts that can set defaults, pool payouts, and flip embargo/quality-freeze toggles.</li>
+<li>v3: Formal procurement: RFPs for datasets/evals with escrowed funds and delivery criteria. This might mean some collectives STOP pushing to the public repo.</li>
+<li>v4: Policy hooks: standardized terms that institutions can adopt; preference signals integrated in provider contracts.</li>
+<li>v5: Federation: multiple flywheels interoperate on releases and preferences, raising both market depth and strike credibility.</li>
 </ul>
 
 
@@ -652,13 +720,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01intro.html" class="pagination-link  aria-label=" &lt;span="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./01c_pipeworks.html" class="pagination-link  aria-label=" &lt;span="" data="" pipeworks:="" from="" human="" knowledge="" to="" deployed="" ai="" (and="" back="" again)&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Data Pipeworks: From Human Knowledge to Deployed AI (and Back Again)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03data_policy.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Data Flow and Data Retention</span>">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04_options_for_flywheel.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Rationale (and other options for flywheel variants)</span>">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rationale (and other options for flywheel variants)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
