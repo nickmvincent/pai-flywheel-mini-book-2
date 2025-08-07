@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Flywheels and Public AI - 10&nbsp; Appendix 1: LLM Data Schemas</title>
+<title>Data Flywheels and Public AI - References</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./appendix2_prefsig.html" rel="next">
-<link href="./references.html" rel="prev">
+<link href="./appendix1_llm_data.html" rel="next">
+<link href="./2b_data_policy.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix1_llm_data.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix1_llm_data.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -190,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -205,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link active">
+  <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
   </div>
 </li>
@@ -234,9 +253,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix1_llm_data.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix1_llm_data.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></h1>
+<h1 class="title">References</h1>
 </div>
 
 
@@ -253,76 +272,213 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here, we describe many variants of LLM data. This will be relevant for when we extend the flywheel to include more types of data, and especially shift towards promoting the sharing (via opt-in flywheels, but also via new market mechanisms) of richer “content data”.</p>
-<ul>
-<li><p><strong>Open Web / Crawls</strong></p>
-<ul>
-<li><p><strong>WARC/WAT/WET</strong></p>
-<ul>
-<li><em>WARC</em> (container for HTTP request/response records) — spec &amp; overview: IIPC WARC 1.1; Library of Congress format note. (<a href="https://iipc.github.io/warc-specifications/specifications/warc-format/warc-1.1/" title="The WARC Format">IIPC Community Resources</a>, <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000236.shtml" title="WARC, Web ARChive file format">The Library of Congress</a>)</li>
-<li><em>WAT</em> (JSON metadata extracted from WARC) and <em>WET</em> (plain text extracted from HTML) — Common Crawl guides. (<a href="https://commoncrawl.org/get-started" title="Common Crawl - Get Started">Common Crawl</a>, <a href="https://commoncrawl.org/blog/web-archiving-file-formats-explained" title="Web Archiving File Formats Explained">Common Crawl</a>)</li>
-</ul></li>
-<li><p><strong>C4 (Colossal Clean Crawled Corpus)</strong> — TFDS catalog &amp; generator code. Fields are essentially clean text segments with basic metadata. (<a href="https://www.tensorflow.org/datasets/catalog/c4" title="c4 bookmark_border - Datasets">TensorFlow</a>, <a href="https://github.com/tensorflow/datasets/blob/master/tensorflow_datasets/text/c4.py" title="datasets/tensorflow_datasets/text/c4.py at master">GitHub</a>)</p></li>
-<li><p><strong>The Pile</strong> (22-source, mixed corpus) — paper &amp; HTML view. (<a href="https://arxiv.org/abs/2101.00027" title="The Pile: An 800GB Dataset of Diverse Text for Language Modeling">arXiv</a>, <a href="https://ar5iv.labs.arxiv.org/html/2101.00027" title="The Pile: An 800GB Dataset of Diverse Text for Language ...">ar5iv</a>)</p></li>
-</ul></li>
-<li><p><strong>Encyclopedic / Books</strong></p>
-<ul>
-<li><p><strong>Wikipedia XML dumps</strong> (page/revision XML; SQL tables for links) — Meta-Wiki dump format; Wikipedia database download. (<a href="https://meta.wikimedia.org/wiki/Data_dumps/Dump_format" title="Data dumps/Dump format - Meta-Wiki - Wikimedia">Meta</a>, <a href="https://en.wikipedia.org/wiki/Wikipedia%3ADatabase_download" title="Wikipedia:Database download">Wikipedia</a>)</p></li>
-<li><p><strong>Project Gutenberg</strong></p>
-<ul>
-<li><em>Books</em>: plain text/HTML master formats; ePub/MOBI derived. (<a href="https://www.gutenberg.org/help/file_formats.html" title="File Formats">Project Gutenberg</a>)</li>
-<li><em>Catalog schema</em>: daily RDF/XML (also CSV) for metadata; offline catalogs. (<a href="https://www.gutenberg.org/ebooks/offline_catalogs.html" title="Offline Catalogs and Feeds">Project Gutenberg</a>)</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Scientific / Legal</strong></p>
-<ul>
-<li><strong>arXiv</strong> (Atom/OAI-PMH metadata; bulk &amp; API) — OAI-PMH + API docs; bulk metadata page. (<a href="https://info.arxiv.org/help/oa/index.html" title="Open Archives Initiative (OAI) - arXiv info">info.arxiv.org</a>, <a href="https://info.arxiv.org/help/api/user-manual.html" title="arXiv API User's Manual">info.arxiv.org</a>, <a href="https://info.arxiv.org/help/bulk_data.html" title="arXiv Bulk Data Access">info.arxiv.org</a>)</li>
-<li><strong>JATS XML</strong> (journal article tag suite) — NISO standards; NLM JATS site. (<a href="https://www.niso.org/publications/z3996-2024-jats" title="ANSI/NISO Z39.96-2024, JATS: Journal Article Tag Suite ...">niso.org</a>, <a href="https://jats.nlm.nih.gov/" title="Journal Article Tag Suite">jats.nlm.nih.gov</a>)</li>
-</ul></li>
-<li><p><strong>Code</strong></p>
-<ul>
-<li><strong>BigCode — The Stack / The Stack v2</strong> (source files + license/provenance metadata; dedup variants) — HF datasets, project docs, arXiv overview. (<a href="https://huggingface.co/datasets/bigcode/the-stack/tree/main" title="bigcode/the-stack at main">Hugging Face</a>, <a href="https://huggingface.co/datasets/bigcode/the-stack-v2" title="bigcode/the-stack-v2 · Datasets at Hugging Face">Hugging Face</a>, <a href="https://www.bigcode-project.org/docs/about/the-stack/" title="Datasets">BigCode</a>, <a href="https://arxiv.org/abs/2402.19173" title="StarCoder 2 and The Stack v2: The Next Generation">arXiv</a>)</li>
-</ul></li>
-<li><p><strong>Forums / Q&amp;A / Social</strong></p>
-<ul>
-<li><p><strong>Stack Exchange dumps</strong> (XML: Posts, Users, Comments, Votes, etc.) — SE Meta/docs &amp; Data Explorer. (<a href="https://meta.stackexchange.com/questions/267329/why-is-the-stack-exchange-data-dump-only-available-in-xml-file-format" title="Why is the Stack Exchange Data Dump only available in ...">Meta Stack Exchange</a>, <a href="https://data.stackexchange.com/help" title="Help - Stack Exchange Data Explorer">data.stackexchange.com</a>)</p></li>
-<li><p><strong>Reddit</strong></p>
-<ul>
-<li><em>API JSON</em> schema — official API docs &amp; help. (<a href="https://www.reddit.com/dev/api/" title="reddit.com: api documentation">Reddit</a>, <a href="https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki" title="Reddit Data API Wiki">Reddit Help</a>)</li>
-<li><em>Pushshift</em> (historical dumps; research dataset) — site &amp; paper. (<a href="https://pushshift.io/" title="Pushshift.io">pushshift.io</a>, <a href="https://arxiv.org/abs/2001.08435" title="The Pushshift Reddit Dataset">arXiv</a>)</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Instruction / Conversations (Post-training SFT)</strong></p>
-<ul>
-<li><strong>OpenAI-style chat schema</strong> (role-tagged: <code>system|user|assistant</code>, plus tool calls) — API reference. (<a href="https://platform.openai.com/docs/api-reference/chat" title="API Reference">OpenAI Platform</a>)</li>
-<li><strong>Alpaca</strong> (JSON prompts/instructions/outputs) — Stanford post &amp; repo; cleaned community set. (<a href="https://crfm.stanford.edu/2023/03/13/alpaca.html" title="Alpaca: A Strong, Replicable Instruction-Following Model">crfm.stanford.edu</a>, <a href="https://github.com/tatsu-lab/stanford_alpaca" title="Code and documentation to train Stanford's Alpaca models ...">GitHub</a>, <a href="https://github.com/gururise/AlpacaDataCleaned" title="Alpaca dataset from Stanford, cleaned and curated">GitHub</a>)</li>
-<li><strong>Databricks Dolly-15k</strong> (human-written instruction/response pairs) — repo. (<a href="https://github.com/databrickslabs/dolly" title="Databricks' Dolly, a large language model trained ...">GitHub</a>)</li>
-<li><strong>OpenAssistant OASST1</strong> (message-tree conversations with roles) — HF dataset card. (<a href="https://huggingface.co/datasets/OpenAssistant/oasst1" title="OpenAssistant/oasst1">Hugging Face</a>)</li>
-</ul></li>
-<li><p><strong>Preference / Feedback (RLHF &amp; DPO)</strong></p>
-<ul>
-<li><strong>HH-RLHF</strong> (Anthropic helpful/harmless, JSONL pairs: <code>chosen</code> vs <code>rejected</code>) — dataset repo readme. (<a href="https://github.com/anthropics/hh-rlhf" title="anthropics/hh-rlhf: Human preference data for &quot;Training a ...">GitHub</a>)</li>
-<li><strong>DPO format</strong> (prompt + preferred vs dispreferred response) — DPO paper. (<a href="https://arxiv.org/abs/2305.18290" title="Direct Preference Optimization: Your Language Model is ...">arXiv</a>)</li>
-</ul></li>
-<li><p><strong>Multimodal (for VLMs/ASR)</strong></p>
-<ul>
-<li><strong>LAION-5B / Re-LAION-5B</strong> (image–text pairs with CLIP scores; links) — LAION posts. (<a href="https://laion.ai/laion-5b-a-new-era-of-open-large-scale-multi-modal-datasets/" title="LAION-5B: A NEW ERA OF OPEN LARGE-SCALE MULTI ...">laion.ai</a>, <a href="https://laion.ai/blog/relaion-5b/" title="Releasing Re-LAION 5B: transparent iteration on ...">laion.ai</a>)</li>
-<li><strong>Whisper</strong> (weakly-supervised ASR; audio → text pairs) — paper &amp; blog. (<a href="https://arxiv.org/abs/2212.04356" title="[2212.04356] Robust Speech Recognition via Large-Scale ...">arXiv</a>, <a href="https://openai.com/index/whisper/" title="Introducing Whisper">OpenAI</a>)</li>
-<li><strong>HowTo100M</strong> (YouTube instructional video clips + narrations) — project page &amp; paper. (<a href="https://www.di.ens.fr/willow/research/howto100m/" title="HowTo100M">di.ens.fr</a>, <a href="https://arxiv.org/abs/1906.03327" title="HowTo100M: Learning a Text-Video Embedding by Watching Hundred Million Narrated Video Clips">arXiv</a>)</li>
-</ul></li>
-<li><p><strong>Math-reasoning (often for post-training/eval)</strong></p>
-<ul>
-<li><strong>GSM8K</strong> (grade-school word problems; JSON) — repo &amp; HF dataset card. (<a href="https://github.com/openai/grade-school-math" title="openai/grade-school-math">GitHub</a>, <a href="https://huggingface.co/datasets/openai/gsm8k/blob/main/README.md" title="README.md · openai/gsm8k at main">Hugging Face</a>)</li>
-<li><strong>MATH</strong> (competition problems with step-by-step solutions) — paper &amp; HF. (<a href="https://arxiv.org/abs/2103.03874" title="Measuring Mathematical Problem Solving With the MATH Dataset">arXiv</a>, <a href="https://huggingface.co/datasets/hendrycks/competition_math" title="hendrycks/competition_math · Datasets at Hugging Face">Hugging Face</a>)</li>
-</ul></li>
-<li><p><strong>Common storage containers</strong></p>
-<ul>
-<li><strong>JSON Lines / NDJSON</strong> — jsonlines.org; ndjson spec. (<a href="https://jsonlines.org/" title="JSON Lines">jsonlines.org</a>, <a href="https://github.com/ndjson/ndjson-spec" title="ndjson/ndjson-spec: Specification">GitHub</a>)</li>
-<li><strong>TFRecord</strong> — TensorFlow tutorial. (<a href="https://www.tensorflow.org/tutorials/load_data/tfrecord" title="TFRecord and tf.train.Example | TensorFlow Core">TensorFlow</a>)</li>
-<li><strong>Apache Parquet</strong> — project site. (<a href="https://parquet.apache.org/" title="Apache Parquet">Apache Parquet</a>)</li>
-</ul></li>
-</ul>
-<p>#todo check all refs</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ardila2019common" class="csl-entry" role="listitem">
+Ardila, Rosana, Megan Branson, Kelly Davis, Michael Henretty, Michael
+Kohler, Josh Meyer, Reuben Morais, Lindsay Saunders, Francis M Tyers,
+and Gregor Weber. 2019. <span>“Common Voice: A Massively-Multilingual
+Speech Corpus.”</span> <em>arXiv Preprint arXiv:1912.06670</em>.
+</div>
+<div id="ref-barocas_selbst_big_data_2016" class="csl-entry" role="listitem">
+Barocas, Solon, and Andrew D. Selbst. 2016. <span>“Big Data’s Disparate
+Impact.”</span> <em>California Law Review</em> 104 (3): 671–732.
+</div>
+<div id="ref-bender_stochastic_parrots_2021" class="csl-entry" role="listitem">
+Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret
+Shmitchell. 2021. <span>“On the Dangers of Stochastic Parrots: Can
+Language Models Be Too Big?”</span> In <em>Proceedings of the ACM
+Conference on Fairness, Accountability, and Transparency (FAccT)</em>,
+610–23.
+</div>
+<div id="ref-blodgett_language_2020" class="csl-entry" role="listitem">
+Blodgett, Su Lin, Solon Barocas, Hal Daumé III, and Hanna Wallach. 2020.
+<span>“Language (Technology) Is Power: A Critical Survey of
+<span>‘Bias’</span> in NLP.”</span> In <em>Proceedings of ACL</em>,
+5454–76.
+</div>
+<div id="ref-buolamwini_gender_shades_2018" class="csl-entry" role="listitem">
+Buolamwini, Joy, and Timnit Gebru. 2018. <span>“Gender Shades:
+Intersectional Accuracy Disparities in Commercial Gender
+Classification.”</span> In <em>Proceedings of the Conference on
+Fairness, Accountability and Transparency (FAT*)</em>, 77–91.
+</div>
+<div id="ref-carlini2024poisoningwebscaletrainingdatasets" class="csl-entry" role="listitem">
+Carlini, Nicholas, Matthew Jagielski, Christopher A. Choquette-Choo,
+Daniel Paleka, Will Pearce, Hyrum Anderson, Andreas Terzis, Kurt Thomas,
+and Florian Tramèr. 2024. <span>“Poisoning Web-Scale Training Datasets
+Is Practical.”</span> <a href="https://arxiv.org/abs/2302.10149">https://arxiv.org/abs/2302.10149</a>.
+</div>
+<div id="ref-carlini_secret_sharer_2019" class="csl-entry" role="listitem">
+Carlini, Nicholas, Chang Liu, Úlfar Erlingsson, Jernej Kos, and Dawn
+Song. 2019. <span>“The Secret Sharer: Measuring Unintended Memorization
+in Neural Networks.”</span> In <em>Proceedings of USENIX Security
+Symposium</em>.
+</div>
+<div id="ref-carlini_extracting_training_data_2021" class="csl-entry" role="listitem">
+Carlini, Nicholas, Florian Tramer, Eric Wallace, Matthew Jagielski,
+Ariel Herbert-Voss, Katherine Lee, Adam Roberts, et al. 2021.
+<span>“Extracting Training Data from Large Language Models.”</span> In
+<em>Proceedings of USENIX Security Symposium</em>.
+</div>
+<div id="ref-common_crawl_website" class="csl-entry" role="listitem">
+Common Crawl. 2022. <span>“Common Crawl — Web-Scale Data for
+Research.”</span> <a href="https://commoncrawl.org/" class="uri">https://commoncrawl.org/</a>.
+</div>
+<div id="ref-crawford_paglen_excavating_ai_2019" class="csl-entry" role="listitem">
+Crawford, Kate, and Trevor Paglen. 2019. <span>“Excavating AI: The
+Politics of Images in Machine Learning Training Sets.”</span> <a href="https://www.excavating.ai/" class="uri">https://www.excavating.ai/</a>.
+</div>
+<div id="ref-cc_ai_and_cc_2023" class="csl-entry" role="listitem">
+Creative Commons. 2023. <span>“Understanding CC Licenses and Generative
+AI.”</span> <a href="https://creativecommons.org/2023/08/18/understanding-cc-licenses-and-generative-ai/" class="uri">https://creativecommons.org/2023/08/18/understanding-cc-licenses-and-generative-ai/</a>.
+</div>
+<div id="ref-eu_gdpr_2016" class="csl-entry" role="listitem">
+European Union. 2016. <span>“General Data Protection Regulation (EU)
+2016/679.”</span> <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" class="uri">https://eur-lex.europa.eu/eli/reg/2016/679/oj</a>.
+</div>
+<div id="ref-eu_ai_act_2024" class="csl-entry" role="listitem">
+———. 2024. <span>“Artificial Intelligence Act.”</span> <a href="https://eur-lex.europa.eu/" class="uri">https://eur-lex.europa.eu/</a>.
+</div>
+<div id="ref-coppa_ftc_2013" class="csl-entry" role="listitem">
+Federal Trade Commission. 2013. <span>“Children’s Online Privacy
+Protection Rule (COPPA) — 16 CFR Part 312.”</span> <a href="https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa" class="uri">https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa</a>.
+</div>
+<div id="ref-gebru_datasheets_2018" class="csl-entry" role="listitem">
+Gebru, Timnit, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman
+Vaughan, Hanna Wallach, Hal Daumé III, and Kate Crawford. 2018.
+<span>“Datasheets for Datasets.”</span> In <em>arXiv:1803.09010</em>.
+</div>
+<div id="ref-grother_frvt_demographics_2019" class="csl-entry" role="listitem">
+Grother, Patrick, Mei Ngan, and Kayee Hanaoka. 2019. <span>“Face
+Recognition Vendor Test (FRVT) Part 3: Demographic Effects.”</span>
+NISTIR 8280. NIST. <a href="https://doi.org/10.6028/NIST.IR.8280">https://doi.org/10.6028/NIST.IR.8280</a>.
+</div>
+<div id="ref-holland2018datasetnutritionlabelframework" class="csl-entry" role="listitem">
+Holland, Sarah, Ahmed Hosny, Sarah Newman, Joshua Joseph, and Kasia
+Chmielinski. 2018. <span>“The Dataset Nutrition Label: A Framework to
+Drive Higher Data Quality Standards.”</span> <a href="https://arxiv.org/abs/1805.03677">https://arxiv.org/abs/1805.03677</a>.
+</div>
+<div id="ref-hubinger2024sleeperagentstrainingdeceptive" class="csl-entry" role="listitem">
+Hubinger, Evan, Carson Denison, Jesse Mu, Mike Lambert, Meg Tong, Monte
+MacDiarmid, Tamera Lanham, et al. 2024. <span>“Sleeper Agents: Training
+Deceptive LLMs That Persist Through Safety Training.”</span> <a href="https://arxiv.org/abs/2401.05566">https://arxiv.org/abs/2401.05566</a>.
+</div>
+<div id="ref-illinois_bipa_2008" class="csl-entry" role="listitem">
+Illinois General Assembly. 2008. <span>“Biometric Information Privacy
+Act (BIPA), 740 ILCS 14.”</span> <a href="https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004" class="uri">https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004</a>.
+</div>
+<div id="ref-iso_23894_2023" class="csl-entry" role="listitem">
+<em>ISO/IEC 23894:2023 Information Technology—Artificial
+Intelligence—Risk Management</em>. 2023. ISO/IEC.
+</div>
+<div id="ref-jackson_public_2024" class="csl-entry" role="listitem">
+Jackson, Brandon, B Cavello, Flynn Devine, Nick Garcia, Samuel J. Klein,
+Alex Krasodomski, Joshua Tan, and Eleanor Tursman. 2024. <span>“Public
+<span>AI</span>: <span>Infrastructure</span> for the <span>Common</span>
+<span>Good</span>.”</span> Public AI Network. <a href="https://doi.org/10.5281/zenodo.13914560">https://doi.org/10.5281/zenodo.13914560</a>.
+</div>
+<div id="ref-jo_gebru_archives_2020" class="csl-entry" role="listitem">
+Jo, Emily, and Timnit Gebru. 2020. <span>“Lessons from Archives:
+Strategies for Collecting Sociocultural Data in Machine
+Learning.”</span> In <em>Proceedings of FAccT</em>, 306–16.
+</div>
+<div id="ref-liu2025olmotrace" class="csl-entry" role="listitem">
+Liu, Jiacheng, Taylor Blanton, Yanai Elazar, Sewon Min, YenSung Chen,
+Arnavi Chheda-Kothary, Huy Tran, et al. 2025. <span>“OLMoTrace: Tracing
+Language Model Outputs Back to Trillions of Training Tokens.”</span>
+<em>arXiv Preprint arXiv:2504.07096</em>.
+</div>
+<div id="ref-nist_sp800_122_2010" class="csl-entry" role="listitem">
+McCallister, Erika, Tim Grance, and Karen Scarfone. 2010. <span>“Guide
+to Protecting the Confidentiality of Personally Identifiable Information
+(PII).”</span> SP 800-122. NIST.
+</div>
+<div id="ref-mitchell_model_cards_2019" class="csl-entry" role="listitem">
+Mitchell, Margaret, Simone Wu, Andrew Zaldivar, Parker Barnes, Lucy
+Vasserman, Ben Hutchinson, Elena Spitzer, Inioluwa Deborah Raji, and
+Timnit Gebru. 2019. <span>“Model Cards for Model Reporting.”</span> In
+<em>Proceedings of the ACM Conference on Fairness, Accountability, and
+Transparency (FAccT)</em>, 220–29.
+</div>
+<div id="ref-narayanan_shmatikov_2008" class="csl-entry" role="listitem">
+Narayanan, Arvind, and Vitaly Shmatikov. 2008. <span>“Robust
+de-Anonymization of Large Sparse Datasets.”</span> In <em>Proceedings of
+the IEEE Symposium on Security and Privacy</em>, 111–25.
+</div>
+<div id="ref-nissenbaum_contextual_integrity_2004" class="csl-entry" role="listitem">
+Nissenbaum, Helen. 2004. <span>“Privacy as Contextual Integrity.”</span>
+<em>Washington Law Review</em> 79 (1): 119–57.
+</div>
+<div id="ref-nist_ai_rmf_2023" class="csl-entry" role="listitem">
+NIST. 2023. <span>“Artificial Intelligence Risk Management Framework (AI
+RMF 1.0).”</span> NIST AI 100-1. National Institute of Standards;
+Technology; <a href="https://www.nist.gov/ai" class="uri">https://www.nist.gov/ai</a>.
+</div>
+<div id="ref-obermeyer_bias_health_2019" class="csl-entry" role="listitem">
+Obermeyer, Ziad, Brian Powers, Christine Vogeli, and Sendhil
+Mullainathan. 2019. <span>“Dissecting Racial Bias in an Algorithm Used
+to Manage the Health of Populations.”</span> <em>Science</em> 366
+(6464): 447–53.
+</div>
+<div id="ref-owasp_llm_top10_2023" class="csl-entry" role="listitem">
+OWASP. 2023. <span>“OWASP Top 10 for Large Language Model
+Applications.”</span> <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" class="uri">https://owasp.org/www-project-top-10-for-large-language-model-applications/</a>.
+</div>
+<div id="ref-rakova2023terms" class="csl-entry" role="listitem">
+Rakova, Bogdana, Renee Shelby, and Megan Ma. 2023.
+<span>“Terms-We-Serve-with: Five Dimensions for Anticipating and
+Repairing Algorithmic Harm.”</span> <em>Big Data &amp; Society</em> 10
+(2): 20539517231211553.
+</div>
+<div id="ref-rosenbach_v_six_flags_2019" class="csl-entry" role="listitem">
+<span>“Rosenbach v. Six Flags Entertainment Corp.”</span> 2019. 2019 IL
+123186, Supreme Court of Illinois.
+</div>
+<div id="ref-schuhmann_laion5b_2022" class="csl-entry" role="listitem">
+Schuhmann, Christoph, Romain Beaumont, Richard Vencu, Cade Gordon, Ross
+Wightman, Mehdi Cherti, Theo Coombes, et al. 2022.
+<span>“<span>LAION</span>-5B: An Open Large-Scale Dataset for Training
+Next <span>CLIP</span> Models.”</span> In <em>Proceedings of NeurIPS
+Datasets and Benchmarks</em>.
+</div>
+<div id="ref-selbst_fairness_abstraction_2019" class="csl-entry" role="listitem">
+Selbst, Andrew D., Danah Boyd, Suresh Venkatasubramanian Friedler,
+Suresh Venkatasubramanian, and Janet Vertesi. 2019. <span>“Fairness and
+Abstraction in Sociotechnical Systems.”</span> In <em>Proceedings of the
+ACM Conference on Fairness, Accountability, and Transparency
+(FAccT)</em>, 59–68.
+</div>
+<div id="ref-shelby" class="csl-entry" role="listitem">
+Shelby, Renee, Shalaleh Rismani, Kathryn Henne, AJung Moon, Negar
+Rostamzadeh, Paul Nicholas, N’Mah Yilla-Akbari, et al. 2023.
+<span>“Sociotechnical Harms of Algorithmic Systems: Scoping a Taxonomy
+for Harm Reduction.”</span> In <em>Proceedings of the 2023 AAAI/ACM
+Conference on AI, Ethics, and Society</em>, 723–41. AIES ’23. New York,
+NY, USA: Association for Computing Machinery. <a href="https://doi.org/10.1145/3600211.3604673">https://doi.org/10.1145/3600211.3604673</a>.
+</div>
+<div id="ref-sweeney_reidentification_2000" class="csl-entry" role="listitem">
+Sweeney, Latanya. 2000. <span>“Simple Demographics Often Identify People
+Uniquely.”</span> <em>Carnegie Mellon University, Data Privacy Working
+Paper</em>.
+</div>
+<div id="ref-us_copyright_office_ai_2024" class="csl-entry" role="listitem">
+U.S. Copyright Office. 2024. <span>“Copyright and Artificial
+Intelligence: Policy Studies and Guidance.”</span> <a href="https://copyright.gov/ai/" class="uri">https://copyright.gov/ai/</a>.
+</div>
+<div id="ref-ferpa_ed_1974" class="csl-entry" role="listitem">
+U.S. Department of Education. 1974. <span>“Family Educational Rights and
+Privacy Act (FERPA).”</span> <a href="https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html" class="uri">https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html</a>.
+</div>
+<div id="ref-hipaa_privacy_rule_2000" class="csl-entry" role="listitem">
+U.S. Department of Health and Human Services. 2000. <span>“HIPAA Privacy
+Rule — 45 CFR Parts 160 and 164.”</span> <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/index.html" class="uri">https://www.hhs.gov/hipaa/for-professionals/privacy/index.html</a>.
+</div>
+<div id="ref-weidinger_risks_2021" class="csl-entry" role="listitem">
+Weidinger, Laura, John Mellor, et al. 2021. <span>“Ethical and Social
+Risks of Harm from Language Models.”</span> <em>arXiv Preprint
+arXiv:2112.04359</em>.
+</div>
+</div>
 
 
 
@@ -716,13 +872,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link  aria-label=" references"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="./2b_data_policy.html" class="pagination-link  aria-label=" &lt;span="" flow="" and="" data="" retention&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix2_prefsig.html" class="pagination-link" aria-label="<span class='chapter-number'>11</span>&nbsp; <span class='chapter-title'>Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span>">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./appendix1_llm_data.html" class="pagination-link" aria-label="<span class='chapter-number'>10</span>&nbsp; <span class='chapter-title'>Appendix 1: LLM Data Schemas</span>">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Flywheels and Public AI - 4&nbsp; Flywheels and Markets</title>
+<title>Data Flywheels and Public AI - 7&nbsp; Upstream data and data contribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04_options_for_flywheel.html" rel="next">
-<link href="./01c_pipeworks.html" rel="prev">
+<link href="./2a_mvp.html" rel="next">
+<link href="./01f_ethics_compliance.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Intro</a></li><li class="breadcrumb-item"><a href="./03_leverage.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts</a></li><li class="breadcrumb-item"><a href="./01z_upstream.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Upstream data and data contribution</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -115,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Intro</span></a>
+ <span class="menu-text">Concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -129,26 +149,38 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01b_what_data_and_why.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What data and why</span></span></a>
+  <a href="./01b_why.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why collect data?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01c_pipeworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Data Pipeworks: From Human Knowledge to Deployed AI (and Back Again)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Democratic Data Pipeworks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_leverage.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></span></a>
+  <a href="./01d_leverage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Bargaining Power</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_options_for_flywheel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rationale (and other options for flywheel variants)</span></span></a>
+  <a href="./01e_options_for_flywheel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Flywheel design space</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01f_ethics_compliance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Ethics and Compliance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01z_upstream.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Upstream data and data contribution</span></span></a>
   </div>
 </li>
       </ul>
@@ -156,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">A Worked Example: MVP Flywheel</span></a>
+ <span class="menu-text">Case Study: Low friction peer production as a flywheel</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -164,18 +196,24 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_mvp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
+  <a href="./2a_mvp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
+  <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -188,19 +226,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
   </div>
 </li>
       </ul>
@@ -215,20 +253,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-an-opt-in-flywheel-enables-markets" id="toc-how-an-opt-in-flywheel-enables-markets" class="nav-link active" data-scroll-target="#how-an-opt-in-flywheel-enables-markets"><span class="header-section-number">4.1</span> How an opt-in flywheel enables markets</a></li>
-  <li><a href="#how-an-opt-in-flywheel-enables-strikes-or-credible-refusals" id="toc-how-an-opt-in-flywheel-enables-strikes-or-credible-refusals" class="nav-link" data-scroll-target="#how-an-opt-in-flywheel-enables-strikes-or-credible-refusals"><span class="header-section-number">4.2</span> How an opt-in flywheel enables strikes (or credible refusals)</a></li>
-  <li><a href="#preconditions-the-flywheel-must-provide" id="toc-preconditions-the-flywheel-must-provide" class="nav-link" data-scroll-target="#preconditions-the-flywheel-must-provide"><span class="header-section-number">4.3</span> Preconditions the flywheel must provide</a></li>
-  <li><a href="#limits-and-failure-modes-to-plan-for" id="toc-limits-and-failure-modes-to-plan-for" class="nav-link" data-scroll-target="#limits-and-failure-modes-to-plan-for"><span class="header-section-number">4.4</span> Limits and failure modes to plan for</a></li>
-  <li><a href="#a-practical-path-from-mvp-to-markets-and-optional-strikes" id="toc-a-practical-path-from-mvp-to-markets-and-optional-strikes" class="nav-link" data-scroll-target="#a-practical-path-from-mvp-to-markets-and-optional-strikes"><span class="header-section-number">4.5</span> A practical path from MVP to markets (and optional strikes)</a></li>
+  <li><a href="#ai-builder-attribution" id="toc-ai-builder-attribution" class="nav-link active" data-scroll-target="#ai-builder-attribution"><span class="header-section-number">7.0.1</span> AI builder attribution</a></li>
+  <li><a href="#data-attribution" id="toc-data-attribution" class="nav-link" data-scroll-target="#data-attribution"><span class="header-section-number">7.0.2</span> Data attribution</a></li>
+  <li><a href="#why-does-upstream-matter" id="toc-why-does-upstream-matter" class="nav-link" data-scroll-target="#why-does-upstream-matter"><span class="header-section-number">7.1</span> Why does upstream matter?</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">7.2</span> Further reading:</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Intro</a></li><li class="breadcrumb-item"><a href="./03_leverage.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts</a></li><li class="breadcrumb-item"><a href="./01z_upstream.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Upstream data and data contribution</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Upstream data and data contribution</span></h1>
 </div>
 
 
@@ -245,89 +282,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<blockquote class="blockquote">
-<p>Key insight: Beyond improving public AI systems, getting public AI data flywheels right can make it easier for people to use data flow as a lever for governance and alignment.</p>
-</blockquote>
-<p>Based on our previous chapter about “what data and why”, we can arrive at a very obvious argument for a data flywheel: the flyhweel will produce data, and that data will make AI better!</p>
-<p>But this isn’t the only benefit of getting building flywheels in a “public AI” manner. Doing so can also enhance the amount of agency that people have over data flow, and “making with data” possible such that the public has more power to govern and align AI systems.</p>
-<p>In short, AI is somewhat unique relative to other technologies, because of its data dependence. Data comes from people. The fact that this powerful technology has a dependency on people from around the world means that AI has a natural “governance lever”.</p>
-<p>Setting up a public AI data flywheel is thus important not only to make AI better; it also has the potential to solve some (but not all!) of the thorny governance and alignment challenges that AI poses.</p>
-<p>You can read about data leverage via a <a href="https://dataleverage.substack.com/">newsletter</a> or even via a <a href="https://arch.library.northwestern.edu/concern/generic_works/jq085k38d?locale=en">dissertation</a>. For a short summary, check out <a href="https://dataleverage.substack.com/p/measuring-relative-ai-alignment-in-terms-of-data-pipelines">Plural AI Data Alignment</a>.</p>
-<p>It’s worth pulling out two distinct ways that flywheel can interact with AI and governance</p>
-<p>It’s worth pulling out two distinct ways that a flywheel can interact with AI and governance:</p>
+<p>Data flywheels / contribution pathways are one part of the broader “data strategy” for an AI product or organization. Another key factor is telling users about upstream data. Typically, the terms of service for an application or flywheel try to tell users where the data will go; but it can also be useful to tell users about where the data/AI come from.</p>
+<section id="ai-builder-attribution" class="level3" data-number="7.0.1">
+<h3 data-number="7.0.1" class="anchored" data-anchor-id="ai-builder-attribution"><span class="header-section-number">7.0.1</span> AI builder attribution</h3>
+<p>At a high-level: in each interaction between users and a public AI system, we want to attribute the organization who did the hard work of prepping a model.</p>
 <ul>
-<li><p>A thin flywheel, with no attempt to capture creator intent, licensing, or data rights, simply increases available data. It may make public models a bit better and keep public labs competitive at the margins, but it does not change the bargaining relationship between contributors and model builders.</p></li>
-<li><p>A governed, opt-in flywheel captures provenance, per-item license and AI-use preferences, contributor identity or pseudonym, and release discipline. This converts contributions into addressable units that can be assembled, priced, withheld, or targeted—opening the door to markets and, if necessary, strikes.</p></li>
-</ul>
-<section id="how-an-opt-in-flywheel-enables-markets" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="how-an-opt-in-flywheel-enables-markets"><span class="header-section-number">4.1</span> How an opt-in flywheel enables markets</h2>
-<p>An opt-in flywheel can create the prerequisites for functioning data markets without turning the project into “just a marketplace.”</p>
-<ol type="1">
-<li><p>Units and provenance Each contribution is a unit with provenance, license, usage preferences, minimal schema, and (optionally) reputation of a contributor or collective. That makes it legible enough to transact on.</p></li>
-<li><p>Permissioning and packaging By establishing practices around setting use requirements (e.g., “eval-only”, “train-allowed-if-model-is-open”), it is possible to either (1) provide nicely packaged releases (monthly, by topic/language/domain) of data (data user is paying for premium like Wikimedia Enterprise) or (2) collectively move from sending data to an open repo to a gated repo managed by a market agent.</p></li>
-<li><p>Discovery and price signals Leaderboards, scarcity tags (rare language/domain), and quality scores effectively begin to generate price signals. A bounty board (“need 5k labeled failures in X”) converts demand into targeted supply. In this sense, bounty boards for OSS also enable market dynamics around outputs that are eventually made public with license restrictions.</p></li>
-<li><p>Clearing and settlement Because contributions are opt-in and addressable, enterprise-style payouts can be routed to individuals or collectives, with rules like “70% to contributors pro-rata by weight; 30% to the commons.”</p></li>
-<li><p>Collectives as market actors Co-ops/unions/DAOs can represent contributors, negotiate bundle terms, run audits, and set default preferences. The flywheel provides the shared ledger and release cadence that markets need.</p></li>
-</ol>
-<p>Note: a key idea here is that it’s possible to enable market activity while keeping the data open-but-gated-and-restricted or by using the flywheel as a stepping stone towards a more “property-like” market.</p>
-</section>
-<section id="how-an-opt-in-flywheel-enables-strikes-or-credible-refusals" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="how-an-opt-in-flywheel-enables-strikes-or-credible-refusals"><span class="header-section-number">4.2</span> How an opt-in flywheel enables strikes (or credible refusals)</h2>
-<p>“Strike” here means a coordinated, temporary withdrawal or constraint on new high-signal contributions or releases—not sabotage, and not retroactive deletion of already-licensed copies.</p>
-<p>What makes strikes possible:</p>
-<ul>
-<li>Voluntariness is preserved. Because contribution is opt-in, non-participation is a legitimate default.</li>
-<li>Release control. A waiting-room, processing, release pipeline provides a natural “valve” for cadence changes or strikes.</li>
-<li>Shared visibility. Everyone sees dependence on fresh contributions (e.g., evaluation drift). Visibility creates leverage.</li>
-</ul>
-<p>What a strike can look like:</p>
-<ul>
-<li>Quality freeze. Contributors keep using systems but withhold labeled “good/fail” chats or corrections for a period.</li>
-<li>Selective embargo. A community with scarce data (language/domain) pauses releases or flips new records to “evaluation-only.”</li>
-<li>Preference shift. New contributions change AI-use preferences to deny training unless a stated condition is met (funding, governance, attribution).</li>
-<li>Rate limit. Collectives cap monthly volume to force negotiations on price or terms.</li>
-</ul>
-<p>What a strike cannot do (and shouldn’t promise):</p>
-<ul>
-<li>Undo past licenses. Items released under irrevocable terms (e.g., CC0, CC-BY) remain available.</li>
-<li>Prevent copying entirely. Public releases can be mirrored; anti-scraping reduces risk but does not eliminate it.</li>
-<li>Guarantee compliance outside the ecosystem. Preference signals work when counterparties agree to honor them or when law/policy backs them.</li>
-</ul>
-<p>Net effect: strikes are most effective where freshness and scarcity matter (evaluations, rapidly changing domains, rare languages), and least effective where substitutes or synthetic data can plausibly fill gaps.</p>
-</section>
-<section id="preconditions-the-flywheel-must-provide" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="preconditions-the-flywheel-must-provide"><span class="header-section-number">4.3</span> Preconditions the flywheel must provide</h2>
-<ul>
-<li>Clear, per-item license and AI-use preference capture and propagation</li>
-<li>Auditable provenance and contributor linkage (including pseudonyms)</li>
-<li>Release discipline (cadence, versioning, checksums) and the ability to pause cadence</li>
-<li>A shared metrics surface showing demand, scarcity, and impact</li>
-<li>Collective controls: settings a group can change together (defaults, embargo toggles)</li>
-<li>Payment rails or grant accounting tied to releases, not pageviews</li>
+<li>The custom text, branding, etc. can be org specific. Make sure all model builders are happy. Can even highlight other interfaces/endpoints, something private AI would never do.</li>
+<li>Important to get this right so that model developers don’t “back out” of the inference MVP and just switch to their own sovereign interfaces</li>
 </ul>
 </section>
-<section id="limits-and-failure-modes-to-plan-for" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="limits-and-failure-modes-to-plan-for"><span class="header-section-number">4.4</span> Limits and failure modes to plan for</h2>
-<ul>
-<li>Irrevocability vs.&nbsp;agency. If the goal is strike leverage, discourage CC0 for scarce data; offer eval-only or time-boxed terms.</li>
-<li>Leakage. Plan for mirrors; design incentives that make compliance more attractive than defection.</li>
-<li>Substitution. Some domains can be synthetically approximated; focus markets/strikes where real-world records are hard to fake.</li>
-<li>Coordination overhead. Without lightweight collective tools, only well-organized groups can act.</li>
-<li>Legal and policy constraints. Collective bargaining around data may raise jurisdiction-specific questions; stay within applicable law.</li>
-</ul>
+<section id="data-attribution" class="level3" data-number="7.0.2">
+<h3 data-number="7.0.2" class="anchored" data-anchor-id="data-attribution"><span class="header-section-number">7.0.2</span> Data attribution</h3>
+<p>Another way that public AI platforms can differentiate themselves from private AI is by heavily emphasizing data attribution. This might involve showing users data cards, incorporating features like OlmoTrace <span class="citation" data-cites="liu2025olmotrace">(<a href="references.html#ref-liu2025olmotrace" role="doc-biblioref">Liu et al. 2025</a>)</span>, etc.</p>
 </section>
-<section id="a-practical-path-from-mvp-to-markets-and-optional-strikes" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="a-practical-path-from-mvp-to-markets-and-optional-strikes"><span class="header-section-number">4.5</span> A practical path from MVP to markets (and optional strikes)</h2>
-<ul>
-<li>v0: Opt-in contributions with per-item license and AI-preference signals; public/gated releases.</li>
-<li>v1: Contributor dashboards, scarcity/impact badges, and a bounty board.</li>
-<li>v2: Collective accounts that can set defaults, pool payouts, and flip embargo/quality-freeze toggles.</li>
-<li>v3: Formal procurement: RFPs for datasets/evals with escrowed funds and delivery criteria. This might mean some collectives STOP pushing to the public repo.</li>
-<li>v4: Policy hooks: standardized terms that institutions can adopt; preference signals integrated in provider contracts.</li>
-<li>v5: Federation: multiple flywheels interoperate on releases and preferences, raising both market depth and strike credibility.</li>
-</ul>
+<section id="why-does-upstream-matter" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="why-does-upstream-matter"><span class="header-section-number">7.1</span> Why does upstream matter?</h2>
+<p>Telling users about upstream data is a key part of system-wide transparency. Transparency on both fronts (model builders, data) has the potential to provide further incentive to users to provide data in the first place (because, e.g., they specifically want to support one of the organizations providing models or data).</p>
+<p>There are a number of other exciting conncetions between data valuation/attribution, collective action in data (algorithmic collective action, data leverage), and flywheels.</p>
+</section>
+<section id="further-reading" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">7.2</span> Further reading:</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-liu2025olmotrace" class="csl-entry" role="listitem">
+Liu, Jiacheng, Taylor Blanton, Yanai Elazar, Sewon Min, YenSung Chen, Arnavi Chheda-Kothary, Huy Tran, et al. 2025. <span>“OLMoTrace: Tracing Language Model Outputs Back to Trillions of Training Tokens.”</span> <em>arXiv Preprint arXiv:2504.07096</em>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -720,13 +701,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01c_pipeworks.html" class="pagination-link  aria-label=" &lt;span="" data="" pipeworks:="" from="" human="" knowledge="" to="" deployed="" ai="" (and="" back="" again)&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Data Pipeworks: From Human Knowledge to Deployed AI (and Back Again)</span></span>
+      <a href="./01f_ethics_compliance.html" class="pagination-link  aria-label=" &lt;span="" and="" compliance&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Ethics and Compliance</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04_options_for_flywheel.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Rationale (and other options for flywheel variants)</span>">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rationale (and other options for flywheel variants)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./2a_mvp.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>The Serverless + Git MVP</span>">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

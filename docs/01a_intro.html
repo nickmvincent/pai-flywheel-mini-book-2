@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,7 +50,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01b_what_data_and_why.html" rel="next">
+<link href="./01b_why.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -81,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Intro</a></li><li class="breadcrumb-item"><a href="./01a_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts</a></li><li class="breadcrumb-item"><a href="./01a_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -115,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Intro</span></a>
+ <span class="menu-text">Concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -129,26 +149,38 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01b_what_data_and_why.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What data and why</span></span></a>
+  <a href="./01b_why.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why collect data?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01c_pipeworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Data Pipeworks: From Human Knowledge to Deployed AI (and Back Again)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Democratic Data Pipeworks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_leverage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Markets</span></span></a>
+  <a href="./01d_leverage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flywheels and Bargaining Power</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_options_for_flywheel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rationale (and other options for flywheel variants)</span></span></a>
+  <a href="./01e_options_for_flywheel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Flywheel design space</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01f_ethics_compliance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Ethics and Compliance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01z_upstream.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Upstream data and data contribution</span></span></a>
   </div>
 </li>
       </ul>
@@ -156,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">A Worked Example: MVP Flywheel</span></a>
+ <span class="menu-text">Case Study: Low friction peer production as a flywheel</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -164,18 +196,24 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_mvp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
+  <a href="./2a_mvp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
+  <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -188,19 +226,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
   </div>
 </li>
       </ul>
@@ -224,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Intro</a></li><li class="breadcrumb-item"><a href="./01a_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts</a></li><li class="breadcrumb-item"><a href="./01a_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
 </div>
@@ -245,30 +283,31 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="what-is-a-data-flywheel" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="what-is-a-data-flywheel"><span class="header-section-number">1.1</span> What is a data flywheel?</h2>
-<p>What is a data flywheel? Nvidia gives us <a href="https://www.nvidia.com/en-sg/glossary/data-flywheel/">this</a> definition: “A data flywheel is a feedback loop where data collected from interactions or processes is used to continuously refine AI models.” Others have also written on data flywheels (see e.g.&nbsp;a number of helpful blogs from <a href="https://snowplow.io/blog/what-is-a-data-flywheel">Roche and Sasson</a>, <a href="https://jxnl.co/writing/2024/03/28/data-flywheel/">Liu</a> and <a href="https://www.tecton.ai/blog/managing-the-flywheel-of-machine-learning-data/">Del Balso</a>.</p>
-<p>In general, a “data flywheel” is a system or set of systems that capture and/or incentive data. A “flywheel” generally differs from a more general data collection or data creation system because the flywheel is embedded into some kind of application (as opposed to e.g.&nbsp;“standalone” data labeling tasks).</p>
-<p>Generally, most data collection systems lean more towards using “sensors” (passive, instruments, no active “submit data” step) or forms (active, requiring somebody to click “submit”). Flywheels tend to be lean passive, but this is not necessarily a requirement.</p>
-<blockquote class="blockquote">
-<p>For some further thoughts on sensors and forms, see this <a href="dataleverage.substack.com/p/building-a-data-pipeworks-for-democratic.">post</a></p>
-</blockquote>
+<p>What is a data flywheel? Nvidia gives us <a href="https://www.nvidia.com/en-sg/glossary/data-flywheel/">this</a> definition: “A data flywheel is a feedback loop where data collected from interactions or processes is used to continuously refine AI models.” <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>In general, a “data flywheel” is a system or set of systems that capture and/or incentivize data. A “flywheel” generally differs from a more general data collection system because the flywheel is embedded into some kind of application (as opposed to e.g.&nbsp;“standalone” data labeling tasks). So, if I just post a Google form to the Internet and say, “Hey, feel free to use this form to send me data!”, that’s just a form – not a “flywheel”.</p>
+<p>Generally, most data collection systems lean more towards utilizing “sensor-style collection” (passive, instruments like cameras, microphones, logging, no active “submit data” step) or “form-style collection” (active, requiring somebody to click “submit”).</p>
+<p>Historically, flywheels tend to imply a passive approach to data collection, but this is not necessarily a requirement. (More on this in a <a href="01c_pipeworks.html" class="quarto-xref"><span>Chapter 3</span></a>, which summarizes this <a href="dataleverage.substack.com/p/building-a-data-pipeworks-for-democratic">post</a>).</p>
 </section>
 <section id="what-is-a-public-ai-data-flywheel" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="what-is-a-public-ai-data-flywheel"><span class="header-section-number">1.2</span> What is a public AI data flywheel?</h2>
-<p>First, what is “public AI”? The public AI network gives us <a href="https://publicai.network/whitepaper/">this</a>: AI with</p>
+<p>First, what is “public AI”? The public AI network gives us this definition in a whitepaper from <span class="citation" data-cites="jackson_public_2024">(<a href="references.html#ref-jackson_public_2024" role="doc-biblioref">Jackson et al. 2024</a>)</span>: AI with</p>
 <blockquote class="blockquote">
 <p>“Public Access – Certain capabilities are so important for participation in public life that access to them should be universal. Public AI provides affordable access to these tools so that everyone can realize their potential.” “Public Accountability – Public AI earns trust by ensuring ultimate control of development rests with the public, giving everyone a chance to participate in shaping the future.” “Permanent Public Goods – Public AI is funded and operated in a way to maintain the public goods it produces permanently, enabling innovators to safely build on a firm foundation.”</p>
 </blockquote>
 <p>For more on the public AI concept, see also Mozilla’s <a href="https://www.mozillafoundation.org/en/research/library/public-ai/">work</a> in this space and several workshop papers and preprints (from <a href="https://arxiv.org/abs/2507.09296">RegML 2023</a> at NeurIPS, <a href="https://arxiv.org/abs/2311.11350">CodeML 2025</a> at ICML, a recent <a href="https://www.nickmvincent.com/static/canada_publicai.pdf">workshop</a> on Canadian Internet Policy).</p>
-<p>Our focus in this mini-book is building “public AI” flywheels. To summarize heavily – in trying to achieve all the principles laid out in the above work that tries to define “public AI”, those building public AI flywheel will face some unique challenges in the implementation of data flywheels; they may not be able to do what private orgs can do.</p>
-<p>In building public AI data flywheels, we are trying to create a feedback loop to improve AI. However, we likely want to start from a position of accessibility (including providing an accessible explanation of exactly what happens to any data a user creates) and accountability (so people have real agency over the shape of the data pipeline).</p>
-<p>Of course, it’s worth noting that some particular public could deliberate and make a collective decision that they prefer a more “traditional approach” to data. In this mini-book, we are taking the stance that it’s best to start from a position of leaning heavily towards an opt-in approach. We start by minimizing usage and retention of data; data that is used in the flywheel to train AI should be provided via an opt-in by highly informed users.</p>
+<p>Our focus in this mini-book is building “public AI” flywheels. To summarize heavily – if we try to achieve all the principles laid out in the above work that tries to define “public AI” (and we should try!), we will face some unique challenges in the implementation of data flywheels.</p>
+<p>In building public AI data flywheels, we are trying to create a feedback loop to improve AI by creating/collecting high-quality data (more on this in <a href="01b_why.html" class="quarto-xref"><span>Chapter 2</span></a>). However, the public AI principles mean that we likely want to start from a position of very high accessibility (including providing an accessible explanation of exactly what happens to any data a user creates) and very high accountability (so people have real agency over the shape of the data pipeline) relative to other technology organizations and products. And ideally, as many components of our stack should get as close as possible to acting as public goods, which creates challenging around sustaining effort and funding.</p>
+<p>Of course, it’s worth noting that some particular public could deliberate and make a collective decision that they prefer a more “traditional approach” to data flywheel. Very concretely, we could imagine a state conducting a referendum, and asking the public if they’d like the official “public AI” product to follow industry standard practices around data.</p>
+<p>In this mini-book, we are taking the stance that it’s best to start from a position of leaning heavily towards an opt-in approach. We start by minimizing usage and retention of data; data that is used in the flywheel to train AI should be provided via an opt-in by highly informed users.</p>
 </section>
 <section id="core-principles" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="core-principles"><span class="header-section-number">1.3</span> Core Principles</h2>
 <p>We can translate the core principles of public AI to the data flywheel domain and arrive at roughly four requirements:</p>
 <ul>
-<li><p>Transparency for Informed Consent: Users must be fully informed about the model, its developer, and the ramifications of their contribution. A detailed FAQ and a clear consent module are required before any data is shared. To some extent, maximally informed consent will require the active expenditure of resoures to improve the public’s AI literary (i.e.&nbsp;we need to build AI literacy focused systems and perhaps even pay people for their attention). We need systems that really do inform people. Luckily, that’s something it seems like AI can help with!</p></li>
-<li><p>Data Rights: A public AI data flywheel must empower users with control over their data, mirroring GDPR principles and similar regulations (this is also practically important for compliance). This includes the right to access (<code>$Art. 15$</code>), rectify (<code>$Art. 16$</code>), erase (<code>$Art. 17$</code>), and port their data (<code>$Art. 20$</code>). Key exemplar: <a href="https://commonvoice.mozilla.org/">Mozilla Common Voice</a>).</p>
+<li>Transparency for informed consent: Users must be fully informed about the models at play, the model developers, and the ramifications of their contribution. Ideally, users will also be informed about training data. A detailed FAQ and some kind of consent module (ideally going above and beyond standard Terms of Service<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>) are required before any data is shared. To some extent, maximally informed consent will require the active expenditure of resoures to improve the public’s AI literary (i.e.&nbsp;we need to build AI literacy focused systems and perhaps even pay people for their attention). We need systems that really do inform people. Luckily, that’s something it seems like AI can help with!</li>
+</ul>
+<ul>
+<li><p>Data Rights: A public AI data flywheel must empower users with control over their data, mirroring GDPR principles and similar regulations (this is also practically important for compliance). This includes the right to access (<code>$Art. 15$</code>), rectify (<code>$Art. 16$</code>), erase (<code>$Art. 17$</code>), and port their data (<code>$Art. 20$</code>). Key exemplar: Mozilla Common Voice (with <a href="https://commonvoice.mozilla.org/">website</a> and paper <span class="citation" data-cites="ardila2019common">(<a href="references.html#ref-ardila2019common" role="doc-biblioref">Ardila et al. 2019</a>)</span>).</p>
 <ul>
 <li>We note that data rights sometimes conflict with a “fully open” ethos; we will attempt to mitigate these tensions to the best extent possible!</li>
 <li>We also note that public AI faces some unique challenges with cross-jurisdiction compliance; we discuss this at a high-level later on. #todo link exact section</li>
@@ -284,6 +323,24 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-ardila2019common" class="csl-entry" role="listitem">
+Ardila, Rosana, Megan Branson, Kelly Davis, Michael Henretty, Michael Kohler, Josh Meyer, Reuben Morais, Lindsay Saunders, Francis M Tyers, and Gregor Weber. 2019. <span>“Common Voice: A Massively-Multilingual Speech Corpus.”</span> <em>arXiv Preprint arXiv:1912.06670</em>.
+</div>
+<div id="ref-jackson_public_2024" class="csl-entry" role="listitem">
+Jackson, Brandon, B Cavello, Flynn Devine, Nick Garcia, Samuel J. Klein, Alex Krasodomski, Joshua Tan, and Eleanor Tursman. 2024. <span>“Public <span>AI</span>: <span>Infrastructure</span> for the <span>Common</span> <span>Good</span>.”</span> Public AI Network. <a href="https://doi.org/10.5281/zenodo.13914560">https://doi.org/10.5281/zenodo.13914560</a>.
+</div>
+<div id="ref-rakova2023terms" class="csl-entry" role="listitem">
+Rakova, Bogdana, Renee Shelby, and Megan Ma. 2023. <span>“Terms-We-Serve-with: Five Dimensions for Anticipating and Repairing Algorithmic Harm.”</span> <em>Big Data &amp; Society</em> 10 (2): 20539517231211553.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Others have also written on data flywheels (see e.g.&nbsp;a number of helpful blogs from <a href="https://jxnl.co/writing/2024/03/28/data-flywheel/">Liu</a>, <a href="https://snowplow.io/blog/what-is-a-data-flywheel">Roche and Sasson</a>, and <a href="https://www.tecton.ai/blog/managing-the-flywheel-of-machine-learning-data/">Del Balso</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>See e.g.&nbsp;Terms we serve with. <span class="citation" data-cites="rakova2023terms">(<a href="references.html#ref-rakova2023terms" role="doc-biblioref">Rakova, Shelby, and Ma 2023</a>)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -681,8 +738,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01b_what_data_and_why.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>What data and why</span>">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What data and why</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01b_why.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Why collect data?</span>">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why collect data?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
