@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts</a></li><li class="breadcrumb-item"><a href="./01b_why.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why collect data?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts &amp; Rationale</a></li><li class="breadcrumb-item"><a href="./01b_why.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why collect data?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -144,7 +144,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Concepts</span></a>
+ <span class="menu-text">Concepts &amp; Rationale</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -197,7 +197,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Case Study: Low friction peer production as a flywheel</span></a>
+ <span class="menu-text">Case Study: Low friction peer production</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -212,7 +212,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opt-in Flywheel Data Policy</span></span></a>
   </div>
 </li>
       </ul>
@@ -269,7 +269,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts</a></li><li class="breadcrumb-item"><a href="./01b_why.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why collect data?</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts &amp; Rationale</a></li><li class="breadcrumb-item"><a href="./01b_why.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why collect data?</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-why" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why collect data?</span></span></h1>
 </div>
@@ -294,18 +294,18 @@ window.Quarto = {
 <p>If we want to build a data flywheel, it is probably useful to first specifiy why we want more data! This in turn can help us identify what types of data we want.</p>
 <p>At its core, “data” is useful for AI (and for other things!) because it provides information about the world.</p>
 <p>In general, it is intuitive that having more information will (generally) lead to better decision-making. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Although there some scenarios we might come across (or invent) where getting acquiring information is not helpful – because we might not have “room” in our memory for more data, or some records might not help us at a certain task, or data causes our model to get worse in some sense – most people benefit from having more records of high-quality observations and signals.</p>
-<p>So let’s put these more complicated cases aside for now, and make the assumption: in expectation, acquiring more high-quality data (that is “accurate”, or reflects “insight”) is useful. Oftentimes assessing data’s quality, or its truthiness, or its insightfulness, is not at all easy! With this assumption in mind (and hearty caution about the thorniness of truth and insight), we can speak generally about the types of data we might acquire through a flywheel how it will be useful.</p>
+<p>So let’s put these more complicated cases aside for now, and make the assumption: in expectation, acquiring more high-quality data (that is “accurate”, or reflects “insight”) is useful. Oftentimes assessing data’s quality, or its truthiness, or its insightfulness, is not at all easy! With this assumption in mind (and hearty caution about the thorniness of truth and insight), we can speak generally about the types of data we might acquire through a flywheel and that data will be useful.</p>
 <section id="an-overly-detailed-accounting-of-all-the-ways-we-might-generate-llm-pre-training-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="an-overly-detailed-accounting-of-all-the-ways-we-might-generate-llm-pre-training-data"><span class="header-section-number">2.1</span> An overly detailed accounting of all the ways we might generate LLM pre-training data</h2>
 <p>Speaking at very low-level, LLM pre-training data can come from any sensor or form that creates digital records that contain sequences of tokens. However, we generally don’t want any old tokens – we want tokens that contain signals about the world and about people, and that have been organized (typically by people) in a way that captures structure. In pre-training, it seems we can get away with mixing together many differents types of structure. For post-training, we may want specific structure (e.g.&nbsp;data produced by people following specific instructions).</p>
 <p>We might further try to describe human-generated data in a very general fashion by saying: data is created when a person does something that leaves a digital trace: typing, speaking into a mic, using some kind of alternate controller, etc. They might also operate a camera or other sensing instrument that captures signals from the world. We also sometimes may want to use truly “sensor-only data” (e.g., seismic readings), though those sensors are built, placed, funded, and so on by humans.</p>
-<p>After typing (or other input), they might use a terminal or GUI to send their inputs into some structure – by committing code, editing a wiki, responding on a forum). Often, this person has a goal and/or a task they want to complete—ask a question, teach or correct something, build software, file a bug, summarize a meeting, translate a passage, or simply <em>react</em> (like/flag/skip). Critically, many high value sources of data also have some upstream social structure and corresponding incentives – institutions, communities, etc. that create meaningful incentives for people to produce records that are accurate, insightful, and so on.</p>
+<p>After typing (or other input), they might use a terminal or GUI to send their inputs into some data structure – by committing code, editing a wiki, responding on a forum, and so on. Often, the person creating a record has a goal and/or a task they want to complete. This might be: ask a question, teach or correct something, build software, file a bug, summarize a meeting, translate a passage, or simply react to some information object (like/flag/skip). Critically, in practice, many high value sources of data also have some upstream social structure and corresponding incentives – institutions, communities, etc. that create meaningful incentives for people to produce records that are accurate, insightful, and so on. #todo cite key works about value of social media data, scientific data, etc.</p>
 <p>In other words, institutions and communities create incentives so that as people type (or otherwise digitize information), they don’t just produce random sequences or the same common sequences repeatedly (or we might have an Internet of web pages that all say “I like good food”; don’t we all…)</p>
-<p>Moving to a more high-level overview, we might begin describe many categories</p>
+<p>Moving to a more high-level overview, we might begin categorize LLM training data:</p>
 <ul>
-<li>Human-authored natural language: the open web (cleaned), books, encyclopedias, news, forums/Q&amp;A, transcripts (talks, meetings, podcasts), documentation, and manuals.
+<li>Human-authored natural language: blogs, books, encyclopedias, news, forums, Q&amp;A, transcripts (talks, meetings, podcasts), documentation, and manuals.
 <ul>
-<li>And now, some non-human-authored natural language.</li>
+<li>And now, some non-human-authored natural language (synthetic versions of any of the above).</li>
 </ul></li>
 <li>Code: source files, perhaps with licenses and provenance, issue threads, commit messages.</li>
 <li>Semi-structured text: tables, markup, configs (HTML/Markdown/LaTeX/YAML/JSON) that carry schema and relationships.</li>
@@ -313,7 +313,7 @@ window.Quarto = {
 <ul>
 <li>Here, the pairing is a critical characteristic that makes this data unique. This implies somebody has looked at the each item in the pair and confirmed a connection (though paired data can be produced in an automated fashion).</li>
 </ul></li>
-<li>Metadata about data: a record that describes characteristics of other records. language, domain/topic tags, timestamps, links, authorship/attribution, <em>license</em>, and (in our case) AI preference signals.
+<li>Metadata about data: records that describes characteristics of other records. language, domain/topic tags, timestamps, links, authorship/attribution, license, AI preference signals.
 <ul>
 <li>Quality signals: dedup scores, perplexity filters, toxicity/PII flags, heuristic or model-based ratings—used to weight or exclude.</li>
 </ul></li>

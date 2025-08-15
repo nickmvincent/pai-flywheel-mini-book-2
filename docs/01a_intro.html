@@ -101,7 +101,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts</a></li><li class="breadcrumb-item"><a href="./01a_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts &amp; Rationale</a></li><li class="breadcrumb-item"><a href="./01a_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -135,7 +135,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Concepts</span></a>
+ <span class="menu-text">Concepts &amp; Rationale</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -188,7 +188,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Case Study: Low friction peer production as a flywheel</span></a>
+ <span class="menu-text">Case Study: Low friction peer production</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -203,7 +203,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opt-in Flywheel Data Policy</span></span></a>
   </div>
 </li>
       </ul>
@@ -262,7 +262,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts</a></li><li class="breadcrumb-item"><a href="./01a_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01a_intro.html">Concepts &amp; Rationale</a></li><li class="breadcrumb-item"><a href="./01a_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
 </div>
@@ -281,12 +281,19 @@ div.csl-indent {
 </header>
 
 
+<blockquote class="blockquote">
+<p>Key insight: a public AI data flywheel is a system that enables a data collection feedback loop that embeds the principles of “public AI” – notably, transparency and accountability.</p>
+</blockquote>
 <section id="what-is-a-data-flywheel" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="what-is-a-data-flywheel"><span class="header-section-number">1.1</span> What is a data flywheel?</h2>
 <p>What is a data flywheel? Nvidia gives us <a href="https://www.nvidia.com/en-sg/glossary/data-flywheel/">this</a> definition: “A data flywheel is a feedback loop where data collected from interactions or processes is used to continuously refine AI models.” <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>In general, a “data flywheel” is a system or set of systems that capture and/or incentivize data. A “flywheel” generally differs from a more general data collection system because the flywheel is embedded into some kind of application (as opposed to e.g.&nbsp;“standalone” data labeling tasks). So, if I just post a Google form to the Internet and say, “Hey, feel free to use this form to send me data!”, that’s just a form – not a “flywheel”.</p>
-<p>Generally, most data collection systems lean more towards utilizing “sensor-style collection” (passive, instruments like cameras, microphones, logging, no active “submit data” step) or “form-style collection” (active, requiring somebody to click “submit”).</p>
-<p>Historically, flywheels tend to imply a passive approach to data collection, but this is not necessarily a requirement. (More on this in a <a href="01c_pipeworks.html" class="quarto-xref"><span>Chapter 3</span></a>, which summarizes this <a href="dataleverage.substack.com/p/building-a-data-pipeworks-for-democratic">post</a>).</p>
+<p>Generally, most data collection systems lean more towards utilizing either</p>
+<ul>
+<li>“sensor-style collection” (passive, instruments like cameras, microphones, or logging software, all of which lack an active “submit data” step) or</li>
+<li>“form-style collection” (active, requiring somebody to click “submit”).</li>
+</ul>
+<p>Historically, flywheels tend to imply a passive approach to data collection, but this is not necessarily a requirement. (More on this in a <a href="01c_pipeworks.html" class="quarto-xref"><span>Chapter 3</span></a>).</p>
 </section>
 <section id="what-is-a-public-ai-data-flywheel" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="what-is-a-public-ai-data-flywheel"><span class="header-section-number">1.2</span> What is a public AI data flywheel?</h2>
@@ -296,27 +303,27 @@ div.csl-indent {
 </blockquote>
 <p>For more on the public AI concept, see also Mozilla’s <a href="https://www.mozillafoundation.org/en/research/library/public-ai/">work</a> in this space and several workshop papers and preprints (from <a href="https://arxiv.org/abs/2507.09296">RegML 2023</a> at NeurIPS, <a href="https://arxiv.org/abs/2311.11350">CodeML 2025</a> at ICML, a recent <a href="https://www.nickmvincent.com/static/canada_publicai.pdf">workshop</a> on Canadian Internet Policy).</p>
 <p>Our focus in this mini-book is building “public AI” flywheels. To summarize heavily – if we try to achieve all the principles laid out in the above work that tries to define “public AI” (and we should try!), we will face some unique challenges in the implementation of data flywheels.</p>
-<p>In building public AI data flywheels, we are trying to create a feedback loop to improve AI by creating/collecting high-quality data (more on this in <a href="01b_why.html" class="quarto-xref"><span>Chapter 2</span></a>). However, the public AI principles mean that we likely want to start from a position of very high accessibility (including providing an accessible explanation of exactly what happens to any data a user creates) and very high accountability (so people have real agency over the shape of the data pipeline) relative to other technology organizations and products. And ideally, as many components of our stack should get as close as possible to acting as public goods, which creates challenging around sustaining effort and funding.</p>
-<p>Of course, it’s worth noting that some particular public could deliberate and make a collective decision that they prefer a more “traditional approach” to data flywheel. Very concretely, we could imagine a state conducting a referendum, and asking the public if they’d like the official “public AI” product to follow industry standard practices around data.</p>
-<p>In this mini-book, we are taking the stance that it’s best to start from a position of leaning heavily towards an opt-in approach. We start by minimizing usage and retention of data; data that is used in the flywheel to train AI should be provided via an opt-in by highly informed users.</p>
+<p>In building public AI data flywheels, we are trying to create a feedback loop to improve AI by creating and collecting high-quality data (more on this in <a href="01b_why.html" class="quarto-xref"><span>Chapter 2</span></a>). However, the public AI principles mean that we likely want to start from a position of very high accessibility and very high accountability relative to other technology organizations and products. This means we need to provide an accessible explanation of exactly what happens to any data a user creates and give people real agency over the shape of the data pipeline. Ideally, public AI builders should also endeavor to make as many components of our stack as close as possible to public goods, which creates challenges around sustaining effort and funding.</p>
+<p>Of course, it’s worth noting that some particular public could deliberate and make a collective decision that they prefer a more “traditional approach” to data flywheels. Very concretely, we could imagine a state conducting a referendum, and asking the public if they’d like a “public AI” product that follows industry standard practices around data (sacrifing some degree of accessibility and/or accountability for other benefits).</p>
+<p>In this mini-book, we are taking the stance that it’s best to start from a position of leaning heavily towards a highly accessible and accountable flywheel. We start by minimizing usage and retention of data; data that is used in the flywheel to train AI should be provided via an opt-in by highly informed users.</p>
 </section>
 <section id="core-principles" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="core-principles"><span class="header-section-number">1.3</span> Core Principles</h2>
 <p>We can translate the core principles of public AI to the data flywheel domain and arrive at roughly four requirements:</p>
 <ul>
-<li>Transparency for informed consent: Users must be fully informed about the models at play, the model developers, and the ramifications of their contribution. Ideally, users will also be informed about training data. A detailed FAQ and some kind of consent module (ideally going above and beyond standard Terms of Service<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>) are required before any data is shared. To some extent, maximally informed consent will require the active expenditure of resoures to improve the public’s AI literary (i.e.&nbsp;we need to build AI literacy focused systems and perhaps even pay people for their attention). We need systems that really do inform people. Luckily, that’s something it seems like AI can help with!</li>
+<li>Transparency for informed consent: Users must be fully informed about the models at play, the organizations who are building models, and the ramifications of any contributions to the flyhwheel. Ideally, users will also be informed about the training data underlying the models they use. A detailed FAQ and some kind of consent module (ideally going above and beyond standard Terms of Service<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>) are required before any data is shared. To some extent, maximally informed consent will require the active expenditure of resoures to improve the public’s AI literary (i.e.&nbsp;we need to build AI literacy focused systems and perhaps even pay people for their attention). We need systems that really do inform people. Luckily, that’s something it seems like AI can help with!</li>
 </ul>
 <ul>
-<li><p>Data Rights: A public AI data flywheel must empower users with control over their data, mirroring GDPR principles and similar regulations (this is also practically important for compliance). This includes the right to access (<code>$Art. 15$</code>), rectify (<code>$Art. 16$</code>), erase (<code>$Art. 17$</code>), and port their data (<code>$Art. 20$</code>). Key exemplar: Mozilla Common Voice (with <a href="https://commonvoice.mozilla.org/">website</a> and paper <span class="citation" data-cites="ardila2019common">(<a href="references.html#ref-ardila2019common" role="doc-biblioref">Ardila et al. 2019</a>)</span>).</p>
+<li><p>Data Rights: A public AI data flywheel should empower users with control over their data, mirroring GDPR principles and similar regulations (this is also practically important for compliance). This includes the right to access (<code>$Art. 15$</code>), rectify (<code>$Art. 16$</code>), erase (<code>$Art. 17$</code>), and port data (<code>$Art. 20$</code>). One exemplar project we might look to for inspiration around the implementation of data rights and legal terms is Mozilla’s <a href="https://commonvoice.mozilla.org/">Common Voice</a> <span class="citation" data-cites="ardila2019common">(<a href="references.html#ref-ardila2019common" role="doc-biblioref">Ardila et al. 2019</a>)</span>.</p>
 <ul>
-<li>We note that data rights sometimes conflict with a “fully open” ethos; we will attempt to mitigate these tensions to the best extent possible!</li>
-<li>We also note that public AI faces some unique challenges with cross-jurisdiction compliance; we discuss this at a high-level later on. #todo link exact section</li>
+<li>We note that data rights conflict with a “fully open” ethos; we will attempt to mitigate these tensions to the best extent possible.</li>
+<li>We also note that public AI faces some unique challenges with cross-jurisdiction compliance; we discuss this at a high-level later on in <span class="quarto-unresolved-ref">?sec-ec</span>.</li>
 </ul></li>
-<li><p>Balancing reputation and pseudonymity: To the extent possible, we believe it is valuable to offer people to ability to contribute to data flywheel with some kind “real account” attached, so people can earn credit and reputation. But this must be balanced with the benefits of “light-auth” or even anonymous contribution (#todo cite CDSC work on anon contributions).</p>
+<li><p>Balancing reputation and pseudonymity: To the extent possible, we believe it is valuable to offer people the ability to contribute data with some kind “real account” attached, so people can earn credit and reputation. But this must be balanced with the benefits of also enabling pseudonymity or even anonymity contribution (#todo cite CDSC work on anon contributions).</p>
 <ul>
-<li>In our MVP (discussed in the next chapter) an OpenWebUI or HuggingFace account is required to make contributions, but users can choose to remain anonymous or use a pseudonym for the public data release.</li>
+<li>In our MVP (discussed in the next chapter) an OpenWebUI or HuggingFace account is required to make contributions, but users can choose to use a pseudonym (not unique; can for instance be “anonymous”). A hashed user id will be stored for internal purposes, but any public data releases will only use the pseudonym.</li>
 </ul></li>
-<li><p>Purpose Limitation &amp; Licensing: Users must be able to specify their preferences for how their data is used (e.g., for public display and evaluation vs.&nbsp;for model training). This is captured using (new) IETF AI Use Preferences and Creative Commons Preference Signals. We will discuss below how this might extend to other preference signal proposals and/or technical approaches to gating data.</p>
+<li><p>Purpose Limitation &amp; Licensing: Users should be able to specify their preferences for how their data is used (e.g., for public display? for evaluation? for future model training?). This can be captured using (new) IETF AI Use Preferences and Creative Commons Preference Signals, or other approaches that emerge. We will discuss below how this might extend to other preference signal proposals and/or technical approaches to gating data.</p>
 <ul>
 <li>This is critical for answering a likely FAQ around public AI data – if you succeed in creating actually useful training data or new benchmarks, won’t private labs just immediately use that data as well?</li>
 </ul></li>
