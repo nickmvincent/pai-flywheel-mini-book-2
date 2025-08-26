@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Flywheels and Public AI - 9&nbsp; Opt-in Flywheel Data Policy</title>
+<title>Data Flywheels and Public AI - 9&nbsp; Data Flow and Data Retention</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2a_mvp.html">Case Study: Low friction peer production</a></li><li class="breadcrumb-item"><a href="./2b_data_policy.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opt-in Flywheel Data Policy</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2a_mvp.html">Case Study: Low friction peer production</a></li><li class="breadcrumb-item"><a href="./2b_data_policy.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -177,13 +177,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2a_mvp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The OpenWebUI Action MVP</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opt-in Flywheel Data Policy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
   </div>
 </li>
       </ul>
@@ -233,43 +233,61 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#glossary-of-defined-terms-for-this-chapter" id="toc-glossary-of-defined-terms-for-this-chapter" class="nav-link active" data-scroll-target="#glossary-of-defined-terms-for-this-chapter"><span class="header-section-number">9.1</span> Glossary of Defined Terms (for this Chapter)</a></li>
-  <li><a href="#what-data-is-produced-when" id="toc-what-data-is-produced-when" class="nav-link" data-scroll-target="#what-data-is-produced-when"><span class="header-section-number">9.2</span> What data is produced &amp; when</a>
+  <li><a href="#how-users-create-data" id="toc-how-users-create-data" class="nav-link active" data-scroll-target="#how-users-create-data"><span class="header-section-number">9.1</span> How Users Create Data</a>
   <ul class="collapse">
-  <li><a href="#open-webui-no-account-required-but-optional-and-recommended" id="toc-open-webui-no-account-required-but-optional-and-recommended" class="nav-link" data-scroll-target="#open-webui-no-account-required-but-optional-and-recommended"><span class="header-section-number">9.2.1</span> Open WebUI (no account required, but optional and recommended)</a></li>
-  <li><a href="#data-sent-from-openwebui-to-model-gateway-to-providers" id="toc-data-sent-from-openwebui-to-model-gateway-to-providers" class="nav-link" data-scroll-target="#data-sent-from-openwebui-to-model-gateway-to-providers"><span class="header-section-number">9.2.2</span> Data Sent from OpenWebUI to Model Gateway (to providers)</a></li>
-  <li><a href="#data-sent-from-openwebui-to-the-flywheel" id="toc-data-sent-from-openwebui-to-the-flywheel" class="nav-link" data-scroll-target="#data-sent-from-openwebui-to-the-flywheel"><span class="header-section-number">9.2.3</span> Data Sent From OpenWebUI to the Flywheel</a></li>
+  <li><a href="#using-openwebui-no-sharing" id="toc-using-openwebui-no-sharing" class="nav-link" data-scroll-target="#using-openwebui-no-sharing"><span class="header-section-number">9.1.1</span> Using OpenWebUI (No Sharing)</a></li>
+  <li><a href="#sharing-via-the-flywheel-action" id="toc-sharing-via-the-flywheel-action" class="nav-link" data-scroll-target="#sharing-via-the-flywheel-action"><span class="header-section-number">9.1.2</span> Sharing via the Flywheel Action</a></li>
   </ul></li>
-  <li><a href="#server-api-data" id="toc-server-api-data" class="nav-link" data-scroll-target="#server-api-data"><span class="header-section-number">9.3</span> Server &amp; API Data</a>
+  <li><a href="#data-retention-schedule" id="toc-data-retention-schedule" class="nav-link" data-scroll-target="#data-retention-schedule"><span class="header-section-number">9.2</span> Data Retention Schedule</a>
   <ul class="collapse">
-  <li><a href="#rate-limiting" id="toc-rate-limiting" class="nav-link" data-scroll-target="#rate-limiting"><span class="header-section-number">9.3.1</span> Rate Limiting</a></li>
-  <li><a href="#server-logs" id="toc-server-logs" class="nav-link" data-scroll-target="#server-logs"><span class="header-section-number">9.3.2</span> Server Logs</a></li>
+  <li><a href="#openwebui-instance-data" id="toc-openwebui-instance-data" class="nav-link" data-scroll-target="#openwebui-instance-data"><span class="header-section-number">9.2.1</span> OpenWebUI Instance Data</a></li>
+  <li><a href="#flywheel-contribution-data" id="toc-flywheel-contribution-data" class="nav-link" data-scroll-target="#flywheel-contribution-data"><span class="header-section-number">9.2.2</span> Flywheel Contribution Data</a></li>
   </ul></li>
-  <li><a href="#event-timeline-how-data-flows" id="toc-event-timeline-how-data-flows" class="nav-link" data-scroll-target="#event-timeline-how-data-flows"><span class="header-section-number">9.4</span> Event timeline (how data flows)</a></li>
-  <li><a href="#more-on-the-flywheel" id="toc-more-on-the-flywheel" class="nav-link" data-scroll-target="#more-on-the-flywheel"><span class="header-section-number">9.5</span> More on the flywheel</a>
+  <li><a href="#data-processing-pipeline" id="toc-data-processing-pipeline" class="nav-link" data-scroll-target="#data-processing-pipeline"><span class="header-section-number">9.3</span> Data Processing Pipeline</a>
   <ul class="collapse">
-  <li><a href="#phase-1-submission" id="toc-phase-1-submission" class="nav-link" data-scroll-target="#phase-1-submission"><span class="header-section-number">9.5.1</span> Phase 1: Submission</a></li>
-  <li><a href="#phase-2-the-waiting-room-temporary" id="toc-phase-2-the-waiting-room-temporary" class="nav-link" data-scroll-target="#phase-2-the-waiting-room-temporary"><span class="header-section-number">9.5.2</span> Phase 2: The Waiting Room (Temporary)</a></li>
-  <li><a href="#phase-3-processing-pii-redaction" id="toc-phase-3-processing-pii-redaction" class="nav-link" data-scroll-target="#phase-3-processing-pii-redaction"><span class="header-section-number">9.5.3</span> Phase 3: Processing &amp; PII Redaction</a></li>
-  <li><a href="#phase-4-the-quarantine-zone" id="toc-phase-4-the-quarantine-zone" class="nav-link" data-scroll-target="#phase-4-the-quarantine-zone"><span class="header-section-number">9.5.4</span> Phase 4: The Quarantine Zone</a></li>
-  <li><a href="#phase-5-the-final-public-dataset-permanent" id="toc-phase-5-the-final-public-dataset-permanent" class="nav-link" data-scroll-target="#phase-5-the-final-public-dataset-permanent"><span class="header-section-number">9.5.5</span> Phase 5: The Final Public Dataset (Permanent) ✅</a></li>
+  <li><a href="#user-contribution" id="toc-user-contribution" class="nav-link" data-scroll-target="#user-contribution"><span class="header-section-number">9.3.1</span> 1. User Contribution</a></li>
+  <li><a href="#waiting-room" id="toc-waiting-room" class="nav-link" data-scroll-target="#waiting-room"><span class="header-section-number">9.3.2</span> 2. Waiting Room</a></li>
+  <li><a href="#pii-redaction" id="toc-pii-redaction" class="nav-link" data-scroll-target="#pii-redaction"><span class="header-section-number">9.3.3</span> 3. PII Redaction</a></li>
+  <li><a href="#validation-processing" id="toc-validation-processing" class="nav-link" data-scroll-target="#validation-processing"><span class="header-section-number">9.3.4</span> 4. Validation &amp; Processing</a></li>
+  <li><a href="#public-release" id="toc-public-release" class="nav-link" data-scroll-target="#public-release"><span class="header-section-number">9.3.5</span> 5. Public Release</a></li>
   </ul></li>
-  <li><a href="#licensing-preference-signals-beta" id="toc-licensing-preference-signals-beta" class="nav-link" data-scroll-target="#licensing-preference-signals-beta"><span class="header-section-number">9.6</span> Licensing &amp; Preference Signals (Beta)</a></li>
-  <li><a href="#example-retention-schedule" id="toc-example-retention-schedule" class="nav-link" data-scroll-target="#example-retention-schedule"><span class="header-section-number">9.7</span> Example Retention schedule</a></li>
-  <li><a href="#distribution-access-control" id="toc-distribution-access-control" class="nav-link" data-scroll-target="#distribution-access-control"><span class="header-section-number">9.8</span> Distribution &amp; access control</a>
+  <li><a href="#user-rights-controls" id="toc-user-rights-controls" class="nav-link" data-scroll-target="#user-rights-controls"><span class="header-section-number">9.4</span> User Rights &amp; Controls</a>
   <ul class="collapse">
-  <li><a href="#hugging-face-gated" id="toc-hugging-face-gated" class="nav-link" data-scroll-target="#hugging-face-gated"><span class="header-section-number">9.8.1</span> Hugging Face (gated)</a></li>
-  <li><a href="#flywheel-static-site-public" id="toc-flywheel-static-site-public" class="nav-link" data-scroll-target="#flywheel-static-site-public"><span class="header-section-number">9.8.2</span> Flywheel Static Site (public)</a></li>
+  <li><a href="#what-you-control" id="toc-what-you-control" class="nav-link" data-scroll-target="#what-you-control"><span class="header-section-number">9.4.1</span> What You Control</a></li>
+  <li><a href="#what-you-cannot-control" id="toc-what-you-cannot-control" class="nav-link" data-scroll-target="#what-you-cannot-control"><span class="header-section-number">9.4.2</span> What You Cannot Control</a></li>
+  <li><a href="#deletion-requests" id="toc-deletion-requests" class="nav-link" data-scroll-target="#deletion-requests"><span class="header-section-number">9.4.3</span> Deletion Requests</a></li>
   </ul></li>
+  <li><a href="#contributor-identifiers" id="toc-contributor-identifiers" class="nav-link" data-scroll-target="#contributor-identifiers"><span class="header-section-number">9.5</span> Contributor Identifiers</a>
+  <ul class="collapse">
+  <li><a href="#contributor-hash" id="toc-contributor-hash" class="nav-link" data-scroll-target="#contributor-hash"><span class="header-section-number">9.5.1</span> Contributor Hash</a></li>
+  <li><a href="#attribution-options" id="toc-attribution-options" class="nav-link" data-scroll-target="#attribution-options"><span class="header-section-number">9.5.2</span> Attribution Options</a></li>
+  </ul></li>
+  <li><a href="#security-measures" id="toc-security-measures" class="nav-link" data-scroll-target="#security-measures"><span class="header-section-number">9.6</span> Security Measures</a>
+  <ul class="collapse">
+  <li><a href="#in-transit" id="toc-in-transit" class="nav-link" data-scroll-target="#in-transit"><span class="header-section-number">9.6.1</span> In Transit</a></li>
+  <li><a href="#at-rest" id="toc-at-rest" class="nav-link" data-scroll-target="#at-rest"><span class="header-section-number">9.6.2</span> At Rest</a></li>
+  <li><a href="#access-controls" id="toc-access-controls" class="nav-link" data-scroll-target="#access-controls"><span class="header-section-number">9.6.3</span> Access Controls</a></li>
+  </ul></li>
+  <li><a href="#third-party-services" id="toc-third-party-services" class="nav-link" data-scroll-target="#third-party-services"><span class="header-section-number">9.7</span> Third-Party Services</a>
+  <ul class="collapse">
+  <li><a href="#huggingface" id="toc-huggingface" class="nav-link" data-scroll-target="#huggingface"><span class="header-section-number">9.7.1</span> HuggingFace</a></li>
+  <li><a href="#ai-providers-via-openwebui" id="toc-ai-providers-via-openwebui" class="nav-link" data-scroll-target="#ai-providers-via-openwebui"><span class="header-section-number">9.7.2</span> AI Providers (via OpenWebUI)</a></li>
+  </ul></li>
+  <li><a href="#compliance-notes" id="toc-compliance-notes" class="nav-link" data-scroll-target="#compliance-notes"><span class="header-section-number">9.8</span> Compliance Notes</a>
+  <ul class="collapse">
+  <li><a href="#gdpr-considerations" id="toc-gdpr-considerations" class="nav-link" data-scroll-target="#gdpr-considerations"><span class="header-section-number">9.8.1</span> GDPR Considerations</a></li>
+  <li><a href="#limitations-on-deletion" id="toc-limitations-on-deletion" class="nav-link" data-scroll-target="#limitations-on-deletion"><span class="header-section-number">9.8.2</span> Limitations on Deletion</a></li>
+  </ul></li>
+  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information"><span class="header-section-number">9.9</span> Contact Information</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2a_mvp.html">Case Study: Low friction peer production</a></li><li class="breadcrumb-item"><a href="./2b_data_policy.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opt-in Flywheel Data Policy</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2a_mvp.html">Case Study: Low friction peer production</a></li><li class="breadcrumb-item"><a href="./2b_data_policy.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opt-in Flywheel Data Policy</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></h1>
 </div>
 
 
@@ -286,353 +304,261 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This document describes one possible data retention policy for a public AI data flywheel connected to a public AI chat frontend (or other frontend). It describes the data that is collected, when it’s produced, how long we keep it, how contributor license &amp; preference signals work (beta), and how our distribution channels operate.</p>
-<p>This chapter is written mainly as a piece of reference material to highlight the flow and retention considerations that arise in building or deploying a product like the Flywheel MVP.</p>
-<p>To contextualize the data retention policy, it may be useful to first review a bullet point, plain language description of all the ways that users create data in their use of the Public AI Chat Frontend, across 4 distinct websites:</p>
-<ul>
-<li>User visits the “landing page” {{landing_page_link}}
-<ul>
-<li>user can enter a query as guest
-<ul>
-<li>created: a chat object</li>
-<li>chat is sent to model provider</li>
-<li>chat is stored, associated with generic guest account</li>
-</ul></li>
-</ul></li>
-<li>user can proceed to “the main app” {{app_link}}
-<ul>
-<li>user enters name, email, password. Handled by OWUI auth code.</li>
-<li>use can enter queries. Creates a chat object associated with the user.
-<ul>
-<li>see OWUI chat schema for all possible fields</li>
-<li>key fields: free text entry, feedback data</li>
-<li>chats are stored in the OWUI database so that users can browser their chat history, but are NOT used for training or eval.</li>
-<li>some standard data is stored for basic admin/engineering needs (request volume, errors, etc.), with short retention</li>
-</ul></li>
-</ul></li>
-<li>in current dev version, user can also share to openwebui.com if they wish to (requires an account with the openwebui community platform)</li>
-<li>in launch version, user can share to flywheel (#todo exact url)
-<ul>
-<li>on sharing, a public chat object is created. This object will live in a gated HF repo and a public static site</li>
-</ul></li>
-</ul>
-<section id="glossary-of-defined-terms-for-this-chapter" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="glossary-of-defined-terms-for-this-chapter"><span class="header-section-number">9.1</span> Glossary of Defined Terms (for this Chapter)</h2>
-<p>“{The Public AI Chat Frontend}” or “Frontend” means the hosted interface described in this document that allows users to issue prompts to third-party model endpoints.</p>
-<p>“Open WebUI Instance” or “OWUI” means the hosted Open WebUI application at {{app_link}} (or successor URLs) that provides optional accounts and chat history.</p>
-<p>“Opt-in Data Flywheel” or “Flywheel” means the separate contribution and distribution platform at https://optinflywheel.com (or successor URLs) through which users may opt in to contribute data for public evaluation and research use.</p>
-<p>“Provider(s)” or “Model Endpoint(s)” means third-party model services (e.g., national labs, commercial providers) that receive user prompts and return model outputs. The Frontend is a gateway to these services and does not control their retention, training, or use practices.</p>
-<p>“Model Gateway” means the service layer that forwards requests from the Frontend to Providers and records a Request Envelope (metadata such as request ID, model ID, token counts, latency, and status).</p>
-<p>“Request Envelope” means non-content request metadata retained for reliability, capacity, and SLO monitoring.</p>
-<p>“Session Telemetry” means minimal first-party analytics collected on page load/navigation (e.g., timestamp, pseudonymous session ID, coarse locale, feature flags).</p>
-<p>“Security Logs” means IP address and User-Agent records used for rate-limiting and abuse detection.</p>
-<p>“Chat Object” means prompt(s), tool calls (if any), and model output(s) associated with a session or account within the Open WebUI Instance.</p>
-<p>“Contribution” means any data a user intentionally submits to the Flywheel (e.g., prompt/output pairs, tags, corrections), along with per-item License and AI Preference Signal selections.</p>
-<p>“AI Preference Signal” means an AI-use preference value the contributor attaches to a Contribution (e.g., IETF AI Preferences draft values and/or Creative Commons preference signals), intended to be conveyed downstream.</p>
-<p>“License” means the Creative Commons license selected by the contributor for a Contribution (supported in the MVP: CC0-1.0, CC-BY-4.0, CC-BY-SA-4.0).</p>
-<p>“License Bucket(s)” means the partitioning of Contributions into separate release artifacts by License (e.g., v1.0-cc0, v1.0-cc-by, v1.0-cc-by-sa).</p>
-<p>“Waiting Room” means the Flywheel’s gated staging directory (e.g., _waiting_room/ in a Hugging Face repository) where Contributions are first written prior to validation and release.</p>
-<p>“Release” means a published version of the dataset (and associated notes/checksums) assembled from validated Contributions, partitioned by License.</p>
-<p>“Gated Repository” means the Hugging Face dataset repository that requires an access request and acceptance of dataset-specific terms.</p>
-<p>“Static Site” means the public site that hosts leaderboards and provides full dataset access, with anti-scraping controls.</p>
-<p>“Anonymized Contributor ID” or “Pseudonym” means a non-identifying handle published with a Contribution when a contributor elects anonymity or a pseudonym instead of an OpenWebUI or HuggingFace username.</p>
-<p>“Personal Data” means information that identifies or can reasonably be linked to an individual; “Sensitive Personal Data” means Personal Data that is sensitive by law or policy (e.g., health, financial, precise location, government identifiers).</p>
-<p>“We/Us/Our” means [ENTITY NAME], the operator of the Frontend, the Open WebUI Instance, and the Flywheel.</p>
-<p>“You/Your” means the individual using the Frontend and/or contributing to the Flywheel, or the entity on whose behalf the individual acts.</p>
+<p><em>Last updated: 2025-08-18</em></p>
+<p>This document describes the data retention policy for the Public AI Data Flywheel integrated with OpenWebUI at https://app.publicai.company/.</p>
+<section id="how-users-create-data" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="how-users-create-data"><span class="header-section-number">9.1</span> How Users Create Data</h2>
+<section id="using-openwebui-no-sharing" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="using-openwebui-no-sharing"><span class="header-section-number">9.1.1</span> Using OpenWebUI (No Sharing)</h3>
+<p>When you use OpenWebUI normally: - <strong>Chat data</strong>: Stored in OpenWebUI database for your history - <strong>Account data</strong>: Email, username, preferences - <strong>Not shared</strong>: This data is NOT sent to the flywheel unless you explicitly opt in</p>
 </section>
-<section id="what-data-is-produced-when" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="what-data-is-produced-when"><span class="header-section-number">9.2</span> What data is produced &amp; when</h2>
-<section id="open-webui-no-account-required-but-optional-and-recommended" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="open-webui-no-account-required-but-optional-and-recommended"><span class="header-section-number">9.2.1</span> Open WebUI (no account required, but optional and recommended)</h3>
-<p>Your OpenWebUI account and all associated data are stored and managed entirely by your OpenWebUI instance. In the case of the public AI MVP, both the flyhweel and frontend will be managed by the same organization, but in theory you could use the flywheel using an entirely separate OWUI instance (a community instance, your own, etc.)</p>
-<p><strong>The Flywheel App has no access to or control over the data stored within OpenWebUI.</strong> This includes:</p>
+<section id="sharing-via-the-flywheel-action" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="sharing-via-the-flywheel-action"><span class="header-section-number">9.1.2</span> Sharing via the Flywheel Action</h3>
+<p>When you enable sharing and trigger the action: 1. <strong>One-time setup</strong>: Enable sharing in Settings / User Valves #todo better instructions here 2. <strong>Per-chat action</strong>: Explicitly trigger “Public AI Data Flywheel” 3. <strong>Confirmation required</strong>: Review settings and confirm each share 4. <strong>Data sent</strong>: Chat content, metadata, your chosen license/preferences</p>
+</section>
+</section>
+<section id="data-retention-schedule" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="data-retention-schedule"><span class="header-section-number">9.2</span> Data Retention Schedule</h2>
+<section id="openwebui-instance-data" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="openwebui-instance-data"><span class="header-section-number">9.2.1</span> OpenWebUI Instance Data</h3>
+<p>#todo: these are currently tentative retention schedules.</p>
+<table class="table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data Type</th>
+<th>Retention</th>
+<th>Deletion Method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chat history</td>
+<td>Until user deletes</td>
+<td>User can delete anytime</td>
+</tr>
+<tr class="even">
+<td>Account data</td>
+<td>Until account deleted</td>
+<td>30 days inactivity → auto-delete</td>
+</tr>
+<tr class="odd">
+<td>Operational logs</td>
+<td>30 days</td>
+<td>Automatic purge</td>
+</tr>
+<tr class="even">
+<td>Security logs (IP/UA)</td>
+<td>30 days</td>
+<td>Automatic purge</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="flywheel-contribution-data" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="flywheel-contribution-data"><span class="header-section-number">9.2.2</span> Flywheel Contribution Data</h3>
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 27%">
+<col style="width: 29%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stage</th>
+<th>Location</th>
+<th>Retention</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Waiting room</td>
+<td><code>_waiting_room/</code></td>
+<td>Until processed (typically 24-48h)</td>
+<td>Private</td>
+</tr>
+<tr class="even">
+<td>Quarantine</td>
+<td><code>_quarantined/</code></td>
+<td>Indefinite (manual review)</td>
+<td>Private</td>
+</tr>
+<tr class="odd">
+<td>Released dataset</td>
+<td><code>data/YYYY-MM.jsonl</code></td>
+<td>Permanent</td>
+<td>Public (gated)</td>
+</tr>
+<tr class="even">
+<td>Public gallery</td>
+<td>Future site</td>
+<td>Permanent</td>
+<td>Public</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="data-processing-pipeline" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="data-processing-pipeline"><span class="header-section-number">9.3</span> Data Processing Pipeline</h2>
+<section id="user-contribution" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="user-contribution"><span class="header-section-number">9.3.1</span> 1. User Contribution</h3>
 <ul>
-<li><strong>Your OpenWebUI Account:</strong> Your login credentials, email, and user settings.</li>
-<li><strong>Your Full Chat History:</strong> All conversations you have within OpenWebUI are stored on that platform’s server.</li>
-<li><strong>Server Logs &amp; Analytics:</strong> Any logs or analytics generated by the OpenWebUI platform itself.</li>
-</ul>
-<p><strong>To understand how OpenWebUI collects, uses, and retains your data, you must consult the specific Terms of Service and Privacy Policy provided by the administrator of your OpenWebUI instance.</strong></p>
-<p>This data includes:</p>
-<ul>
-<li><p>Session telemetry (minimal) #todo: Double check telemetry and provide a sample paylod to show interested users;</p>
-<ul>
-<li>Produced when: Page load / navigation</li>
-<li>Includes: Timestamp, pseudonymous session ID, coarse locale, feature flags</li>
-<li>Stored in: First-party analytics</li>
-<li>Access: Eng/Analytics (aggregated)</li>
-<li>Default retention: Raw 30 days; aggregates 13 months</li>
-</ul></li>
-<li><p>IP &amp; User-Agent (security) #todo double check this</p>
-<ul>
-<li>Produced when: Each request</li>
-<li>Includes: IP, User-Agent for rate-limit/abuse detection</li>
-<li>Stored in: Security log store</li>
-<li>Access: SRE/Security</li>
-<li>Default retention: 7 days, then delete/aggregate</li>
-</ul></li>
-<li><p>Query content</p>
-<ul>
-<li>Produced when: On submit</li>
-<li>Includes: Prompt + output</li>
-<li>Stored in: interface database</li>
-<li>Access: server admin only</li>
-<li>Default retention: user can delete at any time; deleted along after 30 days of user inactivity. #todo, discuss this</li>
-</ul></li>
-<li><p>Error logs (sanitized) #todo double check this, provide example? least important to provide an example here.</p>
-<ul>
-<li>Produced when: On error</li>
-<li>Includes: Stack trace, request ID (no prompt/output bodies)</li>
-<li>Stored in: Log store</li>
-<li>Access: Eng (least privilege)</li>
-<li>Default retention: 30 days</li>
-</ul></li>
-<li><p>Profile and settings #todo double check this</p>
-<ul>
-<li>Produced when: Sign-up</li>
-<li>Includes: Email/OAuth ID, display name</li>
-<li>Stored in: User DB</li>
-<li>Access: Support/Eng</li>
-<li>Retention: Kept until the user deletes it. If the account is inactive for 30 days, we delete the account and associated records.</li>
-</ul></li>
+<li>User enables sharing in User Valves</li>
+<li>User triggers flywheel action in chat</li>
+<li>System shows license, AI preference, attribution</li>
+<li>User confirms or cancels</li>
 </ul>
 </section>
-<section id="data-sent-from-openwebui-to-model-gateway-to-providers" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="data-sent-from-openwebui-to-model-gateway-to-providers"><span class="header-section-number">9.2.2</span> Data Sent from OpenWebUI to Model Gateway (to providers)</h3>
-<ul>
-<li><p>Request envelope</p>
-<ul>
-<li>Produced when: Each request</li>
-<li>Includes: Request ID, model ID, token counts, latency, status</li>
-<li>Stored in: Metrics DB</li>
-<li>Access: Eng/SRE</li>
-<li>Retention: 90 days (aggregates 13 months)</li>
-</ul></li>
-</ul>
-<blockquote class="blockquote">
-<p>Provider transparency: We do not guarantee provider behavior. We clearly display the exact payload we forward (headers + body summary) and link to the provider’s own terms and policies where available. Users should review provider terms before use.</p>
-</blockquote>
+<section id="waiting-room" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="waiting-room"><span class="header-section-number">9.3.2</span> 2. Waiting Room</h3>
+<p>Location: waiting_room/{contributor_hash}{timestamp}.json Contains: Full contribution JSON Duration: Until daily processing script runs Access: Repository maintainers only</p>
 </section>
-<section id="data-sent-from-openwebui-to-the-flywheel" class="level3" data-number="9.2.3">
-<h3 data-number="9.2.3" class="anchored" data-anchor-id="data-sent-from-openwebui-to-the-flywheel"><span class="header-section-number">9.2.3</span> Data Sent From OpenWebUI to the Flywheel</h3>
-<p>Within the OpenWebUI interface, you may have the option to explicitly <strong>opt-in</strong> and share a specific chat with this public dataset project. When you choose to do this, OpenWebUI sends a copy of that single chat to our <code>/api/contributions/ingest</code> endpoint.</p>
-<p>Once that data is received by our application, it is handled according to the policies described in this document. The data packet we receive includes:</p>
+<section id="pii-redaction" class="level3" data-number="9.3.3">
+<h3 data-number="9.3.3" class="anchored" data-anchor-id="pii-redaction"><span class="header-section-number">9.3.3</span> 3. PII Redaction</h3>
+<p>Automated detection and removal of: - Email addresses - IP addresses (IPv4/IPv6) - Social Security Numbers - IBAN accounts - Crypto wallets (ETH/BTC) - Phone numbers - Credit cards (Luhn-validated) - Name patterns (“my name is X”)</p>
+</section>
+<section id="validation-processing" class="level3" data-number="9.3.4">
+<h3 data-number="9.3.4" class="anchored" data-anchor-id="validation-processing"><span class="header-section-number">9.3.4</span> 4. Validation &amp; Processing</h3>
 <ul>
-<li>The chat content and metadata you selected.</li>
-<li>Your OpenWebUI username (for display purposes if you choose “public”).</li>
-<li>A unique, non-identifying <code>provider_user_id</code> (e.g., <code>user-123</code>). We use this to create a <code>contributor_hash</code> to group your anonymous contributions, but we never store the raw ID itself in the final dataset.</li>
+<li>Files with &gt;1 PII hits → quarantine #todo: tune the threshold</li>
+<li>Malformed JSON → quarantine</li>
+<li>Valid files → append to monthly release file</li>
 </ul>
-<p>This looks like:</p>
+</section>
+<section id="public-release" class="level3" data-number="9.3.5">
+<h3 data-number="9.3.5" class="anchored" data-anchor-id="public-release"><span class="header-section-number">9.3.5</span> 5. Public Release</h3>
 <ul>
-<li><p>Contribution payload</p>
-<ul>
-<li>Produced when: On explicit opt-in</li>
-<li>Includes: Prompt, model output, optional tags</li>
-<li>Stored in: Gated staging (effectively public) → license-bucketed release (also effectively public)</li>
-<li>Access: Public</li>
-<li>Retention: Indefinite</li>
-</ul></li>
-<li><p>OpenWebUI username OR HuggingFace username OR Anonymized contributor ID</p>
-<ul>
-<li>Produced when: On ingest</li>
-<li>Includes: user provides their huggingface username or selects a pseudonym (can leave blank)</li>
-<li>Stored in: Dataset metadata</li>
-<li>Access: Public</li>
-<li>Retention: Indefinite</li>
-</ul></li>
-<li><p>Release artifacts</p>
-<ul>
-<li>Produced when: On release</li>
-<li>Includes: JSONL/TSV, checksums, notes</li>
-<li>Stored in: HF (gated) and Static Site (public)</li>
-<li>Access: Public (per channel)</li>
-<li>Retention: Indefinite</li>
-</ul></li>
-</ul>
-<p>When you sign in directly to this Contribution App’s web interface, you are authenticated through your Hugging Face account using the standard OAuth protocol.</p>
-<ul>
-<li><strong>What we use:</strong> We request the <code>openid</code>, <code>profile</code>, and <code>email</code> scopes from Hugging Face. The application uses your <strong>public Hugging Face username</strong> (also called a “handle”) to identify you. This username is stored in a secure, encrypted session cookie in your browser.</li>
-<li><strong>What we don’t store:</strong> Your email address and Hugging Face password are never stored or logged by our application. The session cookie is deleted when you sign out or it expires.</li>
-<li><strong>Who can access it:</strong> Only the application’s backend can read your session cookie to verify you are logged in when you submit a contribution.</li>
-<li><strong>Retention:</strong> This data is ephemeral and only lasts for the duration of your active session.</li>
+<li><strong>Format</strong>: JSONL files partitioned by month</li>
+<li><strong>Location</strong>: HuggingFace <code>publicai/shared-chats</code></li>
+<li><strong>Access</strong>: Gated (request required)</li>
+<li><strong>License</strong>: As specified by contributor</li>
+<li><strong>Permanence</strong>: Cannot be retracted</li>
 </ul>
 </section>
 </section>
-<section id="server-api-data" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="server-api-data"><span class="header-section-number">9.3</span> Server &amp; API Data</h2>
-<p>To ensure security, stability, and prevent abuse of the Contribution App, we handle technical data related to your requests.</p>
-<section id="rate-limiting" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="rate-limiting"><span class="header-section-number">9.3.1</span> Rate Limiting</h3>
-<p>To prevent spam and ensure the service is available for everyone, we limit the number of requests a single user can make.</p>
+<section id="user-rights-controls" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="user-rights-controls"><span class="header-section-number">9.4</span> User Rights &amp; Controls</h2>
+<section id="what-you-control" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="what-you-control"><span class="header-section-number">9.4.1</span> What You Control</h3>
 <ul>
-<li><strong>What we use:</strong> The <code>middleware.ts</code> file shows that we use your <strong>IP address</strong> to enforce a rate limit (e.g., 100 requests per hour). For ingestions from OpenWebUI, we rate-limit based on their API key.</li>
-<li><strong>Who can access it:</strong> Your IP address is sent to <strong>Upstash Redis</strong>, our rate-limiting service provider.</li>
-<li><strong>Retention:</strong> Upstash retains a record of your IP address for the duration of the rate-limiting window, which is <strong>1 hour</strong>.</li>
+<li><strong>Opt-in toggle</strong>: Must explicitly enable sharing</li>
+<li><strong>License choice</strong>: CC0, CC-BY, or CC-BY-SA</li>
+<li><strong>AI preferences</strong>: IETF/CC signals for downstream use</li>
+<li><strong>Attribution</strong>: Username, anonymous, or pseudonym</li>
+<li><strong>Per-chat consent</strong>: Confirm each contribution</li>
 </ul>
 </section>
-<section id="server-logs" class="level3" data-number="9.3.2">
-<h3 data-number="9.3.2" class="anchored" data-anchor-id="server-logs"><span class="header-section-number">9.3.2</span> Server Logs</h3>
-<p>Like most web applications, our hosting platform (<strong>Vercel</strong>) automatically generates server logs for every request.</p>
+<section id="what-you-cannot-control" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="what-you-cannot-control"><span class="header-section-number">9.4.2</span> What You Cannot Control</h3>
 <ul>
-<li><strong>What they contain:</strong> These logs may include your <strong>IP address</strong>, user-agent string (browser information), the requested URL, response status code, and other standard request headers. If an error occurs, the log might contain details about the error to help us debug.</li>
-<li><strong>Who can access it:</strong> Project Maintainers can access these logs through the Vercel dashboard for debugging and monitoring purposes.</li>
-<li><strong>Retention:</strong> Log retention is determined by Vercel’s platform policies, which is typically between 1 and 30 days.</li>
+<li><strong>Published data</strong>: Once released, cannot be deleted</li>
+<li><strong>Downstream use</strong>: Subject to license terms, enforcement may vary!</li>
+<li><strong>Provider behavior</strong>: When chats sent to AI providers</li>
+</ul>
+</section>
+<section id="deletion-requests" class="level3" data-number="9.4.3">
+<h3 data-number="9.4.3" class="anchored" data-anchor-id="deletion-requests"><span class="header-section-number">9.4.3</span> Deletion Requests</h3>
+<ul>
+<li><strong>Future releases</strong>: Can exclude your data going forward</li>
+<li><strong>Past releases</strong>: Generally permanent and irrevocable</li>
+<li><strong>Contact</strong>: privacy@publicai.company for requests</li>
 </ul>
 </section>
 </section>
-<section id="event-timeline-how-data-flows" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="event-timeline-how-data-flows"><span class="header-section-number">9.4</span> Event timeline (how data flows)</h2>
+<section id="contributor-identifiers" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="contributor-identifiers"><span class="header-section-number">9.5</span> Contributor Identifiers</h2>
+<section id="contributor-hash" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="contributor-hash"><span class="header-section-number">9.5.1</span> Contributor Hash</h3>
+<ul>
+<li><strong>Format</strong>: 16-character hex string</li>
+<li><strong>Generation</strong>: <code>SHA256(salt + "openwebui:" + user_id)[:16]</code></li>
+<li><strong>Purpose</strong>: Group anonymous contributions</li>
+<li><strong>Not stored</strong>: Raw user_id never saved</li>
+</ul>
+</section>
+<section id="attribution-options" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="attribution-options"><span class="header-section-number">9.5.2</span> Attribution Options</h3>
 <ol type="1">
-<li>User prompts a model → payload sent to model provider; query and response are saved if user made an optional OpenWebUI account.</li>
-<li>If user wishes to select a chat to share via opt-in, they can do so. They never have to. Licensing and preference signals are set at opt-in time.</li>
-<li>Opt-in chat goes to “waiting room”</li>
-<li>Processing script collects items from waiting room, applies some checks (PII, content moderation), moves them into release buckets.</li>
-<li>A separate processing script takes data from the gated HF repo and builds the static site with leaderboard and data dump</li>
-<li>Post-release: approved removals are honored in future releases and our mirrors; prior downloads may persist.</li>
+<li><strong>Use username</strong>: Your OpenWebUI username</li>
+<li><strong>Anonymous</strong>: No attribution</li>
+<li><strong>Custom pseudonym</strong>: Your chosen name</li>
 </ol>
 </section>
-<section id="more-on-the-flywheel" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="more-on-the-flywheel"><span class="header-section-number">9.5</span> More on the flywheel</h2>
-<p>This is the core data lifecycle for every chat you contribute. Your submission goes through several automated stages before it becomes a permanent part of the public dataset.</p>
-<section id="phase-1-submission" class="level3" data-number="9.5.1">
-<h3 data-number="9.5.1" class="anchored" data-anchor-id="phase-1-submission"><span class="header-section-number">9.5.1</span> Phase 1: Submission</h3>
-<p>Whether you use the web form or contribute via OpenWebUI, you provide the data for a single conversation.</p>
 </section>
-<section id="phase-2-the-waiting-room-temporary" class="level3" data-number="9.5.2">
-<h3 data-number="9.5.2" class="anchored" data-anchor-id="phase-2-the-waiting-room-temporary"><span class="header-section-number">9.5.2</span> Phase 2: The Waiting Room (Temporary)</h3>
-<p>Immediately after submission, your contribution is packaged into a single JSON file and uploaded to a private <code>_waiting_room</code> directory in our Hugging Face dataset repository.</p>
+<section id="security-measures" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="security-measures"><span class="header-section-number">9.6</span> Security Measures</h2>
+<section id="in-transit" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="in-transit"><span class="header-section-number">9.6.1</span> In Transit</h3>
 <ul>
-<li><strong>What’s in the file:</strong> This file contains the raw content and metadata from your submission. To uniquely and privately identify contributors, we generate a <code>contributor_hash</code>:
-<ul>
-<li>For web submissions, this is a SHA256 hash of your Hugging Face username combined with a secret salt: <code>sha256(salt + hf_username)</code>.</li>
-<li>For OWUI submissions, this is a hash of the provider and your provider user ID: <code>sha256(salt + "openwebui:user-123")</code>.</li>
-</ul></li>
-<li><strong>Who can access it:</strong> Only Project Maintainers with access to the repository can see these files.</li>
-<li><strong>Retention:</strong> These files are <strong>temporary</strong>. They exist only until the processing script runs, typically within a few minutes or hours, after which they are deleted.</li>
+<li>HTTPS/TLS for all connections</li>
+<li>API tokens for HuggingFace uploads</li>
 </ul>
 </section>
-<section id="phase-3-processing-pii-redaction" class="level3" data-number="9.5.3">
-<h3 data-number="9.5.3" class="anchored" data-anchor-id="phase-3-processing-pii-redaction"><span class="header-section-number">9.5.3</span> Phase 3: Processing &amp; PII Redaction</h3>
-<p>A script (<code>process_pending.ts</code>) periodically runs to process every file in the waiting room. Its primary job is to validate the data and <strong>automatically redact Personally Identifiable Information (PII)</strong> from the chat content. Our redaction script looks for and replaces the following patterns:</p>
+<section id="at-rest" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="at-rest"><span class="header-section-number">9.6.2</span> At Rest</h3>
 <ul>
-<li>Email addresses</li>
-<li>IP addresses (IPv4 &amp; IPv6)</li>
-<li>Social Security Numbers (SSN)</li>
-<li>IBAN bank account numbers</li>
-<li>Ethereum and Bitcoin wallet addresses</li>
-<li>Phone numbers</li>
-<li>Credit card numbers (verified with Luhn check)</li>
-<li>Simple name patterns (e.g., “my name is John Doe”)</li>
-</ul>
-<p>If more than 5 potential PII hits are found, the file is moved to quarantine for safety.</p>
-</section>
-<section id="phase-4-the-quarantine-zone" class="level3" data-number="9.5.4">
-<h3 data-number="9.5.4" class="anchored" data-anchor-id="phase-4-the-quarantine-zone"><span class="header-section-number">9.5.4</span> Phase 4: The Quarantine Zone</h3>
-<p>If a submission fails processing, it’s moved to a private <code>_quarantined</code> directory.</p>
-<ul>
-<li><strong>Why it’s quarantined:</strong> A file is quarantined if it is malformed (e.g., invalid JSON), fails our content validation rules, or has too many PII hits detected by the redaction script.</li>
-<li><strong>Who can access it:</strong> Only Project Maintainers can access these files to diagnose processing errors.</li>
-<li><strong>Retention:</strong> Quarantined files are kept <strong>indefinitely</strong> for manual review.</li>
+<li>HuggingFace repository access controls</li>
+<li>No additional encryption on public datasets</li>
 </ul>
 </section>
-<section id="phase-5-the-final-public-dataset-permanent" class="level3" data-number="9.5.5">
-<h3 data-number="9.5.5" class="anchored" data-anchor-id="phase-5-the-final-public-dataset-permanent"><span class="header-section-number">9.5.5</span> Phase 5: The Final Public Dataset (Permanent) ✅</h3>
-<p>After successful processing and PII redaction, your contribution is appended to a monthly JSON Lines file (e.g., <code>data/2025-08.jsonl</code>).</p>
+<section id="access-controls" class="level3" data-number="9.6.3">
+<h3 data-number="9.6.3" class="anchored" data-anchor-id="access-controls"><span class="header-section-number">9.6.3</span> Access Controls</h3>
 <ul>
-<li><strong>What it is:</strong> This is the final, permanent, and clean version of your contribution. The content has been redacted, and the metadata is structured according to our public schema.</li>
-<li><strong>Who can access it:</strong> This dataset is <strong>public</strong>. Anyone in the world can view, download, and use it according to the license you chose for your contribution.</li>
-<li><strong>Retention:</strong> Contributions to this dataset are <strong>perpetual and irrevocable</strong>, as stated in the Terms of Service you agree to upon submission.</li>
+<li>OpenWebUI: Account-based access</li>
+<li>HuggingFace: Gated dataset with terms acceptance</li>
+<li>Processing scripts: Maintainer access only</li>
 </ul>
 </section>
 </section>
-<section id="licensing-preference-signals-beta" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="licensing-preference-signals-beta"><span class="header-section-number">9.6</span> Licensing &amp; Preference Signals (Beta)</h2>
-<p>For each contribution, the user selects:</p>
+<section id="third-party-services" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="third-party-services"><span class="header-section-number">9.7</span> Third-Party Services</h2>
+<section id="huggingface" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="huggingface"><span class="header-section-number">9.7.1</span> HuggingFace</h3>
 <ul>
-<li>A Creative Commons license: CC0-1.0, CC-BY-4.0, or CC-BY-SA-4.0.</li>
-<li>An AI preference signal: an IETF AI preference (draft) value and/or CC preference signal (“IETF AI Pref combo”).</li>
-</ul>
-<p>How we use these:</p>
-<ul>
-<li>We record <code>license</code> and <code>ai_pref</code> per record.</li>
-<li>Records are partitioned by license into separate release buckets.</li>
-<li>Downstream users must comply with the license; we publish compatibility notes (e.g., ShareAlike).</li>
-<li>Users may set account defaults; each submission can override.</li>
-</ul>
-<p>Binding effect: Once a record is included in a release, that license applies to that copy.</p>
-</section>
-<section id="example-retention-schedule" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="example-retention-schedule"><span class="header-section-number">9.7</span> Example Retention schedule</h2>
-<ul>
-<li><p>Web edge</p>
-<ul>
-<li>Data: IP + UA</li>
-<li>Purpose: Abuse prevention</li>
-<li>Retention: 7 days raw, then delete</li>
-<li>Deletion path: Automatic purge</li>
-</ul></li>
-<li><p>Web UI</p>
-<ul>
-<li>Data: Minimal telemetry</li>
-<li>Purpose: Reliability metrics</li>
-<li>Retention: 7 days raw, then aggregate (counts) and delete raw logs</li>
-<li>Deletion path: Automatic purge</li>
-</ul></li>
-<li><p>Gateway</p>
-<ul>
-<li>Data: Request envelopes</li>
-<li>Purpose: Capacity/SLOs</li>
-<li>Retention: 7 days raw, then aggregate (counts) and delete raw logs</li>
-<li>Deletion path: Automatic purge</li>
-</ul></li>
-<li><p>Open WebUI Accounts</p>
-<ul>
-<li>Data: Profile and preferences</li>
-<li>Purpose: Auth/consent</li>
-<li>Retention: Kept until user deletes; 30-day inactivity → delete</li>
-<li>Deletion path: Self-service delete / auto-purge</li>
-</ul></li>
-<li><p>Flywheel staging bucket (the “waiting room dir”, on HF)</p>
-<ul>
-<li>Data: Pending contributions</li>
-<li>Purpose: Moderation/de-duplication</li>
-<li>Retention: Indefinite (moved to organized buckets in same repo)</li>
-<li>Deletion path: Manual removal on request</li>
-</ul></li>
-<li><p>HF (gated)</p>
-<ul>
-<li>Data: Released records (by license)</li>
-<li>Purpose: Research access</li>
-<li>Retention: Indefinite</li>
-<li>Deletion path: Exclude from future versions; coordinate HF deletion where possible</li>
-</ul></li>
-<li><p>Static Site (public)</p>
-<ul>
-<li>Data: Leaderboards and full dataset access</li>
-<li>Purpose: Benchmarking/transparency</li>
-<li>Retention: Indefinite</li>
-<li>Deletion path: Update/remove in future releases; past d</li>
-</ul></li>
+<li><strong>Purpose</strong>: Dataset hosting and distribution</li>
+<li><strong>Data sent</strong>: Processed contributions (post-PII removal)</li>
+<li><strong>Their terms</strong>: https://huggingface.co/terms-of-service</li>
 </ul>
 </section>
-<section id="distribution-access-control" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="distribution-access-control"><span class="header-section-number">9.8</span> Distribution &amp; access control</h2>
-<section id="hugging-face-gated" class="level3" data-number="9.8.1">
-<h3 data-number="9.8.1" class="anchored" data-anchor-id="hugging-face-gated"><span class="header-section-number">9.8.1</span> Hugging Face (gated)</h3>
+<section id="ai-providers-via-openwebui" class="level3" data-number="9.7.2">
+<h3 data-number="9.7.2" class="anchored" data-anchor-id="ai-providers-via-openwebui"><span class="header-section-number">9.7.2</span> AI Providers (via OpenWebUI)</h3>
 <ul>
-<li>Access requires a request with acceptance of dataset-specific Terms of Use (no re-identification; honor license and AI preferences #todo write this).</li>
-<li>Deletion requests: Where possible, we use Hugging Face–native workflows (e.g., issue/repo requests, maintainers’ takedowns) to process deletions and exclude items from future versions.</li>
+<li><strong>When</strong>: During normal chat usage</li>
+<li><strong>What</strong>: Prompts and system messages</li>
+<li><strong>Control</strong>: See provider directory in Settings</li>
 </ul>
 </section>
-<section id="flywheel-static-site-public" class="level3" data-number="9.8.2">
-<h3 data-number="9.8.2" class="anchored" data-anchor-id="flywheel-static-site-public"><span class="header-section-number">9.8.2</span> Flywheel Static Site (public)</h3>
+</section>
+<section id="compliance-notes" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="compliance-notes"><span class="header-section-number">9.8</span> Compliance Notes</h2>
+<section id="gdpr-considerations" class="level3" data-number="9.8.1">
+<h3 data-number="9.8.1" class="anchored" data-anchor-id="gdpr-considerations"><span class="header-section-number">9.8.1</span> GDPR Considerations</h3>
 <ul>
-<li>Hosts leaderboards and provides full dataset access for building benchmarks.</li>
-<li>Cloudflare anti-scraping posture: Bot Management/WAF rules, rate limits, Turnstile/JS challenges on download routes, tokenized short-lived URLs, robots/meta controls, pagination/throttling, and anomaly monitoring.</li>
-<li>Reality check: Anti-scraping reduces but cannot prevent copying of public data. We limit risk via license partitioning, logged access flows, and clear terms.</li>
+<li><strong>Legal basis</strong>: Consent (explicit opt-in)</li>
+<li><strong>Data minimization</strong>: Only necessary fields collected</li>
+<li><strong>Purpose limitation</strong>: Only for declared research/evaluation</li>
+<li><strong>Rights</strong>: Access, rectification, erasure (with limitations)</li>
+</ul>
+</section>
+<section id="limitations-on-deletion" class="level3" data-number="9.8.2">
+<h3 data-number="9.8.2" class="anchored" data-anchor-id="limitations-on-deletion"><span class="header-section-number">9.8.2</span> Limitations on Deletion</h3>
+<p>Per our Terms of Service: - Contributions are permanent once published - We can exclude from future releases - We cannot retract from existing public copies - This is clearly disclosed before contribution</p>
+</section>
+</section>
+<section id="contact-information" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="contact-information"><span class="header-section-number">9.9</span> Contact Information</h2>
+<ul>
+<li>Privacy requests: privacy@publicai.company</li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1025,8 +951,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./2a_mvp.html" class="pagination-link  aria-label=" &lt;span="" serverless="" +="" git="" mvp&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The Serverless + Git MVP</span></span>
+      <a href="./2a_mvp.html" class="pagination-link  aria-label=" &lt;span="" openwebui="" action="" mvp&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The OpenWebUI Action MVP</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
