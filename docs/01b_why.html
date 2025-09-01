@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -247,7 +267,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
   </div>
 </li>
       </ul>
@@ -291,15 +311,19 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>Key insights: in general, we want more records that contain high-quality signals and/or observations about the world to be available to public AI organizations for training and evaluation.</p>
 </blockquote>
-<p>If we want to build a data flywheel, it is probably useful to first specifiy why we want more data! This in turn can help us identify what types of data we want.</p>
+<p>If we want to build a data flywheel, it is probably useful to first specify why we want more data! This in turn can help us identify what types of data we want.</p>
 <p>At its core, “data” is useful for AI (and for other things!) because it provides information about the world.</p>
-<p>In general, it is intuitive that having more information will (generally) lead to better decision-making. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Although there some scenarios we might come across (or invent) where getting acquiring information is not helpful – because we might not have “room” in our memory for more data, or some records might not help us at a certain task, or data causes our model to get worse in some sense – most people benefit from having more records of high-quality observations and signals.</p>
+<p>In general, it is intuitive that having more information will (generally) lead to better decision-making. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Although there are some scenarios we might come across (or invent) where getting acquiring information is not helpful – because we might not have “room” in our memory for more data, or some records might not help us at a certain task, or data causes our model to get worse in some sense – most people benefit from having more records of high-quality observations and signals. (example: <span class="citation" data-cites="shen2024data">(<a href="references.html#ref-shen2024data" role="doc-biblioref">Shen, Raji, and Chen 2024</a>)</span></p>
 <p>So let’s put these more complicated cases aside for now, and make the assumption: in expectation, acquiring more high-quality data (that is “accurate”, or reflects “insight”) is useful. Oftentimes assessing data’s quality, or its truthiness, or its insightfulness, is not at all easy! With this assumption in mind (and hearty caution about the thorniness of truth and insight), we can speak generally about the types of data we might acquire through a flywheel and that data will be useful.</p>
 <section id="an-overly-detailed-accounting-of-all-the-ways-we-might-generate-llm-pre-training-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="an-overly-detailed-accounting-of-all-the-ways-we-might-generate-llm-pre-training-data"><span class="header-section-number">2.1</span> An overly detailed accounting of all the ways we might generate LLM pre-training data</h2>
-<p>Speaking at very low-level, LLM pre-training data can come from any sensor or form that creates digital records that contain sequences of tokens. However, we generally don’t want any old tokens – we want tokens that contain signals about the world and about people, and that have been organized (typically by people) in a way that captures structure. In pre-training, it seems we can get away with mixing together many differents types of structure. For post-training, we may want specific structure (e.g.&nbsp;data produced by people following specific instructions).</p>
-<p>We might further try to describe human-generated data in a very general fashion by saying: data is created when a person does something that leaves a digital trace: typing, speaking into a mic, using some kind of alternate controller, etc. They might also operate a camera or other sensing instrument that captures signals from the world. We also sometimes may want to use truly “sensor-only data” (e.g., seismic readings), though those sensors are built, placed, funded, and so on by humans.</p>
-<p>After typing (or other input), they might use a terminal or GUI to send their inputs into some data structure – by committing code, editing a wiki, responding on a forum, and so on. Often, the person creating a record has a goal and/or a task they want to complete. This might be: ask a question, teach or correct something, build software, file a bug, summarize a meeting, translate a passage, or simply react to some information object (like/flag/skip). Critically, in practice, many high value sources of data also have some upstream social structure and corresponding incentives – institutions, communities, etc. that create meaningful incentives for people to produce records that are accurate, insightful, and so on. #todo cite key works about value of social media data, scientific data, etc.</p>
+<p>Speaking at very low-level, LLM pre-training data can come from any sensor or form that creates digital records that contain sequences of tokens. However, we generally don’t want any old tokens – we want tokens that contain signals about the world and about people, and that have been organized (typically by people) in a way that captures the underlying structures of our world (or the structures that we people have imposed). In pre-training, it seems we can get away with mixing together many differents types of structure. For post-training, we may want specific structure (e.g.&nbsp;data produced by people following specific instructions).</p>
+<p>We might further try to describe human-generated data in a very general fashion by saying: data is created when a person does something that leaves a digital trace: typing, speaking into a microphone, using other kinds of digital inputs like buttons ,controllers, etc. They might also operate a camera or other sensing instrument that captures signals from the world. We also sometimes may want to use truly “sensor-only data” (e.g., seismic readings), though those sensors are built, placed, funded, and so on by humans.</p>
+<p>After typing, a person might use a terminal or GUI to send their inputs into some data structure – by committing code, editing a wiki, responding on a forum, and so on. Often, the person creating a record has a goal and/or a task they want to complete. This might be: ask a question, teach or correct something, build software, file a bug, summarize a meeting, translate a passage, or simply react to some information object (like/flag/skip). Critically, in practice, many high value sources of data also have some upstream social structure and corresponding incentives – institutions, communities, etc. that create meaningful incentives for people to produce records that are accurate, insightful, and so on. #todo cite key works about value of social media data, scientific data, etc.</p>
+<ul>
+<li>https://wikimediafoundation.org/news/2023/07/12/wikipedias-value-in-the-age-of-generative-ai/</li>
+<li>https://arxiv.org/abs/2410.08918v1</li>
+</ul>
 <p>In other words, institutions and communities create incentives so that as people type (or otherwise digitize information), they don’t just produce random sequences or the same common sequences repeatedly (or we might have an Internet of web pages that all say “I like good food”; don’t we all…)</p>
 <p>Moving to a more high-level overview, we might begin categorize LLM training data:</p>
 <ul>
@@ -331,11 +355,17 @@ window.Quarto = {
 <li>“Negative” structure: anti-patterns, jailbreak attempts, hallucination catalogs.</li>
 </ul>
 <p>Of course, a key data for many AI systems is “implict feedback”: clicks, dwell time, scroll/hover, skips/abandonment. This data is typically collected via a “sensor” (logging software), not something users actively contribute through a form.</p>
+<hr>
 <p>https://arxiv.org/abs/1712.00409 https://papers.neurips.cc/paper_files/paper/2022/file/7b75da9b61eda40fa35453ee5d077df6-Paper-Conference.pdf https://www.cs.ubc.ca/~hutter/earg/papers07/00585893.pdf</p>
 <p>https://arxiv.org/abs/1812.11118</p>
 <p><span class="citation" data-cites="article">(<a href="references.html#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{Belkin_2019, title={Reconciling modern machine-learning practice and the classical bias–variance trade-off}, volume={116}, ISSN={1091-6490}, url={http://dx.doi.org/10.1073/pnas.1903070116}, DOI={10.1073/pnas.1903070116}, number={32}, journal={Proceedings of the National Academy of Sciences}, publisher={Proceedings of the National Academy of Sciences}, author={Belkin, Mikhail and Hsu, Daniel and Ma, Siyuan and Mandal, Soumik}, year={2019}, month=jul, pages={15849–15854} }</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-shen2024data" class="csl-entry" role="listitem">
+Shen, Judy Hanwen, Inioluwa Deborah Raji, and Irene Y Chen. 2024. <span>“The Data Addition Dilemma.”</span> <em>arXiv Preprint arXiv:2408.04154</em>. <a href="https://arxiv.org/abs/2408.04154">https://arxiv.org/abs/2408.04154</a>.
+</div>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>

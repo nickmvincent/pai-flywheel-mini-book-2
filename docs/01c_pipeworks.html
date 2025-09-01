@@ -218,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: Example Legal Terms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
   </div>
 </li>
       </ul>
@@ -267,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="how-does-data-move-from-people-to-ai-models-and-where-can-we-insert-governance-levers" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="how-does-data-move-from-people-to-ai-models-and-where-can-we-insert-governance-levers"><span class="header-section-number">3.1</span> How does data move from people to AI models — and where can we insert governance levers?</h2>
-<p><em>This is a summary of a longer Data Leverages Newsletter <a href="https://dataleverage.substack.com/p/building-a-data-pipeworks-for-democratic">post</a></em>.</p>
+<p><em>This is a summary of a longer Data Leverage <a href="https://dataleverage.substack.com/p/building-a-data-pipeworks-for-democratic">post</a></em>.</p>
 <p>To further motivate the idea of data contribution with public AI principles, it’s worth a brief discussion of what the overall “data pipeworks” of the AI industry looks like from a zoomed out view.</p>
 <p>Key takeaways</p>
 <ul>
@@ -283,17 +283,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="why-a-pipeworks-view" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="why-a-pipeworks-view"><span class="header-section-number">3.2</span> Why a “pipeworks” view?</h2>
-<p>Most technical AI work zooms in on a clean optimization problem. But questions about who benefits, who participates, and how AI affects society live upstream and downstream of that problem. The Data Pipeworks zooms out. It describes the end-to-end flow by which human activity becomes records, then datasets, then models embedded in systems that act on the world—and thereby change the future data we can collect. That circularity is the opening for governance.</p>
+<p>Most technical AI work zooms in on a clean optimization problem. But questions about who benefits, who participates, and how AI affects society live upstream and downstream of that problem. A “Data Pipeworks” view describes the end-to-end flow by which human activity becomes records, then datasets, then models embedded in systems that act on the world, and thereby change the future data we can collect.</p>
 <p>This view pairs naturally with cybernetics/control: identify system state, actuators, sensors, and feedback loops; then decide which loops to strengthen or dampen.</p>
 </section>
 <section id="five-stages-of-data" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="five-stages-of-data"><span class="header-section-number">3.3</span> Five stages of data</h2>
 <ol type="1">
 <li><p>Knowledge &amp; Values (Reality Signal): Humans (and the physical world) generate the latent “signal” AI tries to model (facts, preferences, norms). We don’t presume computability; we note its existence to emphasize sampling implications.</p></li>
-<li><p>Records (Sampling Step): Interfaces and sensors transform activity into structured records (forms, clicks, edits, uploads, buttons, cameras, microphones). Design choices here shape what becomes legible to AI. Key idea: everything either leans “sensor” or “form”.</p></li>
+<li><p>Records (Sampling Step): Interfaces and sensors transform activity into structured records (forms, clicks, edits, uploads, buttons, cameras, microphones). Design choices here shape what becomes legible to AI. Key idea: generally, any particular sampling instance either leans more towards “sensor” or “form”.</p></li>
 <li><p>Datasets (Filtering &amp; Aggregation): Organizations filter, label, merge, and license records under social, economic, and legal constraints. This determines coverage, bias, and what’s even available to learn from.</p></li>
-<li><p>Models (Compression): Learning compresses datasets into input–output mappings. Model choices are path-dependent on Stages 2–3; data defines the feasible hypothesis space.</p></li>
-<li><p>Deployed Systems (Actuation): Models are embedded in products, workflows, or infrastructure, producing value and externalities. Deployment feeds back by altering incentives and future record creation.</p></li>
+<li><p>Models (Compression): Learning compresses datasets into input–output mappings. Modeling choices are path-dependent on Stages 1–3; data defines the feasible hypothesis space.</p></li>
+<li><p>Deployed Systems (Actuation): Models are embedded in products, workflows, or infrastructure, producing value and externalities. Deployment feeds back by first, and foremost, <strong>changing the actual world</strong>. Deployment also alters incentives therefore affects future record creation.</p></li>
 </ol>
 <p>Design note: small, well-placed interventions upstream can dominate large downstream tweaks.</p>
 </section>
@@ -309,11 +309,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="where-to-place-the-levers-for-public-ai-flywheels" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="where-to-place-the-levers-for-public-ai-flywheels"><span class="header-section-number">3.5</span> Where to place the levers (for public AI flywheels)</h2>
 <ul>
-<li><p>Stage 1 to 2 (Knowledge to Records): invest in interfaces and sensors with informed consent; design contribution prompts and micro-tasks; support pseudonymity and reputation choices. Aim to raise signal quality and widen participation.</p></li>
-<li><p>Stage 2 to 3 (Records to Datasets): attach licenses and AI preference signals per record; validate, de-duplicate, and redact PII; publish partitioned releases. Make rights legible and keep high-trust, high-reuse bundles.</p></li>
-<li><p>Stage 3 to 4 (Datasets to Models): enable data markets and coalitions, attribution, and sampling weights; build evaluation sets tied to provenance. Align training with community intent and enable bargaining.</p></li>
+<li><p>Stage 1 to 2 (Knowledge to Records): invest in interfaces and sensors with informed consent; design contribution prompts and micro-tasks; support pseudonymity and reputation choices. Aim to raise signal quality and widen participation. Note that there will be an omni-present tension between informed consent and “frictionless” contribution. Can be resolved to some degree by building trust between public and public AI operators.</p></li>
+<li><p>Stage 2 to 3 (Records to Datasets): attach licenses and AI preference signals per record; validate, de-duplicate, and redact PII; publish partitioned releases. Make rights legible and keep high-trust, high-reuse bundles. Leaderboards, grants, bounties, governance hooks (votes, preferences) to sustain contributions and invite further steering.</p></li>
+<li><p>Stage 3 to 4 (Datasets to Models): enable data markets and coalitions, attribution, and sampling weights; build evaluation sets tied to provenance. Align training with community intent and enable bargaining. (more in this in the next section as well).</p></li>
 <li><p>Stage 4 to 5 (Models to Systems): publish transparent deployment notes, opt-outs, and model cards tied to data buckets. Surface externalities and set expectations for use.</p></li>
-<li><p>Stage 5 to 1 (Feedback loop): close the loop with flywheel UX. Leaderboards, grants, bounties, governance hooks (votes, preferences) to sustain contributions and invite further steering.</p></li>
+<li><p>Stage 5 to 1 (Feedback loop): try to ensure that AI actually has positive benefits on the world. Improve standards of living, increase health, free-time, well-being etc. so people can become empowered active participants in whatever stage of the pipeline they please.</p></li>
 </ul>
 </section>
 <section id="implications-for-research-and-practice" class="level2" data-number="3.6">
@@ -330,6 +330,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Governance decides who gets to steer.</li>
 </ul>
 <p>Public AI flywheels turn that loop into a participatory control system: contributors see consequences, express preferences, and are (hopefully) rewarded for adding high-signal records.</p>
+<hr>
 <p>#todo re-add cites from the original post!</p>
 <p>https://www.annualreviews.org/content/journals/10.1146/annurev.soc.24.1.183</p>
 <p>https://en.wikipedia.org/wiki/Cybernetics</p>
