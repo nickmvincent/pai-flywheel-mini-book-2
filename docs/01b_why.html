@@ -229,12 +229,6 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The OpenWebUI Action MVP</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -255,19 +249,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
   </div>
 </li>
       </ul>
@@ -313,17 +307,13 @@ window.Quarto = {
 </blockquote>
 <p>If we want to build a data flywheel, it is probably useful to first specify why we want more data! This in turn can help us identify what types of data we want.</p>
 <p>At its core, “data” is useful for AI (and for other things!) because it provides information about the world.</p>
-<p>In general, it is intuitive that having more information will (generally) lead to better decision-making. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Although there are some scenarios we might come across (or invent) where getting acquiring information is not helpful – because we might not have “room” in our memory for more data, or some records might not help us at a certain task, or data causes our model to get worse in some sense – most people benefit from having more records of high-quality observations and signals. (example: <span class="citation" data-cites="shen2024data">(<a href="references.html#ref-shen2024data" role="doc-biblioref">Shen, Raji, and Chen 2024</a>)</span></p>
+<p>In general, it is intuitive that having more information will (generally) lead to better decision-making. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Although there are some scenarios we might come across (or invent) where getting acquiring information is not helpful – because we might not have “room” in our memory for more data, or some records might not help us at a certain task, or data causes our model to get worse in some sense (some examples of nuance in academic work: <span class="citation" data-cites="shen2024data">(<a href="references.html#ref-shen2024data" role="doc-biblioref">Shen, Raji, and Chen 2024</a>)</span>, <span class="citation" data-cites="sorscher2022beyond">(<a href="references.html#ref-sorscher2022beyond" role="doc-biblioref">Sorscher et al. 2022</a>)</span>) – in general, most people benefit from having more records of high-quality observations and signals <span class="citation" data-cites="hestness_deep_2017">(<a href="references.html#ref-hestness_deep_2017" role="doc-biblioref">Hestness et al. 2017</a>)</span>. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>So let’s put these more complicated cases aside for now, and make the assumption: in expectation, acquiring more high-quality data (that is “accurate”, or reflects “insight”) is useful. Oftentimes assessing data’s quality, or its truthiness, or its insightfulness, is not at all easy! With this assumption in mind (and hearty caution about the thorniness of truth and insight), we can speak generally about the types of data we might acquire through a flywheel and that data will be useful.</p>
 <section id="an-overly-detailed-accounting-of-all-the-ways-we-might-generate-llm-pre-training-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="an-overly-detailed-accounting-of-all-the-ways-we-might-generate-llm-pre-training-data"><span class="header-section-number">2.1</span> An overly detailed accounting of all the ways we might generate LLM pre-training data</h2>
 <p>Speaking at very low-level, LLM pre-training data can come from any sensor or form that creates digital records that contain sequences of tokens. However, we generally don’t want any old tokens – we want tokens that contain signals about the world and about people, and that have been organized (typically by people) in a way that captures the underlying structures of our world (or the structures that we people have imposed). In pre-training, it seems we can get away with mixing together many differents types of structure. For post-training, we may want specific structure (e.g.&nbsp;data produced by people following specific instructions).</p>
 <p>We might further try to describe human-generated data in a very general fashion by saying: data is created when a person does something that leaves a digital trace: typing, speaking into a microphone, using other kinds of digital inputs like buttons ,controllers, etc. They might also operate a camera or other sensing instrument that captures signals from the world. We also sometimes may want to use truly “sensor-only data” (e.g., seismic readings), though those sensors are built, placed, funded, and so on by humans.</p>
-<p>After typing, a person might use a terminal or GUI to send their inputs into some data structure – by committing code, editing a wiki, responding on a forum, and so on. Often, the person creating a record has a goal and/or a task they want to complete. This might be: ask a question, teach or correct something, build software, file a bug, summarize a meeting, translate a passage, or simply react to some information object (like/flag/skip). Critically, in practice, many high value sources of data also have some upstream social structure and corresponding incentives – institutions, communities, etc. that create meaningful incentives for people to produce records that are accurate, insightful, and so on. #todo cite key works about value of social media data, scientific data, etc.</p>
-<ul>
-<li>https://wikimediafoundation.org/news/2023/07/12/wikipedias-value-in-the-age-of-generative-ai/</li>
-<li>https://arxiv.org/abs/2410.08918v1</li>
-</ul>
+<p>After typing, a person might use a terminal or GUI to send their inputs into some data structure – by committing code, editing a wiki, responding on a forum, and so on. Often, the person creating a record has a goal and/or a task they want to complete. This might be: ask a question, teach or correct something, build software, file a bug, summarize a meeting, translate a passage, or simply react to some information object (like/flag/skip). Critically, in practice, many high value sources of data also have some upstream social structure and corresponding incentives – institutions, communities, etc. that create meaningful incentives for people to produce records that are accurate, insightful, and so on <span class="citation" data-cites="deckelmann_wikipedias_2023">(<a href="references.html#ref-deckelmann_wikipedias_2023" role="doc-biblioref">Deckelmann 2023</a>)</span>, <span class="citation" data-cites="johnson2024wikimedia">(<a href="references.html#ref-johnson2024wikimedia" role="doc-biblioref">Johnson, Kaffee, and Redi 2024</a>)</span>, <span class="citation" data-cites="aryabumi2024code">(<a href="references.html#ref-aryabumi2024code" role="doc-biblioref">Aryabumi et al. 2024</a>)</span>.</p>
 <p>In other words, institutions and communities create incentives so that as people type (or otherwise digitize information), they don’t just produce random sequences or the same common sequences repeatedly (or we might have an Internet of web pages that all say “I like good food”; don’t we all…)</p>
 <p>Moving to a more high-level overview, we might begin categorize LLM training data:</p>
 <ul>
@@ -355,15 +345,32 @@ window.Quarto = {
 <li>“Negative” structure: anti-patterns, jailbreak attempts, hallucination catalogs.</li>
 </ul>
 <p>Of course, a key data for many AI systems is “implict feedback”: clicks, dwell time, scroll/hover, skips/abandonment. This data is typically collected via a “sensor” (logging software), not something users actively contribute through a form.</p>
-<hr>
-<p>https://arxiv.org/abs/1712.00409 https://papers.neurips.cc/paper_files/paper/2022/file/7b75da9b61eda40fa35453ee5d077df6-Paper-Conference.pdf https://www.cs.ubc.ca/~hutter/earg/papers07/00585893.pdf</p>
-<p>https://arxiv.org/abs/1812.11118</p>
-<p><span class="citation" data-cites="article">(<a href="references.html#ref-article" role="doc-biblioref"><strong>article?</strong></a>)</span>{Belkin_2019, title={Reconciling modern machine-learning practice and the classical bias–variance trade-off}, volume={116}, ISSN={1091-6490}, url={http://dx.doi.org/10.1073/pnas.1903070116}, DOI={10.1073/pnas.1903070116}, number={32}, journal={Proceedings of the National Academy of Sciences}, publisher={Proceedings of the National Academy of Sciences}, author={Belkin, Mikhail and Hsu, Daniel and Ma, Siyuan and Mandal, Soumik}, year={2019}, month=jul, pages={15849–15854} }</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-aryabumi2024code" class="csl-entry" role="listitem">
+Aryabumi, Viraat, Yixuan Su, Raymond Ma, Adrien Morisot, Ivan Zhang, Acyr Locatelli, Marzieh Fadaee, Ahmet Üstün, and Sara Hooker. 2024. <span>“To Code, or Not to Code? Exploring Impact of Code in Pre-Training.”</span> <em>arXiv Preprint arXiv:2408.10914</em>.
+</div>
+<div id="ref-Belkin_2019" class="csl-entry" role="listitem">
+Belkin, Mikhail, Daniel Hsu, Siyuan Ma, and Soumik Mandal. 2019. <span>“Reconciling Modern Machine-Learning Practice and the Classical Bias–Variance Trade-Off.”</span> <em>Proceedings of the National Academy of Sciences</em> 116 (32): 15849–54. <a href="https://doi.org/10.1073/pnas.1903070116">https://doi.org/10.1073/pnas.1903070116</a>.
+</div>
+<div id="ref-deckelmann_wikipedias_2023" class="csl-entry" role="listitem">
+Deckelmann, Selena. 2023. <span>“Wikipedia’s Value in the Age of Generative <span>AI</span>.”</span> <em>Wikimedia Foundation</em>. <a href="https://wikimediafoundation.org/news/2023/07/12/wikipedias-value-in-the-age-of-generative-ai/">https://wikimediafoundation.org/news/2023/07/12/wikipedias-value-in-the-age-of-generative-ai/</a>.
+</div>
+<div id="ref-hestness_deep_2017" class="csl-entry" role="listitem">
+Hestness, Joel, Sharan Narang, Newsha Ardalani, Gregory Diamos, Heewoo Jun, Hassan Kianinejad, Md Patwary, Mostofa Ali, Yang Yang, and Yanqi Zhou. 2017. <span>“Deep Learning Scaling Is Predictable, Empirically.”</span> <em>arXiv Preprint arXiv:1712.00409</em>.
+</div>
+<div id="ref-johnson2024wikimedia" class="csl-entry" role="listitem">
+Johnson, Isaac, Lucie-Aimée Kaffee, and Miriam Redi. 2024. <span>“Wikimedia Data for AI: A Review of Wikimedia Datasets for NLP Tasks and AI-Assisted Editing.”</span> <em>arXiv Preprint arXiv:2410.08918</em>.
+</div>
 <div id="ref-shen2024data" class="csl-entry" role="listitem">
 Shen, Judy Hanwen, Inioluwa Deborah Raji, and Irene Y Chen. 2024. <span>“The Data Addition Dilemma.”</span> <em>arXiv Preprint arXiv:2408.04154</em>. <a href="https://arxiv.org/abs/2408.04154">https://arxiv.org/abs/2408.04154</a>.
+</div>
+<div id="ref-sorscher2022beyond" class="csl-entry" role="listitem">
+Sorscher, Ben, Robert Geirhos, Shashank Shekhar, Surya Ganguli, and Ari Morcos. 2022. <span>“Beyond Neural Scaling Laws: Beating Power Law Scaling via Data Pruning.”</span> <em>Advances in Neural Information Processing Systems</em> 35: 19523–36.
+</div>
+<div id="ref-wolpert2002no" class="csl-entry" role="listitem">
+Wolpert, David H, and William G Macready. 2002. <span>“No Free Lunch Theorems for Optimization.”</span> <em>IEEE Transactions on Evolutionary Computation</em> 1 (1): 67–82.
 </div>
 </div>
 </section>
@@ -371,6 +378,7 @@ Shen, Judy Hanwen, Inioluwa Deborah Raji, and Irene Y Chen. 2024. <span>“The D
 <hr>
 <ol>
 <li id="fn1"><p>A bayesian might say: data is <em>evidence</em> that updates a prior into a posterior via Bayes’ rule; the “goodness” of a dataset is how much information (likelihood ratio / bits of surprise) it carries about the hypotheses we actually care about. A frequentist might say: data are <em>samples</em> from some process; more (and more representative) samples tighten confidence intervals and reduce estimator variance (roughly with <span class="math inline">\(1/\sqrt{n}\)</span>), so sampling design and coverage matter as much as sheer volume.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Classical work provides an information-focused perspective on when/why more data is good: <span class="citation" data-cites="wolpert2002no">(<a href="references.html#ref-wolpert2002no" role="doc-biblioref">Wolpert and Macready 2002</a>)</span>, <span class="citation" data-cites="Belkin_2019">(<a href="references.html#ref-Belkin_2019" role="doc-biblioref">Belkin et al. 2019</a>)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

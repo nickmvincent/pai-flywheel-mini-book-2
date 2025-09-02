@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./2b_data_policy.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./01z_upstream.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -180,12 +180,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The OpenWebUI Action MVP</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -206,19 +200,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
   </div>
 </li>
       </ul>
@@ -275,16 +269,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="overview" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">8.1</span> Overview</h2>
 <p>Our v1 MVP is implemented as an OpenWebUI Action that enables opt-in data contribution directly from the chat interface to a HuggingFace dataset repository. This approach leverages OpenWebUI’s existing infrastructure and user accounts, eliminating the need for a separate flywheel website.</p>
+<p>The goal is to obtain the benefits of using a source control backend (in this case, git on HuggingFace) but try to mitigate the additional friction / UX challenges associated with using git or other “high-effort” source control approaches.</p>
 </section>
 <section id="architecture" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="architecture"><span class="header-section-number">8.2</span> Architecture</h2>
 <p>The flywheel consists of:</p>
 <ul>
-<li><strong>Frontend</strong>: OpenWebUI instance at https://app.publicai.company/</li>
+<li><strong>Frontend</strong>: OpenWebUI instance at https://chat.publicai.co/</li>
 <li><strong>Action Plugin</strong>: Python-based OpenWebUI action that handles contributions</li>
 <li><strong>User Settings</strong>: OpenWebUI’s “User Valves” for persistent preferences</li>
-<li><strong>Data Storage</strong>: HuggingFace dataset repository at <code>publicai/shared-chats</code></li>
+<li><strong>Data Storage</strong>: Private HuggingFace dataset repository for staging / quaratine. Public but user agreement gated HuggingFace dataset repository for approved data.</li>
 <li><strong>Processing Pipeline</strong>: Asynchronous scripts that process the waiting room</li>
+<li><strong>Static site</strong>: Static site with anti-scraping for direct download.</li>
 </ul>
 </section>
 <section id="how-contribution-works" class="level2" data-number="8.3">
@@ -292,8 +288,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="user-setup-one-time" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="user-setup-one-time"><span class="header-section-number">8.3.1</span> User Setup (One-time)</h3>
 <ol type="1">
-<li>User creates an OpenWebUI account at https://app.publicai.company/</li>
-<li>User opens <strong>Settings / Valves / Functions</strong></li>
+<li>User creates an OpenWebUI account</li>
+<li>User opens <strong>Controls / Valves / Functions</strong></li>
 <li>User toggles <strong>Sharing Enabled</strong> to ON</li>
 <li>User selects:
 <ul>
@@ -310,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
 <li>User has a conversation with any model</li>
 <li>User triggers the “Public AI Data Flywheel” action</li>
 <li>System shows current settings and asks for confirmation</li>
-<li>Optional: User provides feedback or context</li>
+<li>Optional: User provides more feedback or context</li>
 <li>Action creates a contribution JSON with:
 <ul>
 <li>Conversation messages</li>
@@ -327,10 +323,10 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><strong>Waiting Room</strong>: Contributions land in <code>_waiting_room/</code> directory</li>
 <li><strong>Validation</strong>: Daily script processes pending files</li>
-<li><strong>PII Redaction</strong>: Automated removal of emails, SSNs, phone numbers, etc.</li>
-<li><strong>Quarantine</strong>: Files with &gt;5 PII hits or errors go to <code>_quarantined/</code></li>
-<li><strong>Release</strong>: Clean contributions move to monthly buckets (e.g., <code>data/2025-08.jsonl</code>)</li>
-<li><strong>Distribution</strong>: Published via gated HF repo and future public gallery</li>
+<li><strong>PII Redaction</strong>: Automated check for emails, SSNs, phone numbers, etc.</li>
+<li><strong>Quarantine</strong>: Files with PII hits or errors go to <code>_quarantined/</code></li>
+<li><strong>Release</strong>: Clean contributions move to “ready” directory</li>
+<li><strong>Distribution</strong>: Published via gated HF repo and public gallery</li>
 </ol>
 </section>
 </section>
@@ -358,7 +354,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><strong>Mock mode</strong>: Test contributions without actual upload</li>
 <li><strong>PII detection</strong>: Email, IP, SSN, IBAN, crypto wallets, phone, credit cards</li>
-<li><strong>Quarantine system</strong>: Suspicious content held for review</li>
+<li><strong>Quarantine system</strong>: Content can be held for review</li>
 <li><strong>Rate limiting</strong>: Handled by OpenWebUI’s existing limits</li>
 </ul>
 
@@ -761,8 +757,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./2b_data_policy.html" class="pagination-link" aria-label="<span class='chapter-number'>9</span>&nbsp; <span class='chapter-title'>Data Flow and Data Retention</span>">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

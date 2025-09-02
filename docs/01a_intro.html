@@ -200,12 +200,6 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The OpenWebUI Action MVP</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -226,19 +220,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
   </div>
 </li>
       </ul>
@@ -301,11 +295,11 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>“Public Access – Certain capabilities are so important for participation in public life that access to them should be universal. Public AI provides affordable access to these tools so that everyone can realize their potential.” “Public Accountability – Public AI earns trust by ensuring ultimate control of development rests with the public, giving everyone a chance to participate in shaping the future.” “Permanent Public Goods – Public AI is funded and operated in a way to maintain the public goods it produces permanently, enabling innovators to safely build on a firm foundation.”</p>
 </blockquote>
-<p>For more on the public AI concept, see also Mozilla’s <a href="https://www.mozillafoundation.org/en/research/library/public-ai/">work</a> in this space and several workshop papers and preprints (<a href="https://arxiv.org/abs/2507.09296">RegML 2023</a> at NeurIPS, <a href="https://arxiv.org/abs/2311.11350">CodeML 2025</a> at ICML, <a href="https://www.nickmvincent.com/static/canada_publicai.pdf">workshop</a> on Canadian Internet Policy).</p>
+<p>For more on the public AI concept, see also Mozilla’s work (including the <a href="https://www.mozillafoundation.org/en/research/library/public-ai/">web page</a> and paper <span class="citation" data-cites="marda2024public">(<a href="references.html#ref-marda2024public" role="doc-biblioref">Marda, Sun, and Surman 2024</a>)</span>). See also several workshop papers (RegML @ NeurIPS 2023 <span class="citation" data-cites="vincent2023alternative">(<a href="references.html#ref-vincent2023alternative" role="doc-biblioref">Vincent et al. 2023</a>)</span>; CodeML @ ICML 2025 <span class="citation" data-cites="tan2025if">(<a href="references.html#ref-tan2025if" role="doc-biblioref">Tan et al. 2025</a>)</span>; Workshop on Canadian Internet Policy <span class="citation" data-cites="vincentcanada">(<a href="references.html#ref-vincentcanada" role="doc-biblioref">Vincent, Surman, and Hirsch-Allen 2025</a>)</span>).</p>
 <p>Our focus in this mini-book is building “public AI” flywheels. To summarize heavily – if we try to achieve all the principles laid out in the large body work that tries to define “public AI” (and we should try!), we will face some unique challenges in the implementation of data flywheels.</p>
 <p>In building public AI data flywheels, we are trying to create a feedback loop to improve AI by creating and collecting high-quality data (more on this in <a href="01b_why.html" class="quarto-xref"><span>Chapter 2</span></a>). However, the public AI principles mean that we likely want to start from a position of very high accessibility and very high accountability relative to other technology organizations and products. This means we need to provide an accessible explanation of exactly what happens to any data a user creates and give people real agency over the shape of the data pipeline. Ideally, public AI builders should also endeavor to make as many components of our stack as close as possible to public goods, which creates challenges around sustaining effort and funding.</p>
 <p>Of course, it’s worth noting that some particular subset of the broad public (for instance, a particular city or state) could deliberate and make a collective decision that they prefer a more “traditional approach” to data flywheels. Very concretely, we could imagine a state conducting a referendum, and asking the public if they’d like a “public AI” product that follows industry standard practices around data and flywheels (sacrifing some degree of accessibility and/or accountability for other benefits). This might mean that the state deploys an AI chatbot with nearly the same data collection practices and privacy policies as organizations like Google or Anthropic.</p>
-<p>In this mini-book, we are taking the stance that it’s best to start from a position of leaning heavily towards a highly accessible and accountable flywheel. We start by minimizing usage and retention of data; data that is used directly for AI research and development (R&amp;D) should be provided via an opt-in by highly informed users.</p>
+<p>In this mini-book, we are taking the stance that it’s best to start from a position of leaning heavily towards a highly accessible and accountable flywheel. We start by minimizing usage (<a href="https://en.wikipedia.org/wiki/Data_minimization">“data minimization”</a>) and retention of data; data that is used directly for AI research and development (R&amp;D) should be provided via an opt-in by highly informed users.</p>
 </section>
 <section id="core-principles" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="core-principles"><span class="header-section-number">1.3</span> Core Principles</h2>
@@ -316,12 +310,12 @@ div.csl-indent {
 <ul>
 <li><p>Data Rights: A public AI data flywheel should empower users with control over their data, mirroring GDPR principles and similar regulations (this is also practically important for compliance). This includes the right to access (<code>$Art. 15$</code>), rectify (<code>$Art. 16$</code>), erase when possible (<code>$Art. 17$</code>), and port data (<code>$Art. 20$</code>). One exemplar project we might look to for inspiration around the implementation of data rights and legal terms is Mozilla’s <a href="https://commonvoice.mozilla.org/">Common Voice</a> <span class="citation" data-cites="ardila2019common">(<a href="references.html#ref-ardila2019common" role="doc-biblioref">Ardila et al. 2019</a>)</span>.</p>
 <ul>
-<li>We note that data rights conflict with a “fully open” ethos; we will attempt to mitigate these tensions to the best extent possible.</li>
-<li>We also note that public AI faces some unique challenges with cross-jurisdiction compliance; we discuss this at a high-level later on in <span class="quarto-unresolved-ref">?sec-ec</span>.</li>
+<li>We note that data rights can conflict with a “fully open” ethos; we will attempt to mitigate these tensions to the best extent possible.</li>
+<li>We also note that public AI faces some unique challenges with cross-jurisdiction compliance; we discuss this at a high-level later on in <a href="01f_ethics_compliance.html" class="quarto-xref"><span>Chapter 6</span></a>.</li>
 </ul></li>
-<li><p>Balancing reputation and pseudonymity: To the extent possible, we believe it is valuable to offer people the ability to contribute data with some kind “real account” attached, so people can earn credit and reputation. But this must be balanced with the benefits of also enabling pseudonymity or even anonymity contribution (see e.g.&nbsp;work from McDonald et al.&nbsp;(including this paper, <span class="citation" data-cites="mcdonald2019privacy">(<a href="references.html#ref-mcdonald2019privacy" role="doc-biblioref">McDonald et al. 2019</a>)</span>, and <a href="https://mako.cc/copyrighteous/new-research-on-how-anonymity-is-perceived-in-open-collaboration">blog post</a>).</p>
+<li><p>Balancing reputation and pseudonymity: To the extent possible, we believe it is valuable to offer people the ability to contribute data with some kind “real account” attached, so people can earn credit and reputation <strong>if they want to</strong>. But this must be balanced with the benefits of also enabling pseudonymity or even anonymity contribution (see e.g. <span class="citation" data-cites="mcdonald2019privacy">(<a href="references.html#ref-mcdonald2019privacy" role="doc-biblioref">McDonald et al. 2019</a>)</span> and corresponding <a href="https://mako.cc/copyrighteous/new-research-on-how-anonymity-is-perceived-in-open-collaboration">blog post</a>, <span class="citation" data-cites="hwang2025trust">(<a href="references.html#ref-hwang2025trust" role="doc-biblioref">Hwang, Nanayakkara, and Shvartzshnaider 2025</a>)</span>).</p>
 <ul>
-<li>In our MVP (discussed in the next chapter), an account with our OpenWebUI instance is required to make contributions, but users can choose to use a pseudonym (not unique; can for instance be “anonymous”). A hashed user id will be stored for internal purposes, but any public data releases will only use the pseudonym.</li>
+<li>In our MVP (discussed in Section 2), an account with an OpenWebUI instance is required to make contributions, but users can choose to use a pseudonym (not unique; can for instance be “anonymous”). A hashed user id will be stored for internal purposes, but any public data releases will only use the pseudonym.</li>
 </ul></li>
 <li><p>Purpose Limitation &amp; Licensing: Users should be able to specify their preferences for how their data is used (e.g., for public display? for evaluation? for future model training?). This can be captured using (new) <a href="https://datatracker.ietf.org/wg/aipref/about/">IETF AI Use Preferences</a> and <a href="https://github.com/creativecommons/cc-signals">Creative Commons Preference Signals</a>, or other approaches that emerge. We will discuss below how this might extend to other preference signal proposals and/or technical approaches to gating data.</p>
 <ul>
@@ -334,8 +328,17 @@ div.csl-indent {
 <div id="ref-ardila2019common" class="csl-entry" role="listitem">
 Ardila, Rosana, Megan Branson, Kelly Davis, Michael Henretty, Michael Kohler, Josh Meyer, Reuben Morais, Lindsay Saunders, Francis M Tyers, and Gregor Weber. 2019. <span>“Common Voice: A Massively-Multilingual Speech Corpus.”</span> <em>arXiv Preprint arXiv:1912.06670</em>.
 </div>
+<div id="ref-hwang2025trust" class="csl-entry" role="listitem">
+Hwang, Sohyeon, Priyanka Nanayakkara, and Yan Shvartzshnaider. 2025. <span>“Trust and Friction: Negotiating How Information Flows Through Decentralized Social Media.”</span> <em>arXiv Preprint arXiv:2503.02150</em>.
+</div>
 <div id="ref-jackson_public_2024" class="csl-entry" role="listitem">
 Jackson, Brandon, B Cavello, Flynn Devine, Nick Garcia, Samuel J. Klein, Alex Krasodomski, Joshua Tan, and Eleanor Tursman. 2024. <span>“Public <span>AI</span>: <span>Infrastructure</span> for the <span>Common</span> <span>Good</span>.”</span> Public AI Network. <a href="https://doi.org/10.5281/zenodo.13914560">https://doi.org/10.5281/zenodo.13914560</a>.
+</div>
+<div id="ref-liu_data_2024" class="csl-entry" role="listitem">
+Liu, Jason. 2024. <span>“Data <span>Flywheel</span> <span>Go</span> <span>Brrr</span>: <span>Using</span> <span>Your</span> <span>Users</span> to <span>Build</span> <span>Better</span> <span>Products</span> - <span>Jason</span> <span>Liu</span>.”</span> <a href="https://jxnl.co/writing/2024/03/28/data-flywheel/">https://jxnl.co/writing/2024/03/28/data-flywheel/</a>.
+</div>
+<div id="ref-marda2024public" class="csl-entry" role="listitem">
+Marda, Nik, Jasmine Sun, and Mark Surman. 2024. <span>“Public AI: Making AI Work for Everyone, by Everyone.”</span> Mozilla. https://assets. mofoprod. net/network/documents/Public_AI_Mozilla. pdf.
 </div>
 <div id="ref-mcdonald2019privacy" class="csl-entry" role="listitem">
 McDonald, Nora, Benjamin Mako Hill, Rachel Greenstadt, and Andrea Forte. 2019. <span>“Privacy, Anonymity, and Perceived Risk in Open Collaboration: A Study of Service Providers.”</span> In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em>, 1–12.
@@ -343,13 +346,28 @@ McDonald, Nora, Benjamin Mako Hill, Rachel Greenstadt, and Andrea Forte. 2019. <
 <div id="ref-rakova2023terms" class="csl-entry" role="listitem">
 Rakova, Bogdana, Renee Shelby, and Megan Ma. 2023. <span>“Terms-We-Serve-with: Five Dimensions for Anticipating and Repairing Algorithmic Harm.”</span> <em>Big Data &amp; Society</em> 10 (2): 20539517231211553.
 </div>
+<div id="ref-roche_what_2024" class="csl-entry" role="listitem">
+Roche, Adam, and Yali Sassoon. 2024. <span>“What Is a <span>Data</span> <span>Flywheel</span>? <span>A</span> <span>Guide</span> to <span>Sustainable</span> <span>Business</span> <span>Growth</span>.”</span> <em>Snowplow Blog</em>. <a href="https://snowplow.io/blog/what-is-a-data-flywheel">https://snowplow.io/blog/what-is-a-data-flywheel</a>.
+</div>
+<div id="ref-shankar_data_2024" class="csl-entry" role="listitem">
+Shankar, Shreya. 2024. <span>“Data <span>Flywheels</span> for <span>LLM</span> <span>Applications</span>.”</span> <em>Shreya Shankar’s Blog</em>. <a href="https://www.sh-reya.com/blog/ai-engineering-flywheel/">https://www.sh-reya.com/blog/ai-engineering-flywheel/</a>.
+</div>
+<div id="ref-tan2025if" class="csl-entry" role="listitem">
+Tan, Joshua, Nicholas Vincent, Katherine Elkins, and Magnus Sahlgren. 2025. <span>“If Open Source Is to Win, It Must Go Public.”</span> <em>arXiv Preprint arXiv:2507.09296</em>.
+</div>
+<div id="ref-vincent2023alternative" class="csl-entry" role="listitem">
+Vincent, Nicholas, David Bau, Sarah Schwettmann, and Joshua Tan. 2023. <span>“An Alternative to Regulation: The Case for Public AI.”</span> <em>arXiv Preprint arXiv:2311.11350</em>.
+</div>
+<div id="ref-vincentcanada" class="csl-entry" role="listitem">
+Vincent, Nicholas, Mark Surman, and Jake Hirsch-Allen. 2025. <span>“Canada as a Champion for Public AI: Data, Compute and Open Source Infrastructure for Economic Growth and Inclusive Innovation.”</span>
+</div>
 </div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Others have also written on data flywheels (see e.g.&nbsp;a number of helpful blogs from <a href="https://jxnl.co/writing/2024/03/28/data-flywheel/">Liu</a>, <a href="https://snowplow.io/blog/what-is-a-data-flywheel">Roche and Sasson</a>, and <a href="https://www.tecton.ai/blog/managing-the-flywheel-of-machine-learning-data/">Del Balso</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>See e.g.&nbsp;Terms we serve with. <span class="citation" data-cites="rakova2023terms">(<a href="references.html#ref-rakova2023terms" role="doc-biblioref">Rakova, Shelby, and Ma 2023</a>)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>For more examples of blogs on data flywheels, see: <span class="citation" data-cites="liu_data_2024">(<a href="references.html#ref-liu_data_2024" role="doc-biblioref">Liu 2024</a>)</span>, <span class="citation" data-cites="shankar_data_2024">(<a href="references.html#ref-shankar_data_2024" role="doc-biblioref">Shankar 2024</a>)</span>, <span class="citation" data-cites="roche_what_2024">(<a href="references.html#ref-roche_what_2024" role="doc-biblioref">Roche and Sassoon 2024</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>See e.g.&nbsp;Terms we serve with <span class="citation" data-cites="rakova2023terms">(<a href="references.html#ref-rakova2023terms" role="doc-biblioref">Rakova, Shelby, and Ma 2023</a>)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -180,12 +200,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The OpenWebUI Action MVP</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2b_data_policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Flow and Data Retention</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -206,19 +220,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1_llm_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Appendix 1: LLM Data Schemas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix2_prefsig.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix 2 — Preference Signals for AI Data Use (CC signals + IETF AI Preferences)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix3_example_legalterms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix 3: LLM Policy Docs</span></span></a>
   </div>
 </li>
       </ul>
@@ -331,19 +345,47 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Public AI flywheels turn that loop into a participatory control system: contributors see consequences, express preferences, and are (hopefully) rewarded for adding high-signal records.</p>
 <hr>
-<p>#todo re-add cites from the original post!</p>
-<p>https://www.annualreviews.org/content/journals/10.1146/annurev.soc.24.1.183</p>
-<p>https://en.wikipedia.org/wiki/Cybernetics</p>
-<p>https://www.vox.com/future-perfect/23787024/power-progress-book-ai-history-future-economy-daron-acemoglu-simon-johnson</p>
-<p>https://probml.github.io/pml-book/book1.html</p>
-<p>https://journals.openedition.org/cybergeo/1035?lang=en</p>
-<p>https://dl.acm.org/doi/abs/10.1145/3531146.3533158</p>
-<p>https://eckhartarnold.de/papers/2014_Social_Simulations/Whats_wrong_with_social_simulations.html</p>
-<p>https://www.anthropic.com/news/influence-functions</p>
-<p>https://users.ssc.wisc.edu/~oliver/PROTESTS/ArticleCopies/OliverMarwellCritMassI.pdf</p>
-<p>https://raulcastrofernandez.com/papers/data_station_paper-11.pdf</p>
+<p>Some useful additional reading that supports these ideas:</p>
+<ul>
+<li>On social dilemmas <span class="citation" data-cites="kollock_social_1998">(<a href="references.html#ref-kollock_social_1998" role="doc-biblioref">Kollock 1998</a>)</span> and collective action theory <span class="citation" data-cites="marwell_critical_1993">(<a href="references.html#ref-marwell_critical_1993" role="doc-biblioref">Marwell and Oliver 1993</a>)</span></li>
+<li>On cybernetics <span class="citation" data-cites="noauthor_cybernetics_2025">(<a href="references.html#ref-noauthor_cybernetics_2025" role="doc-biblioref"><span>“Cybernetics”</span> 2025</a>)</span></li>
+<li>on power and progress <span class="citation" data-cites="Acemoglu2025PowerAP">(<a href="references.html#ref-Acemoglu2025PowerAP" role="doc-biblioref">Acemoglu and Johnson 2025</a>)</span></li>
+<li>Technical reference on probalistic machine learning: <span class="citation" data-cites="pml1Book">(<a href="references.html#ref-pml1Book" role="doc-biblioref">Murphy 2022</a>)</span></li>
+<li>On influence functions for modern AI systems: https://www.anthropic.com/news/influence-functions</li>
+<li>Reasons to be critical and skeptical: Modeling Complexity <span class="citation" data-cites="Batty2001ModelingC">(<a href="references.html#ref-Batty2001ModelingC" role="doc-biblioref">Batty and Torrens 2001</a>)</span>, Fallacy of AI functionality <span class="citation" data-cites="Raji2022TheFO">(<a href="references.html#ref-Raji2022TheFO" role="doc-biblioref">Raji et al. 2022</a>)</span>, issues with social simulations <span class="citation" data-cites="Arnold2014WhatsWW">(<a href="references.html#ref-Arnold2014WhatsWW" role="doc-biblioref">Arnold 2014</a>)</span></li>
+<li>Viability of technical infrastructures for good data flow: <span class="citation" data-cites="CastroFernandez2023DataSharingMM">(<a href="references.html#ref-CastroFernandez2023DataSharingMM" role="doc-biblioref">Fernandez 2023</a>)</span></li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Acemoglu2025PowerAP" class="csl-entry" role="listitem">
+Acemoglu, Daron, and Simon Johnson. 2025. <span>“Power and Progress: Our Thousand-Year Struggle over Technology and Prosperity.”</span> <em>Perspectives on Science and Christian Faith</em>. <a href="https://api.semanticscholar.org/CorpusID:265119352">https://api.semanticscholar.org/CorpusID:265119352</a>.
+</div>
+<div id="ref-Arnold2014WhatsWW" class="csl-entry" role="listitem">
+Arnold, Eckhart. 2014. <span>“What’s Wrong with Social Simulations?”</span> <em>The Monist</em> 97: 359–77. <a href="https://api.semanticscholar.org/CorpusID:67844223">https://api.semanticscholar.org/CorpusID:67844223</a>.
+</div>
+<div id="ref-Batty2001ModelingC" class="csl-entry" role="listitem">
+Batty, Michael, and Paul M. Torrens. 2001. <span>“Modeling Complexity : The Limits to Prediction.”</span> <em>Cybergeo: European Journal of Geography</em>. <a href="https://api.semanticscholar.org/CorpusID:102344300">https://api.semanticscholar.org/CorpusID:102344300</a>.
+</div>
+<div id="ref-noauthor_cybernetics_2025" class="csl-entry" role="listitem">
+<span>“Cybernetics.”</span> 2025. <em>Wikipedia</em>. <a href="https://en.wikipedia.org/w/index.php?title=Cybernetics&amp;oldid=1300921342">https://en.wikipedia.org/w/index.php?title=Cybernetics&amp;oldid=1300921342</a>.
+</div>
+<div id="ref-CastroFernandez2023DataSharingMM" class="csl-entry" role="listitem">
+Fernandez, Raul Castro. 2023. <span>“Data-Sharing Markets: Model, Protocol, and Algorithms to Incentivize the Formation of Data-Sharing Consortia.”</span> <em>Proceedings of the ACM on Management of Data</em> 1: 1–25. <a href="https://api.semanticscholar.org/CorpusID:259213174">https://api.semanticscholar.org/CorpusID:259213174</a>.
+</div>
+<div id="ref-kollock_social_1998" class="csl-entry" role="listitem">
+Kollock, Peter. 1998. <span>“Social <span>Dilemmas</span>: <span>The</span> <span>Anatomy</span> of <span>Cooperation</span>.”</span> <em>Annual Review of Sociology</em> 24 (1): 183–214. <a href="https://doi.org/10.1146/annurev.soc.24.1.183">https://doi.org/10.1146/annurev.soc.24.1.183</a>.
+</div>
+<div id="ref-marwell_critical_1993" class="csl-entry" role="listitem">
+Marwell, Gerald, and Pamela Oliver. 1993. <em>The Critical Mass in Collective Action</em>. Cambridge University Press.
+</div>
+<div id="ref-pml1Book" class="csl-entry" role="listitem">
+Murphy, Kevin P. 2022. <em>Probabilistic Machine Learning: An Introduction</em>. MIT Press. <a href="http://probml.github.io/book1">http://probml.github.io/book1</a>.
+</div>
+<div id="ref-Raji2022TheFO" class="csl-entry" role="listitem">
+Raji, Inioluwa Deborah, Indra Elizabeth Kumar, Aaron Horowitz, and Andrew D. Selbst. 2022. <span>“The Fallacy of AI Functionality.”</span> <em>Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency</em>. <a href="https://api.semanticscholar.org/CorpusID:249872658">https://api.semanticscholar.org/CorpusID:249872658</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
